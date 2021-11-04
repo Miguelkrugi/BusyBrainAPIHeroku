@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,12 @@ public class UtilizadorController {
         logger.info("A Exibir os utilizadores");
         return utilizadorRepository.findAll();
     }
+
+    @GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Utilizador getUtilizador(@PathVariable(value =  "username") String username) {
+         logger.info("Sending student with username " + username);
+         return (Utilizador) utilizadorRepository.findByUsername(username);
+        
+     }
 
 }
