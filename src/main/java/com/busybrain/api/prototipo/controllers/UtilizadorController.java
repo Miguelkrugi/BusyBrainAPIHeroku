@@ -52,7 +52,8 @@ public class UtilizadorController {
 
          Optional<Utilizador> _utilizador = utilizadorRepository.findByUsername(username);
          if(!_utilizador.isPresent()) throw
-           new NotFoundException("" + username, "Utilizador", "username")
+           new NotFoundException("" + username, "Utilizador", "username");
+           else return _utilizador.get();
 
     } 
 
