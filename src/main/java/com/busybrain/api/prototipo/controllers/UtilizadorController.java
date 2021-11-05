@@ -45,6 +45,17 @@ public class UtilizadorController {
  
      }
 
+    @GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Utilizador getUtilizadorUsername(@PathVariable("username") String username){
+
+         logger.info("Sending user with username: " + username);
+
+         Optional<Utilizador> _utilizador = utilizadorRepository.findByUsername(username);
+         if(!_utilizador.isPresent()) throw
+           new NotFoundException("" + username, "Utilizador", "username")
+
+    } 
+
 
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador saveUtilizador(@RequestBody Utilizador utilizador){
