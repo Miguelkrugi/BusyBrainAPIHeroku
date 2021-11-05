@@ -1,9 +1,13 @@
 package com.busybrain.api.prototipo.controllers;
 
+import java.util.Optional;
+import java.util.OptionalInt;
+
 import com.busybrain.api.prototipo.models.Utilizador;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException;
 import com.busybrain.api.prototipo.models.repositories.UtilizadorRepository;
 
+import org.apache.catalina.startup.ListenerCreateRule.OptionalListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +32,17 @@ public class UtilizadorController {
         return utilizadorRepository.findAll();
     }
 
-    @GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Utilizador getUtilizador(@PathVariable("username") String username) throws NotFoundException {
-        logger.info("Sending user with username " + username);
-        Utilizador utilizador = (Utilizador) utilizadorRepository.findByUsername(username);
-        if (utilizador != null)
-            return utilizador;
-        else
-            throw new NotFoundException("" + username, "Utilizador", "username");
-    }
+    @GetMapping(path = "/getutilizador/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Utilizador getUtilizador(@PathVariable("username") String username){
+ 
+        logger.info("Sending user...");
+ 
+        Optional<Utilizador> _utilizador = utilizadorRepository.findByUsername(username);
+        if(_utilizador.isEmpty()) throw 
+           new NotFoundException("" + username, "Utilizador", "username");
+        else return _utilizador.get();   
+ 
+     }
 
 
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
