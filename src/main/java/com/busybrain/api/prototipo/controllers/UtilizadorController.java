@@ -45,7 +45,7 @@ public class UtilizadorController {
  
      }
 
-    @GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/userbyusername/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador getUtilizadorUsername(@PathVariable(value = "username") String username){
 
          logger.info("Sending user with username: " + username);
