@@ -39,13 +39,13 @@ public class UtilizadorController {
         logger.info("Sending user...");
  
         Optional<Utilizador> _utilizador = utilizadorRepository.findById(id);
-        if(_utilizador.isEmpty()) throw 
+        if(_utilizador.isPresent()) throw 
            new NotFoundException2("" + id, "Utilizador", "ID");
         else return _utilizador.get();   
  
      }
 
-     
+
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador saveUtilizador(@RequestBody Utilizador utilizador){
 
