@@ -20,16 +20,11 @@ public class UtilizadorController {
     @Autowired
     private UtilizadorRepository utilizadorRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Utilizador> getUnits() {
+    public Iterable<Utilizador> getUsers() {
         logger.info("A Exibir os utilizadores");
         return utilizadorRepository.findAll();
     }
 
-    @GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Utilizador getUtilizador(@PathVariable(value =  "username") String username) {
-         logger.info("Sending student with username " + username);
-         return (Utilizador) utilizadorRepository.findByUsername(username);
-        
-     }
+    
 
 }
