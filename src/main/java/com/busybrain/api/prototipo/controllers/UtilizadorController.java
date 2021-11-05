@@ -5,6 +5,7 @@ import java.util.OptionalInt;
 
 import com.busybrain.api.prototipo.models.Utilizador;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException;
+import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.UtilizadorRepository;
 
 import org.apache.catalina.startup.ListenerCreateRule.OptionalListener;
@@ -32,17 +33,19 @@ public class UtilizadorController {
         return utilizadorRepository.findAll();
     }
 
-    @GetMapping(path = "/getutilizador/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Utilizador getUtilizador(@PathVariable("username") String username){
+    @GetMapping(path = "/getutilizador/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Utilizador getUtilizador(@PathVariable("id") int id){
  
         logger.info("Sending user...");
  
-        Optional<Utilizador> _utilizador = utilizadorRepository.findByUsername(username);
+        Optional<Utilizador> _utilizador = utilizadorRepository.findById(id);
         if(_utilizador.isEmpty()) throw 
-           new NotFoundException("" + username, "Utilizador", "username");
+           new NotFoundException2("" + id, "Utilizador", "ID");
         else return _utilizador.get();   
  
      }
+
+
 
 
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
