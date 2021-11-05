@@ -28,7 +28,7 @@ public class UtilizadorController {
         return utilizadorRepository.findAll();
     }
 
-    @GetMapping(path = "{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador getUtilizador(@PathVariable("username") String username) throws NotFoundException {
         logger.info("Sending user with username " + username);
         Utilizador utilizador = (Utilizador) utilizadorRepository.findByUsername(username));
