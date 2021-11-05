@@ -50,10 +50,10 @@ public class UtilizadorController {
 
          logger.info("Sending user with username: " + username);
 
-         Optional<Utilizador> _utilizador = utilizadorRepository.findByUsername(username);
-         if(!_utilizador.isPresent()) throw
+         Optional<Utilizador> _utilizadorr = utilizadorRepository.findByUsername(username);
+         if(!_utilizadorr.isPresent()) throw
            new NotFoundException("" + username, "Utilizador", "username");
-           else return _utilizador.get();
+           else return _utilizadorr.get();
 
     } 
 
