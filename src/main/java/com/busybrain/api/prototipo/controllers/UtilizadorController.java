@@ -45,9 +45,7 @@ public class UtilizadorController {
  
      }
 
-
-
-
+     
     @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador saveUtilizador(@RequestBody Utilizador utilizador){
 
