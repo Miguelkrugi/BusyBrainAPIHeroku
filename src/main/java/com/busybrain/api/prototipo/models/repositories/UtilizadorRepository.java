@@ -12,7 +12,10 @@ public interface UtilizadorRepository extends CrudRepository<Utilizador, Integer
 
     Optional<Utilizador> findByUsername(String username);
     
-    @Query
-    Iterable<Tarefa> findTaskbyUser(int id);
+    //@Query
+    //Iterable<Tarefa> findTaskbyUser(int id);
+
+    //@Query("select ")
+
 
 }
