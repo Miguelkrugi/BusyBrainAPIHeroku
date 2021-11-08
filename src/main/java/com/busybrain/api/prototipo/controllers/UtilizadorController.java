@@ -57,6 +57,14 @@ public class UtilizadorController {
 
     } 
 
+    @GetMapping(path = "/getpassword", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Utilizador> getUtilizadorPasswordLike(){
+
+        logger.info("Sending user with password like 'j'");
+        return utilizadorRepository.findByPasswordLikeJ();
+
+    }
+
 
     @PostMapping(path = "/createuser", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador saveUtilizador(@RequestBody Utilizador utilizador){
@@ -66,5 +74,7 @@ public class UtilizadorController {
         return savedUtilizador;
 
     }
+
+    
 
 }
