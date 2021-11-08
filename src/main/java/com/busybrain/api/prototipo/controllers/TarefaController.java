@@ -24,4 +24,6 @@ public class TarefaController {
         return tarefaRepository.findAll();
     }
 
+    
+
 }
