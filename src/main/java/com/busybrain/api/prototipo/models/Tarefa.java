@@ -20,9 +20,18 @@ public class Tarefa {
     @Column(name = "task_title") private String title;
     @Column(name ="task_desc") private String description;
     @Column(name = "task_duedate") private Date duedate;
+    @Column(name = "task_type") private String type;
 
     public Tarefa(){
 
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getId() {
