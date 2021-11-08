@@ -24,9 +24,8 @@ public class Tarefa {
     @Column(name = "task_duedate") private Date duedate;
     @Column(name = "task_type") private String type;
 
-    @ManyToOne @JoinColumn(name = "user_id")
-    private Utilizador utilizador;
-
+   // @ManyToOne @JoinColumn(name = "user_id")
+    //private Utilizador utilizador;
 
     public Tarefa(){
 
@@ -72,13 +71,7 @@ public class Tarefa {
         this.duedate = duedate;
     }
 
-    public Utilizador getUtilizador() {
-        return utilizador;
-    }
-
-    public void setUtilizador(Utilizador utilizador) {
-        this.utilizador = utilizador;
-    }
+    
 
      
 

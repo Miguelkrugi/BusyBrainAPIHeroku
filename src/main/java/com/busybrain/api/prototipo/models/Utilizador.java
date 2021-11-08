@@ -24,8 +24,8 @@ public class Utilizador {
     @Column(name = "user_email") private String email;
      
 
-    @OneToMany(mappedBy = "tarefa")
-    private List<Tarefa> tarefas;
+   // @OneToMany(mappedBy = "tarefa")
+    //private List<Tarefa> tarefas;
 
     public Utilizador(){
 
