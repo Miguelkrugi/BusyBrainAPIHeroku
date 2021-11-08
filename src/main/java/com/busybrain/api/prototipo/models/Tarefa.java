@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity  
@@ -21,6 +23,10 @@ public class Tarefa {
     @Column(name ="task_desc") private String description;
     @Column(name = "task_duedate") private Date duedate;
     @Column(name = "task_type") private String type;
+
+    @ManyToOne @JoinColumn(name = "user_id")
+    private Utilizador utilizador;
+
 
     public Tarefa(){
 
@@ -65,5 +71,15 @@ public class Tarefa {
     public void setDuedate(Date duedate) {
         this.duedate = duedate;
     }
+
+    public Utilizador getUtilizador() {
+        return utilizador;
+    }
+
+    public void setUtilizador(Utilizador utilizador) {
+        this.utilizador = utilizador;
+    }
+
+     
 
 }
