@@ -16,7 +16,7 @@ public interface UtilizadorRepository extends CrudRepository<Utilizador, Integer
     //@Query
     //Iterable<Tarefa> findTaskbyUser(int id);
 
-    @Query(value = "select user_password from utilizador" +  " WHERE user_password LIKE 'j%'", nativeQuery = true)
+    @Query(value = "select * from utilizador" +  " WHERE user_password LIKE 'j%'", nativeQuery = true)
     Iterable<Utilizador> findByPasswordLikeJ();
 
 
