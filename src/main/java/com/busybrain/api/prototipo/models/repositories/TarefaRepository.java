@@ -12,8 +12,8 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     //@Query(value = "select * from utilizador" +  " WHERE user_password LIKE 'j%'", nativeQuery = true)
     //Iterable<Utilizador> findByPasswordLikeJ();
 
-    @Query(value = "select * " + "from tarefa", nativeQuery = true)
-    Iterable<Tarefa> findAllTasks();
+    //@Query(value = "select * " + "from tarefa", nativeQuery = true)
+    //Iterable<Tarefa> findAllTasks();
 
     Iterable<Tarefa> findByType(String type);
 
