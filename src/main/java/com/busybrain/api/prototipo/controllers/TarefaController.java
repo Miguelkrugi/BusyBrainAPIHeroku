@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/busybrain/tasks")
+@RequestMapping(path = "/api/tasks")
 public class TarefaController {
     
     private Logger logger = LoggerFactory.getLogger(TarefaController.class); 
