@@ -1,7 +1,5 @@
 package com.busybrain.api.prototipo.models;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +18,7 @@ public class Tarefa {
 
     @Column(name = "task_id") private int id;
     @Column(name = "task_title") private String title;
-    @Column(name ="task_desc") private String description;
+    @Column(name = "task_desc") private String description;
     @Column(name = "task_type") private String type;
 
    // @ManyToOne @JoinColumn(name = "user_id")
