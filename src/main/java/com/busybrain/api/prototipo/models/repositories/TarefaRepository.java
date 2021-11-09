@@ -14,4 +14,6 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
 
     Iterable<Tarefa> findByType(String type);
 
+    Iterable<Tarefa> findByTitleContaining(String title);
+
 }

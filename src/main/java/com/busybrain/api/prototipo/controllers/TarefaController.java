@@ -9,7 +9,6 @@ import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
 
 import org.apache.coyote.Response;
-import org.hibernate.annotations.common.util.impl.Log_.logger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +64,14 @@ public class TarefaController {
         return tarefaRepository.findByType(type);
 
     }
+
+    @GetMapping(path = "/searchtitle/{task_title}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Tarefa> getTaskByTitleContaining(@PathVariable(value = "task_title") String title){
+    
+         logger.info("Sending tasks with title containing: " + title);
+         return tarefaRepository.findByTitleContaining(title);
+    
+    } 
 
 
     @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
