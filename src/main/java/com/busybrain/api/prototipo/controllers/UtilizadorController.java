@@ -22,11 +22,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping(path = "/api/users")
-public class UtilizadorController {
+
+@RestController //Indica que estamos a usar um controller
+@RequestMapping(path = "/api/users") //URL "geral" do controller. Será a partir deste URL que poderemos aceder aos métodos deste controller
+public class UtilizadorController { //Inicio do controller
     
-    private Logger logger = LoggerFactory.getLogger(UtilizadorController.class); 
+    private Logger logger = LoggerFactory.getLogger(UtilizadorController.class); //Criação do logger. Será responsável 
     @Autowired
     private UtilizadorRepository utilizadorRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
