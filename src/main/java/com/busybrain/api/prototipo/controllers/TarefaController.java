@@ -1,6 +1,11 @@
 package com.busybrain.api.prototipo.controllers;
 
+import java.util.Optional;
+
+import javax.print.attribute.standard.Media;
+
 import com.busybrain.api.prototipo.models.Tarefa;
+import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
 
 import org.apache.coyote.Response;
@@ -39,7 +44,22 @@ public class TarefaController {
 
     }
 
-    @DeleteMapping(path = "{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/getinfo/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Tarefa getInfoTarefa(@PathVariable(value = "task_id") int id){
+
+         logger.info("Getting info from the task with id: " + id);
+
+         //Optional<Tarefa> _utilizador = utilizadorRepository.findById(id);
+
+         Optional<Tarefa> _tarefa = tarefaRepository.findById(id);
+         if(!_tarefa.isPresent()) throw 
+           new NotFoundException2("" + id, "Tarefa", "ID");
+        else return _tarefa.get(); 
+
+
+    }
+
+    @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteTarefa(@PathVariable("task_id") int id){
 
          logger.info("Deleting task with id: " + id);
