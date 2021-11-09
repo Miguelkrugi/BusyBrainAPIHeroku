@@ -21,7 +21,6 @@ public class Tarefa {
     @Column(name = "task_id") private int id;
     @Column(name = "task_title") private String title;
     @Column(name ="task_desc") private String description;
-    @Column(name = "task_duedate") private Date duedate;
     @Column(name = "task_type") private String type;
 
    // @ManyToOne @JoinColumn(name = "user_id")
@@ -62,17 +61,6 @@ public class Tarefa {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Date getDuedate() {
-        return duedate;
-    }
-
-    public void setDuedate(Date duedate) {
-        this.duedate = duedate;
-    }
-
-    
-
      
 
 }
