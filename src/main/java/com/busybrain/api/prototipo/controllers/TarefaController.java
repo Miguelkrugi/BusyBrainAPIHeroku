@@ -56,8 +56,16 @@ public class TarefaController {
            new NotFoundException2("" + id, "Tarefa", "ID");
         else return _tarefa.get(); 
 
+    }
+
+    @GetMapping(path = "/filtertype/{task_type}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Tarefa> getTasksByType(@PathVariable(value = "task_type") String type){
+
+        logger.info("Sending tasks with type: " + type);
+        return tarefaRepository.findByType(type);
 
     }
+
 
     @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteTarefa(@PathVariable("task_id") int id){
