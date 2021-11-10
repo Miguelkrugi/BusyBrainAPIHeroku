@@ -40,25 +40,25 @@ public class UtilizadorController { //Inicio do controller
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Utilizador getUtilizador(@PathVariable("id") int id){
+     public String getUtilizador(@PathVariable("id") int id){
  
         logger.info("Sending user with id: " + id);
  
         Optional<Utilizador> _utilizador = utilizadorRepository.findById(id);
         if(!_utilizador.isPresent()) throw 
            new NotFoundException2("" + id, "Utilizador", "ID");
-        else return _utilizador.get();   
+        else return _utilizador.get().getUsername();   
  
      }
 
      //CHANGED
-    @GetMapping(path = "/getusernames/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@GetMapping(path = "/getusernames/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getUsernameById(@PathVariable("id") int id, @RequestParam("username") String username){
 
        return "Username " + username;
 
 
-    }
+    }*/
 
     @GetMapping(path = "/userbyusername/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador getUtilizadorUsername(@PathVariable(value = "username") String username){
