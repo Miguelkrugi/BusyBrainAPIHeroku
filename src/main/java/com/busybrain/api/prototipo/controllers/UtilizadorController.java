@@ -3,6 +3,8 @@ package com.busybrain.api.prototipo.controllers;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+import javax.print.attribute.standard.Media;
+
 import com.busybrain.api.prototipo.models.Utilizador;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -47,6 +50,15 @@ public class UtilizadorController { //Inicio do controller
         else return _utilizador.get();   
  
      }
+
+     //CHANGED
+    @GetMapping(path = "/getusernames/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getUsernameById(@PathVariable("id") int id, @RequestParam("username") String username){
+
+       return "Username " + username;
+
+
+    }
 
     @GetMapping(path = "/userbyusername/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador getUtilizadorUsername(@PathVariable(value = "username") String username){
