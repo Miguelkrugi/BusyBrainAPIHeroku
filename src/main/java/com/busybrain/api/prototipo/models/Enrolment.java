@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -17,11 +18,11 @@ public class Enrolment{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @ManyToOne
-    @Column(name = "utilizador_id") private int utilizadorid;
+    @JoinColumn(name = "utilizador_id") private int utilizadorid;
 
     @ManyToOne
-    @Column(name = "tarefa_id") private int tarefaid;
-    
+    @JoinColumn(name = "tarefa_id") private int tarefaid;
+
     @Column(name = "user_tarefa_id") private int usertarefaid;
 
     public Enrolment(){
