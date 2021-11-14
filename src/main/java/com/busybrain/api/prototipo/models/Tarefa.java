@@ -21,8 +21,8 @@ public class Tarefa {
     @Column(name = "task_title") private String title;
     @Column(name = "task_desc") private String description;
     @Column(name = "due_date") private Date date;
-    @Column(name = "task_priority_id") private int priorityid;
-    @Column(name = "task_type_id") private int typeid;
+    @Column(name = "task_priority") private int priority;
+    @Column(name = "task_type") private int type;
     private ArrayList<Enrolment> enrolments;
 
     //@OneToMany
@@ -64,20 +64,20 @@ public class Tarefa {
         this.date = date;
     }
 
-    public int getPriorityid() {
-        return priorityid;
+    public int getPriority() {
+        return priority;
     }
 
-    public void setPriorityid(int priorityid) {
-        this.priorityid = priorityid;
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
-    public int getTypeid() {
-        return typeid;
+    public int getType() {
+        return type;
     }
 
-    public void setTypeid(int typeid) {
-        this.typeid = typeid;
+    public void setType(int type) {
+        this.type = type;
     }
 
     /*public ArrayList<Enrolment> getEnrolments() {
