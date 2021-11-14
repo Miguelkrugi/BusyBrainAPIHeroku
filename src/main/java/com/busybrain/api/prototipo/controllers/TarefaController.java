@@ -54,7 +54,7 @@ public class TarefaController {
 
     }
 
-    @GetMapping(path = "/filtertype/{task_type_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/filtertype/{user_id}/{task_type_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Tarefa> getTasksByType(@PathVariable(value = "task_type_id") int typeid){
 
         logger.info("Sending tasks with type with id: " + typeid);
@@ -69,6 +69,16 @@ public class TarefaController {
          return tarefaRepository.findByTitleContaining(title);
     
     } 
+
+    @GetMapping(path = "/tasksbyuser/{user_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Tarefa> getTasksByUser(@PathVariable(value = "user_id") int id){
+
+         logger.info("Sending tasks of the user with id: " + id);
+         return tarefaRepository
+
+
+    }
+
 
     @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteTarefa(@PathVariable("task_id") int id){

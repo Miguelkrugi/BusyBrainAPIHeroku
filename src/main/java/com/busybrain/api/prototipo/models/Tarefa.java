@@ -4,11 +4,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity 
 @Table(name = "tarefa")
 public class Tarefa {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     @Column(name = "task_id") private int id;
     @Column(name = "task_title") private String title;
