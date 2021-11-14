@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity  
+@Entity 
 @Table(name = "tarefa")
 public class Tarefa {
     
