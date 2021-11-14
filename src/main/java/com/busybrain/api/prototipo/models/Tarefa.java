@@ -19,8 +19,8 @@ public class Tarefa {
     @Column(name = "task_priority_id") private int priority_id;
     @Column(name = "task_type_id") private int type_id;
 
-    @OneToMany
-    private ArrayList<Enrolment> enrolments = new ArrayList<>();
+    //@OneToMany
+    //private ArrayList<Enrolment> enrolments = new ArrayList<>();
 
     public Tarefa(){
 
@@ -74,12 +74,12 @@ public class Tarefa {
         this.type_id = type_id;
     }
 
-    public ArrayList<Enrolment> getEnrolments() {
+    /*public ArrayList<Enrolment> getEnrolments() {
         return enrolments;
     }
 
     public void setEnrolments(ArrayList<Enrolment> enrolments) {
         this.enrolments = enrolments;
-    }
+    }*/
 
 }
