@@ -70,14 +70,14 @@ public class TarefaController {
     
     } 
 
-    @GetMapping(path = "/tasksbyuser/{user_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@GetMapping(path = "/tasksbyuser/{user_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Tarefa> getTasksByUser(@PathVariable(value = "user_id") int id){
 
          logger.info("Sending tasks of the user with id: " + id);
          return tarefaRepository
 
 
-    }
+    }*/
 
 
     @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
