@@ -17,8 +17,8 @@ public class TipoTarefa {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
     @OneToMany
-    @JoinColumn(name = "tasktype_id", referencedColumnName = "task_id")
-    @Column(name = "tasktype_id") private int tasktypeid;
+    @JoinColumn(name = "tasktype_id", referencedColumnName = "task_id") private int tasktypeid;
+    //@Column(name = "tasktype_id") private int tasktypeid;
     @Column(name = "tasktype_nome") private String tasktypenome;
 
     public TipoTarefa(){
