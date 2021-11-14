@@ -1,5 +1,6 @@
 package com.busybrain.api.prototipo.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -22,6 +23,8 @@ public class Utilizador {
     @Column(name = "user_name") private String username;
     @Column(name = "user_password") private String password;
     @Column(name = "user_email") private String email;
+
+    private ArrayList<Enrolment> enrolments;
      
 
    // @OneToMany(mappedBy = "tarefa")

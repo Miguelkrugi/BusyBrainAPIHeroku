@@ -1,5 +1,6 @@
 package com.busybrain.api.prototipo.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,6 +23,7 @@ public class Tarefa {
     @Column(name = "due_date") private Date date;
     @Column(name = "task_priority_id") private int priorityid;
     @Column(name = "task_type_id") private int typeid;
+    private ArrayList<Enrolment> enrolments;
 
     //@OneToMany
     //private ArrayList<Enrolment> enrolments = new ArrayList<>();
