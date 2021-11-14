@@ -56,19 +56,19 @@ public class Tarefa {
         this.date = date;
     }
 
-    public int getPriority_id() {
+    public int getPriorityid() {
         return priorityid;
     }
 
-    public void setPriority_id(int priorityid) {
+    public void setPriorityid(int priorityid) {
         this.priorityid = priorityid;
     }
 
-    public int getType_id() {
+    public int getTypeid() {
         return typeid;
     }
 
-    public void setType_id(int type_id) {
+    public void setTypeid(int typeid) {
         this.typeid = typeid;
     }
 
