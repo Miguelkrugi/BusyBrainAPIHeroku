@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,7 +17,7 @@ public class TipoTarefa {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "tasktype_id", referencedColumnName = "task_id") private int tasktypeid;
     //@Column(name = "tasktype_id") private int tasktypeid;
     @Column(name = "tasktype_nome") private String tasktypenome;
