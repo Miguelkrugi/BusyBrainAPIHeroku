@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity 
@@ -14,6 +16,8 @@ public class TipoTarefa {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
+    @OneToMany
+    @JoinColumn(name = "tasktype_id", referencedColumnName = "task_id")
     @Column(name = "tasktype_id") private int tasktypeid;
     @Column(name = "tasktype_nome") private String tasktypenome;
 
