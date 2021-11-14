@@ -1,11 +1,9 @@
 package com.busybrain.api.prototipo.models;
 
 import java.sql.Date;
-import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity 
