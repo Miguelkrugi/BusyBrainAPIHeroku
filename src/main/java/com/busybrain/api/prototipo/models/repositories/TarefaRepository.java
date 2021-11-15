@@ -6,10 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     
-    Iterable<Tarefa> findByTypeid(int typeid);
-
-
-
+    Iterable<Tarefa> findByTypeid(int type);
     Iterable<Tarefa> findByTitleContaining(String title);
 
 }
