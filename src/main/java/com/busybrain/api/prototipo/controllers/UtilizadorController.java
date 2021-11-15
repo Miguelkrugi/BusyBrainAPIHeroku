@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/api/users") //URL "geral" do controller. Será a partir deste URL que poderemos aceder aos métodos deste controller
 public class UtilizadorController { //Inicio do controller
     
+   //COMPLETO
     private Logger logger = LoggerFactory.getLogger(UtilizadorController.class); //Criação do logger. Será responsável por garantir que o método é executado, enviando uma mensagem para o log (não visivel, pois a aplicação está ligada a um repositorio no github, não precisando de ser executada, pois já se encontra online no Heroku)
     @Autowired 
     private UtilizadorRepository utilizadorRepository; //Criação de um repositorio. O repositorio vai permitir definir funcoes para usar nos métodos (ex. findById - encontrar um elemento/objeto através do ID | ex. findByUsername - encontrar um elemento/objeto através do username)
@@ -39,6 +40,7 @@ public class UtilizadorController { //Inicio do controller
         return utilizadorRepository.findAll(); //Vai retornar todos os utilizadores da app, utilizando a função findAll(). Esta função já está incluida no CRUDRepository (que foi "chamado" no ficheiro do UtilizadorRepository)
     }
 
+    //COMPLETO
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE) //Método GET. Será utilizado para pesquisar um utilizador pelo ID. O parâmetro de input é representado por entre {}.
      public Utilizador getUtilizador(@PathVariable("id") int id){ //Este método retornará somente 1 objeto (1 utilizador), pois cada user terá um ID diferente. Será então inserido o id no URL.
  
@@ -52,6 +54,7 @@ public class UtilizadorController { //Inicio do controller
  
      }
 
+     //COMPLETO
      //Método GET. Funciona de forma igual ao método anterior (getUtilizador), no entanto, em vez de retornar um objeto inteiro pelo ID....(continua na linha 64)
      @GetMapping(path = "/getUsernameById/{id}", produces = MediaType.APPLICATION_JSON_VALUE) 
      public String getUsernameById(@PathVariable("id") int id){
@@ -74,6 +77,7 @@ public class UtilizadorController { //Inicio do controller
 
     }*/
 
+    //COMPLETO
     //Método GET. Funciona de forma igual ao método da linha 42, no entanto, é inserido o username e não o ID.
     @GetMapping(path = "/userbyusername/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Utilizador getUtilizadorUsername(@PathVariable(value = "username") String username){
@@ -87,6 +91,7 @@ public class UtilizadorController { //Inicio do controller
 
     } 
 
+    //COMPLETO
     //Método GET (de teste). Método realizado para testar a base de dados em PgAdmin4. 
 
     @GetMapping(path = "/getpassword", produces = MediaType.APPLICATION_JSON_VALUE) //URL para aceder ao método ("/getpassword")
@@ -98,6 +103,7 @@ public class UtilizadorController { //Inicio do controller
     }
 
 
+    //COMPLETO
     //Método POST. Este método é utilizado para o registo de um utilizador na app, pois faz o "POST" (envia e guarda), a informação relativa a um utilizador (Username, email e password)
     @PostMapping(path = "/createuser", produces = MediaType.APPLICATION_JSON_VALUE) //URL para aceder ao método ("/createuser")
     public Utilizador saveUtilizador(@RequestBody Utilizador utilizador){ //Devolverá um utilizador (pois só dá pra registar uma conta de cada vez)
