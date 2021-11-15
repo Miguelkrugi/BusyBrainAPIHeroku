@@ -36,7 +36,7 @@ public class LocalController {
 
         logger.info("Sending Local with: "+ name + "included.");
 
-        return localRepository.findLocalByLocal_nameContaining(name);
+        return localRepository.findbyNomeContaining(name);
     }
     
 //MÉTODO DE SUPORTE PARA TESTE

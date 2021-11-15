@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface LocalRepository extends CrudRepository<Local, Integer>{
  
-    public Local findLocalByLocal_nameContaining(String nome);
+    public Local findbyNomeContaining(String nome);
 
 }
