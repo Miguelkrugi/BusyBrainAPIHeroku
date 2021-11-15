@@ -32,11 +32,11 @@ public class LocalController {
     }
 
     @GetMapping(path = "/{place_name}")
-    public Local localByFilter(@PathVariable("name") String name){
+    public Iterable<Local> localByName(@PathVariable("name") String name){
 
         logger.info("Sending Local with: "+ name + "included.");
 
-        return localRepository.findbyNameContaining(name);
+        return localRepository.findByNameContaining(name);
     }
     
 //MÉTODO DE SUPORTE PARA TESTE
