@@ -37,7 +37,7 @@ public class UtilizadorController { //Inicio do controller
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //Método GET. Utilizado para "obter"/get informação da base de dados.
     public Iterable<Utilizador> getUsers() { //Irá retornar 1 ou mais elementos do objeto Utilizador (utilizadores) que se tenham registado na base de dados da app
         logger.info("A Exibir os utilizadores"); //Informação exibida no log, utilizando o logger criado na linha 33
-        return utilizadorRepository.findAll(); //Vai retornar todos os utilizadores da app, utilizando a função findAll(). Esta função já está incluida no CRUDRepository (que foi "chamado" no ficheiro do UtilizadorRepository)
+        return utilizadorRepository.findAll();  //Vai retornar todos os utilizadores da app, utilizando a função findAll(). Esta função já está incluida no CRUDRepository (que foi "chamado" no ficheiro do UtilizadorRepository)
     }
 
     //COMPLETO
