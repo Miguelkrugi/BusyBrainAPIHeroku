@@ -1,4 +1,4 @@
-package com.busybrain.api.prototipo.models;
+/*package com.busybrain.api.prototipo.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

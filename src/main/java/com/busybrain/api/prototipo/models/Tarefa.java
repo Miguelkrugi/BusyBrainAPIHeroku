@@ -23,7 +23,7 @@ public class Tarefa {
     @Column(name = "due_date") private Date date;
     @Column(name = "task_priority") private int priority;
     @Column(name = "task_type") private int type;
-    private ArrayList<Enrolment> enrolments;
+    //private ArrayList<Enrolment> enrolments;
 
     //@OneToMany
     //private ArrayList<Enrolment> enrolments = new ArrayList<>();
