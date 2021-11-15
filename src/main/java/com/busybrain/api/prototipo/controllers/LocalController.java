@@ -31,7 +31,7 @@ public class LocalController {
         return localRepository.findAll();
     }
 
-    @GetMapping(path = "/{place_name}")
+    @GetMapping(path = "/searchbyname/{place_name}")
     public Iterable<Local> localByName(@PathVariable("name") String name){
 
         logger.info("Sending Local with: "+ name + "included.");
