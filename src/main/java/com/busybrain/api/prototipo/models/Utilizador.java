@@ -24,7 +24,7 @@ public class Utilizador {
     @Column(name = "user_password") private String password;
     @Column(name = "user_email") private String email;
 
-    private ArrayList<Enrolment> enrolments;
+    //private ArrayList<Enrolment> enrolments;
      
 
    // @OneToMany(mappedBy = "tarefa")
