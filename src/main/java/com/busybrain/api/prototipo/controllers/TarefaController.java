@@ -6,9 +6,11 @@ import com.busybrain.api.prototipo.models.Tarefa;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,13 +27,13 @@ public class TarefaController {
     private Logger logger = LoggerFactory.getLogger(TarefaController.class); 
     @Autowired
     private TarefaRepository tarefaRepository;
-    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Iterable<Tarefa> getTasks() {
         logger.info("A Exibir todas as tarefas criadas na app");
         return tarefaRepository.findAll();
     }
 
-    @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
 
        Tarefa savedTarefa = tarefaRepository.save(tarefa);
@@ -40,7 +42,16 @@ public class TarefaController {
 
     }
 
-    @GetMapping(path = "/getinfo/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/filterbypriority/high", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Tarefa> getTasksHigh(){
+
+        logger.info("Sending all tasks with 'High' priority");
+        return tarefaRepository.findTaskByPriority();
+
+
+    }
+
+    @GetMapping(path = "/getinfo/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Tarefa getInfoTarefa(@PathVariable(value = "task_id") int id){
 
          logger.info("Getting info from the task with id: " + id);
@@ -62,7 +73,7 @@ public class TarefaController {
 
     }*/
 
-    @GetMapping(path = "/searchtitle/{task_title}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/searchtitle/{task_title}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Iterable<Tarefa> getTaskByTitleContaining(@PathVariable(value = "task_title") String title){
     
          logger.info("Sending tasks with title containing: " + title);
@@ -80,7 +91,7 @@ public class TarefaController {
     }*/
 
 
-    @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public void deleteTarefa(@PathVariable("task_id") int id){
 
          logger.info("Deleting task with id: " + id);
