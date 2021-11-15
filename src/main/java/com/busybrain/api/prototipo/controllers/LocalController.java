@@ -32,7 +32,7 @@ public class LocalController {
     }
 
     @GetMapping(path = "/searchbyname/{place_name}")
-    public Iterable<Local> localByName(@PathVariable("name") String name){
+    public Iterable<Local> localByName(@PathVariable("place_name") String name){
 
         logger.info("Sending Local with: "+ name + "included.");
 
