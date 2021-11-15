@@ -39,6 +39,16 @@ public class LocalController {
         return localRepository.findByNameContaining(name);
     }
     
+    @GetMapping(path = "/searchbycategory/cafes")
+    public Iterable<Local> localByCategory(){
+
+        logger.info("Sending places with 'Coffee' category...");
+
+        return localRepository.findLocalByCategoria();
+
+
+    }
+
 //MÉTODO DE SUPORTE PARA TESTE
 
 @PostMapping(path = "/createplace", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
