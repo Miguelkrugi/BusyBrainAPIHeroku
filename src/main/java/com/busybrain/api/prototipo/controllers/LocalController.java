@@ -49,6 +49,15 @@ public class LocalController {
 
     }
 
+    @GetMapping(path = "/closestplaces")
+    public Iterable<Local> getclosestPlaces(){
+
+         logger.info("Sending closest places by distance: ");
+
+         return localRepository.findLocalByDistancia();
+
+    }
+
 //MÉTODO DE SUPORTE PARA TESTE
 
 @PostMapping(path = "/createplace", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO

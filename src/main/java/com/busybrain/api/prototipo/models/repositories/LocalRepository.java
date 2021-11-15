@@ -12,4 +12,7 @@ public interface LocalRepository extends CrudRepository<Local, Integer>{
     @Query(value = "SELECT * FROM place WHERE place_categoria = '2'", nativeQuery = true)
     Iterable<Local> findLocalByCategoria();
 
+    @Query(value = "SELECT * FROM place ORDER BY place_distancia ASC", nativeQuery = true)
+    Iterable<Local> findLocalByDistancia();
+
 }
