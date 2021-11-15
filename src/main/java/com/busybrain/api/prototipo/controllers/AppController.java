@@ -32,7 +32,7 @@ public class AppController {
         return appRepository.findAll();
     }
 
-    //METODO PARA TESTES
+    //METODO PARA TESTES - EM DESENVOLVIMENTO
 
     @PostMapping(path = "/createplace", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
      public App saveApp(@RequestBody App app){
