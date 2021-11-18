@@ -52,7 +52,7 @@ create table tarefa(
 
 create table utilizador_tarefa(
 
-  user_id_tarefa SERIAL,
+  user_id_tarefa SERIAL primary key,
   user_identifier int,
   CONSTRAINT fk_user_identifier FOREIGN KEY(user_identifier) REFERENCES utilizador(user_id),	
   task_identifier int,
@@ -62,7 +62,71 @@ create table utilizador_tarefa(
 
 ### Tabela "Local"
 
-create 
+create table place(
+
+  place_id SERIAL primary key,
+  place_name varchar(100) not null,
+  place_endereco varchar(300) not null,
+  place_distancia int, 
+  place_categoria_id int,
+  CONSTRAINT fk_placecategoriaid FOREIGN KEY(place_categoria_id) REFERENCES categorialocal(categoria_id)
+  place_latitude double,
+  place_longitude double
+
+);
+
+### Tabela "categorialocal"
+
+create table categorialocal(
+
+  categoria_id SERIAL primary key,
+  categoria_name varchar(15) not null
+
+);
+
+### Tabela "utilizador_local" -> MANTER OU NAO MANTER
+
+create table utilizador_local(
+
+  user_local_id SERIAL primary key,
+  utilizador_id int,
+  CONSTRAINT fk_utilizador_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id) 
+  local_id int,
+  CONSTRAINT fk_local_id FOREIGN KEY(local_id) REFERENCES place(place_id)
+);
+
+### Tabela "marcacao_presenca"
+
+create table marcacao_presenca(
+
+   presenca_id SERIAL primary key,
+   wasThere bit (boolean),
+   utilizador_id int,
+   CONSTRAINT fk_utilizador_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
+   local_id int,
+   CONSTRAINT fk_local_id FOREIGN KEY(local_id) REFERENCES place(place_id)
+
+);
+
+### Tabela "marcacao_favorito"
+
+create table marcacao_favorito(
+
+   favorite_id SERIAL primary key,
+   isFavorite bit (boolean),
+   utilizador_id int,
+   CONSTRAINT fk_utilizador_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
+   local_id int,
+   CONSTRAINT fk_local_id FOREIGN KEY(local_id) REFERENCES place(place_id)
+
+);
+
+
+CONSTRAINT fk_tarefa_id FOREIGN KEY(tarefa_id) REFERENCES tarefa(task_id)
+
+
+
+
 
 
 
