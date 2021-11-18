@@ -150,11 +150,11 @@ create table bloqueamento(
 
     utilizador_id int,
     CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
-    blocked_status boolean (bit)
-
+    blocked_status boolean (bit),
+    
 );
 
-### Tabela "app"
+### Tabela "bloqueamento_app"
 
 create table app(
 
@@ -186,7 +186,7 @@ create table utilizador_website(
   CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
 )
 
-### Tabela "website"
+### Tabela "bloqueamento_website"
 
 create table website(
 
@@ -210,33 +210,79 @@ values ('Buy groceries', 'Buy all the groceries to lunch', '2020-01-12', '4', '3
 
 ### Tabela "utilizador"
 
-insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
-values ('Math homework', 'Do the math homework', '2015-03-08', '3', '2', '1')
+insert into utilizador (user_name, user_password, user_email) 
+values ('johndoe', 'johndoeoriginal', 'jdoe@gmail.com')
 
-insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
-values ('Cook the dinner', 'Cook the dinner for Christmas Day', '2015-03-08', '3', '1', '3')
 
-insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
-values ('Buy groceries', 'Buy all the groceries to lunch', '2020-01-12', '4', '3', '2')
+insert into utilizador (user_name, user_password, user_email) 
+values ('marydoe', 'marydoeoriginal', 'mdoe@gmail.com')
 
-insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
-values ('Math homework', 'Do the math homework', '2015-03-08', '3', '2', '1')
 
-insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
-values ('Cook the dinner', 'Cook the dinner for Christmas Day', '2015-03-08', '3', '1', '3')
+insert into utilizador (user_name, user_password, user_email) 
+values ('laurendoe', 'laudoeoriginal', 'lauren12doe@gmail.com')
 
-insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
-values ('Buy groceries', 'Buy all the groceries to lunch', '2020-01-12', '4', '3', '2')
+
+insert into utilizador (user_name, user_password, user_email) 
+values ('joaofepas12', 'fepasjoaoxxx12', 'fepas@gmail.com')
+
+
+insert into utilizador (user_name, user_password, user_email) 
+values ('miguel12', 'miguel2002', 'miguel12@gmail.com')
+
+
+insert into utilizador (user_name, user_password, user_email) 
+values ('juliotrinta56', 'julio56password', 'julio56@gmail.com')
+
+
+insert into utilizador (user_name, user_password, user_email) 
+values ('hugoferreira22', 'huguinhopp', 'hugoferras22@gmail.com')
 
 ### Tabela "tipotarefa"
 
+insert into tipotarefa (tasktype_nome) 
+values ('Individual')
 
+insert into tipotarefa (tasktype_nome) 
+values ('Grupo')
 
 ### Tabela "prioridadetarefa"
 
+insert into prioridadetarefa (taskpriority_type) 
+values ('Low')
+
+insert into prioridadetarefa (taskpriority_type) 
+values ('Medium')
+
+insert into prioridadetarefa (taskpriority_type) 
+values ('High')
+
+insert into prioridadetarefa (taskpriority_type) 
+values ('Urgent')
+
+### Tabela "categorialocal"
+
+insert into categorialocal (categoria_name) 
+values ('Cafe')
+
+insert into categorialocal (categoria_name) 
+values ('Bar')
+
+insert into categorialocal (categoria_name) 
+values ('Restaurante')
+
+insert into categorialocal (categoria_name) 
+values ('Livraria')
+
+insert into categorialocal (categoria_name) 
+values ('Biblioteca')
+
+### Tabela "bloqueamento_app"
+
+insert into categorialocal (categoria_name) 
+values ('Biblioteca')
 
 
-
+### Tabela "bloqueamento_website"
 
 ## Queries
 
