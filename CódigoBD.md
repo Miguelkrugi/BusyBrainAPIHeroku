@@ -121,9 +121,124 @@ create table marcacao_favorito(
 
 );
 
+### Tabela "grupo"
 
-CONSTRAINT fk_tarefa_id FOREIGN KEY(tarefa_id) REFERENCES tarefa(task_id)
+create table grupo(
 
+    group_id SERIAL primary key,
+    group_name varchar(30) not null,
+    group_description varchar(150)
+
+);
+
+### Tabela "convivio"
+
+create table convivio(
+
+    data_convivio date,
+    convivio_id int primary key,
+    grupo_id int,
+    CONSTRAINT fk_grupo_id FOREIGN KEY(grupo_id) REFERENCES grupo(group_id)
+    placee_id int,
+    CONSTRAINT fk_place_id FOREIGN KEY(placee_id) REFERENCES place(place_id)
+
+);
+
+### Tabela "bloqueamento"
+
+create table bloqueamento(
+
+    utilizador_id int,
+    CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
+    blocked_status boolean (bit)
+
+);
+
+### Tabela "app"
+
+create table app(
+
+  app_id SERIAL primary key,
+  app_name varchar(50)
+
+) inherits (bloqueamento);
+
+### Tabela "utilizador_app"
+
+create table utilizador_app(
+
+   user_app_id SERIAL primary key,
+   application_id int,
+   CONSTRAINT fk_app_id FOREIGN KEY(application_id) REFERENCES app(app_id),
+   utilizador_id int,
+   CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id)
+   
+);
+
+### Tabela "utilizador_website"
+
+create table utilizador_website(
+
+  user_website_id SERIAL primary key,
+  website_id int,
+  CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
+  utilizador_id,
+  CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
+)
+
+### Tabela "website"
+
+create table website(
+
+  website_id SERIAL primary key,
+  website_domain varchar(150)
+
+) inherits (bloqueamento);
+
+## Inserts em tabelas
+
+### Tabela "tarefa"
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Math homework', 'Do the math homework', '2015-03-08', '3', '2', '1')
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Cook the dinner', 'Cook the dinner for Christmas Day', '2015-03-08', '3', '1', '3')
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Buy groceries', 'Buy all the groceries to lunch', '2020-01-12', '4', '3', '2')
+
+### Tabela "utilizador"
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Math homework', 'Do the math homework', '2015-03-08', '3', '2', '1')
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Cook the dinner', 'Cook the dinner for Christmas Day', '2015-03-08', '3', '1', '3')
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Buy groceries', 'Buy all the groceries to lunch', '2020-01-12', '4', '3', '2')
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Math homework', 'Do the math homework', '2015-03-08', '3', '2', '1')
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Cook the dinner', 'Cook the dinner for Christmas Day', '2015-03-08', '3', '1', '3')
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) 
+values ('Buy groceries', 'Buy all the groceries to lunch', '2020-01-12', '4', '3', '2')
+
+### Tabela "tipotarefa"
+
+
+
+### Tabela "prioridadetarefa"
+
+
+
+
+
+## Queries
 
 
 
