@@ -259,22 +259,6 @@ values ('High')
 insert into prioridadetarefa (taskpriority_type) 
 values ('Urgent')
 
-### Tabela "categorialocal"
-
-insert into categorialocal (categoria_name) 
-values ('Cafe')
-
-insert into categorialocal (categoria_name) 
-values ('Bar')
-
-insert into categorialocal (categoria_name) 
-values ('Restaurante')
-
-insert into categorialocal (categoria_name) 
-values ('Livraria')
-
-insert into categorialocal (categoria_name) 
-values ('Biblioteca')
 
 ### Tabela "bloqueamento"??
 
@@ -298,27 +282,64 @@ values ('Twitter','5', '1')
 ### Tabela "bloqueamento_website"
 
 insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Youtube','2', '1')
+values ('Facebook','2', '1')
 
 
 insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Youtube','2', '1')
+values ('Youtube','4', '2')
 
 
 insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Youtube','2', '1')
+values ('Yahoo','1', '2')
 
 
 insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Youtube','2', '1')
+values ('Reddit','7', '1')
 
 
 insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Youtube','2', '1')
+values ('Wikipedia','1', '1')
 
 
 insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Youtube','2', '1')
+values ('Instagram','3', '2')
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Amazon','8', '1')
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Twitter','2', '2')
+
+### Tabela "categorialocal"
+
+insert into categorialocal (categoria_name) 
+values ('Cafe')
+
+insert into categorialocal (categoria_name) 
+values ('Bar')
+
+insert into categorialocal (categoria_name) 
+values ('Restaurante')
+
+insert into categorialocal (categoria_name) 
+values ('Livraria')
+
+insert into categorialocal (categoria_name) 
+values ('Biblioteca')
+
+### Tabela "Local"
+
+insert into place (place_name, place_endereco, place_distancia, place_categoria) 
+values ('Bar Lemos','Rua Joao Direitinho, Nº 13','500','1')
+
+insert into place (place_name, place_endereco, place_distancia, place_categoria) 
+values ('Livraria Eca de Queiroz','Rua Lopes Santini, Nº 24','2310','4')
+
+insert into place (place_name, place_endereco, place_distancia, place_categoria) 
+values ('Cafe Dom Joaquim','Avenida da Estrela', Nº 4B','253','2')
+
+insert into place (place_name, place_endereco, place_distancia, place_categoria) 
+values ('Restaurante O Espetadas','Rua Parlo Pinheiro, Nº 9','3141','3')
 
 ## Queries
 
