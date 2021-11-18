@@ -276,13 +276,49 @@ values ('Livraria')
 insert into categorialocal (categoria_name) 
 values ('Biblioteca')
 
+### Tabela "bloqueamento"??
+
 ### Tabela "bloqueamento_app"
 
-insert into categorialocal (categoria_name) 
-values ('Biblioteca')
+insert into bloqueamento_app (app_name, utilizador_id, blocked_status) 
+values ('Facebook','2', '1')
 
+insert into categorialocal (app_name, utilizador_id, blocked_status) 
+values ('YouTube','1', '2')
+
+insert into categorialocal (app_name, utilizador_id, blocked_status) 
+values ('Instagram','4', '2')
+
+insert into categorialocal (app_name, utilizador_id, blocked_status) 
+values ('WhatsApp','1', '2')
+
+insert into categorialocal (app_name, utilizador_id, blocked_status) 
+values ('Twitter','5', '1')
 
 ### Tabela "bloqueamento_website"
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Youtube','2', '1')
+
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Youtube','2', '1')
+
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Youtube','2', '1')
+
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Youtube','2', '1')
+
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Youtube','2', '1')
+
+
+insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
+values ('Youtube','2', '1')
 
 ## Queries
 
