@@ -13,8 +13,17 @@ public interface LocalRepository extends CrudRepository<Local, Integer>{
     public Iterable<Local> findByNameContaining(String name);
 
 
-    @Query(value = "SELECT * FROM place WHERE place_categoria = '2'", nativeQuery = true)
+    @Query(value = "SELECT * FROM place WHERE place_categoria = '1'", nativeQuery = true)
     Iterable<Local> findLocalByCategoria();
+
+    @Query(value = "SELECT * FROM place WHERE place_categoria = '2'", nativeQuery = true)
+    Iterable<Local> findByCategoria();
+
+    @Query(value = "SELECT * FROM place WHERE place_categoria = '3'", nativeQuery = true)
+    Iterable<Local> findPlaceByCategoria();
+
+    @Query(value = "SELECT * FROM place WHERE place_categoria = '4'", nativeQuery = true)
+    Iterable<Local> findPlaceeByCategoria();
 
     @Query(value = "SELECT * FROM place ORDER BY place_distancia ASC", nativeQuery = true)
     Iterable<Local> findLocalByDistancia();
