@@ -343,6 +343,23 @@ values ('Restaurante O Espetadas','Rua Parlo Pinheiro, Nº 9','3141','3')
 
 ## Queries
 
+#### Atribuir uma tarefa a um utilizador (criador da tarefa)
+
+insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority_id, task_type_id) values ('Go to mall', 'Go to the mall tu buy clothes', '2021-04-05', '8', '4', '2')
+
+#### Adicionar um utilizador a uma tarefa (atribuir um utilizador á mesma tarefa de um outro utilizador, incluindo o criador do grupo, pois também é um participante)
+
+insert into utilizador_tarefa(user_identifier, task_identifier) values ('1', '4')
+insert into utilizador_tarefa(user_identifier, task_identifier) values ('8', '4')
+
+#### Para ver os participantes de cada grupo criado na app
+
+select * from utilizador 
+inner join utilizador_tarefa on user_id = user_identifier
+inner join tarefa on task_id = task_identifier
+
+
+
 
 
 
