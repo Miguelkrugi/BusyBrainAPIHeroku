@@ -84,7 +84,7 @@ create table categorialocal(
 
 );
 
-### Tabela "utilizador_local" -> MANTER OU NAO MANTER
+### Tabela "utilizador_local" -> MANTER
 
 create table utilizador_local(
 
@@ -150,6 +150,7 @@ create table convivio(
 
 create table bloqueamento(
 
+    bloqueamento_id SERIAL primary key,
     utilizador_id int,
     CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
     blocked_status boolean (bit),
@@ -240,55 +241,52 @@ insert into prioridadetarefa (taskpriority_type)
 values ('Urgent')
 
 
-### Tabela "bloqueamento"??
+### Tabela "bloqueamento"
+
+insert into bloqueamento(utilizador_id, blocked_status) 
+values ('1', '1') --> O john doe (utilizador com ID 1) fez um bloqueio (bloqueio status = TRUE (1))
+
+insert into bloqueamento(utilizador_id, blocked_status)
+values('1', '1') --> O john doe fez outro bloqueamento
+
+insert into bloqueamento(utilizador_id, blocked_status)
+values('2', '1') --> A mary doe (utilizador com ID 2) fez um bloqueio (bloqueio status = TRUE (1))
+
+insert into bloqueamento(utilizador_id, blocked_status)
+values('3','1') --> A lauren doe (utilizador com ID 3) fez um bloqueio (bloqueio status = TRUE (1))
+
+insert into bloqueamento(utilizador_id, blocked_status)
+values('1', '1') --> O john doe fez outro bloqueamento (website)
+
+insert into bloqueamento(utilizador_id, blocked_status)
+values('4','1') --> o joaofepas (utilizador com ID 4) fez um bloqueio (bloqueio status = TRUE(1))
+
 
 ### Tabela "app"
 
-insert into bloqueamento_app (app_name, utilizador_id, blocked_status) 
-values ('Facebook','2', '1')
+insert into app(bloqueamento_id, utilizador_id, blocked_status, app_name)
+values('1','1','1','Facebook') --> o bloqueamento da app facebook corresponde a um id. Este bloqueamento desta app foi feita pelo John Doe e tem um status 1, ou seja, foi bloqueada
 
-insert into categorialocal (app_name, utilizador_id, blocked_status) 
-values ('YouTube','1', '2')
+insert into app(bloqueamento_id, utilizador_id, blocked_status, app_name)
+values('2','1','1','YouTube') --> o bloqueamento da app youtube corresponde ao bloqueamento com ID 2, que corresponde ao utilizador com ID 1 (john doe)
 
-insert into categorialocal (app_name, utilizador_id, blocked_status) 
-values ('Instagram','4', '2')
+insert into app(bloqueamento_id, utilizador_id, blocked_status, app_name)
+values('3','2','1','Wikipedia') --> o bloqueamento da app wikipedia corresponde ao bloqueamento com ID 3, que corresponde ao utilizador com ID 2 (mary doe)
 
-insert into categorialocal (app_name, utilizador_id, blocked_status) 
-values ('WhatsApp','1', '2')
-
-insert into categorialocal (app_name, utilizador_id, blocked_status) 
-values ('Twitter','5', '1')
+insert into app(bloqueamento_id, utilizador_id, blocked_status, app_name)
+values('4','3','1','Kalorias') --> o bloqueamento da app kalorias corresponde ao bloqueamento com ID 4, que corresponde ao utilizador com ID 3 (lauren doe)
 
 ### Tabela "website"
 
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Facebook','2', '1')
+insert into website(bloqueamento_id, utilizador_id, blocked_status, website_domain)
+values('5','1','1','facebook.com') 
+
+insert into website(bloqueamento_id, utilizador_id, blocked_status, website_domain)
+values('6','4','1','reddit.com') 
+
+### Tabela "grupo"
 
 
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Youtube','4', '2')
-
-
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Yahoo','1', '2')
-
-
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Reddit','7', '1')
-
-
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Wikipedia','1', '1')
-
-
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Instagram','3', '2')
-
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Amazon','8', '1')
-
-insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
-values ('Twitter','2', '2')
 
 ### Tabela "categorialocal"
 
