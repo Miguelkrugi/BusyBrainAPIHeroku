@@ -165,30 +165,8 @@ create table app(
 
 ) inherits (bloqueamento);
 
-### Tabela "utilizador_app" (RETIRAR?)
 
-create table utilizador_app(
-
-   user_app_id SERIAL primary key,
-   application_id int,
-   CONSTRAINT fk_app_id FOREIGN KEY(application_id) REFERENCES app(app_id),
-   utilizador_id int,
-   CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id)
-   
-);
-
-### Tabela "utilizador_website" (RETIRAR?)
-
-create table utilizador_website(
-
-  user_website_id SERIAL primary key,
-  website_id int,
-  CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
-  utilizador_id,
-  CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id),
-)
-
-### Tabela "bloqueamento_website"
+### Tabela "website"
 
 create table website(
 
@@ -264,7 +242,7 @@ values ('Urgent')
 
 ### Tabela "bloqueamento"??
 
-### Tabela "bloqueamento_app"
+### Tabela "app"
 
 insert into bloqueamento_app (app_name, utilizador_id, blocked_status) 
 values ('Facebook','2', '1')
@@ -281,7 +259,7 @@ values ('WhatsApp','1', '2')
 insert into categorialocal (app_name, utilizador_id, blocked_status) 
 values ('Twitter','5', '1')
 
-### Tabela "bloqueamento_website"
+### Tabela "website"
 
 insert into bloqueamento_website (website_domain, utilizador_id, blocked_status) 
 values ('Facebook','2', '1')
