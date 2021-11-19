@@ -33,6 +33,14 @@ public class LocalController {
 
     //TODO --> ADICIONAR MÉTODO PARA OBTER AS INFORMACOES DE UM LOCAL COM BASE NA SELECAO POR ID
 
+    @GetMapping(path = "/getinfo/{place_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Local getInfoLocal(@PathVariable(name = "place_id") int id){
+
+       logger.info("Sending local info with id: " + id);
+       return localRepository.findById(id);
+
+    }
+
     @GetMapping(path = "/searchbyname/{place_name}")
     public Iterable<Local> localByName(@PathVariable(value = "place_name") String name){
 
