@@ -54,6 +54,7 @@ public class LocalController {
 
         logger.info("Sending Local with: "+ name + "included.");
 
+
         return localRepository.findByNameContaining(name);
     }
     

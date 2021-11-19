@@ -1,6 +1,8 @@
 package com.busybrain.api.prototipo.models.repositories;
 
 
+import java.util.Optional;
+
 import com.busybrain.api.prototipo.models.Local;
 
 import org.springframework.data.jpa.repository.Query;
