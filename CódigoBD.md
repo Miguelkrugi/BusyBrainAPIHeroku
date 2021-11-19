@@ -370,9 +370,11 @@ insert into marcacao_davorito (isFavorite, utilizador_id, local_id) values ('1',
 
 insert into marcacao_presenca(wasThere, utilizador_id, local_id) values ('1','1','3') --O johndoe (utilizador 1), marcou presença no bar lemos (local com ID 3)
 
-#### Marcacao de convivios
+#### Marcacao de convivios 
 
+insert into grupo(group_name, group_description, tarefa_id) values ('Cook Dinner Group', 'Group to cook the dinner', '4') -- Para o grupo que corresponde á tarefa 4, que contém x utilizadores/utilizador...
 
+insert into convivio(data_convivio, grupo_id, placee_id) values ('2020-04-01', '1', '5') -- Criação/Marcação de um convivio numa x data, pertencente a um x grupo (neste caso com id '1' (correspondente ao grupo "Cook Dinner Group")), para o local com id 5.
 
 
 
