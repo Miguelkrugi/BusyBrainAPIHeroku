@@ -165,18 +165,6 @@ create table app(
 
 ) inherits (bloqueamento);
 
-### Tabela "utilizador_app" (RETIRAR?)
-
-create table utilizador_app(
-
-   user_app_id SERIAL primary key,
-   application_id int,
-   CONSTRAINT fk_app_id FOREIGN KEY(application_id) REFERENCES app(app_id),
-   utilizador_id int,
-   CONSTRAINT fk_user_id FOREIGN KEY(utilizador_id) REFERENCES utilizador(user_id)
-   
-);
-
 ### Tabela "utilizador_website" (RETIRAR?)
 
 create table utilizador_website(
