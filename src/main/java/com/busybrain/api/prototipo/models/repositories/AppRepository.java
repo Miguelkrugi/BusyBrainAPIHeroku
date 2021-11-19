@@ -17,6 +17,6 @@ public interface AppRepository extends CrudRepository<App, Integer>{
     Iterable<App> findAppByStatus();
 
     @Query(value = "SELECT * FROM app WHERE blocked_status = '0'", nativeQuery = true)
-    Iterable<App> findAppBystatus();
+    Iterable<App> findByStatus();
 
 }

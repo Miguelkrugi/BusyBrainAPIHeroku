@@ -48,7 +48,7 @@ public class AppController {
 
         logger.info("Getting all unlocked apps");
 
-        return appRepository.findAppBystatus();
+        return appRepository.findAppByStatus();
 
     }
 
