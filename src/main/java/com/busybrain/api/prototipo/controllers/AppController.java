@@ -43,7 +43,14 @@ public class AppController {
 
     }
 
-    
+    @GetMapping(path = "/unlocked", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<App> getUnlockedApps(){
+
+        logger.info("Getting all unlocked apps");
+
+        return appRepository.findAppBystatus();
+
+    }
 
     //METODO PARA TESTES - EM DESENVOLVIMENTO
 
