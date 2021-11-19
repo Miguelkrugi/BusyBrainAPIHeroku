@@ -129,7 +129,7 @@ create table grupo(
     group_name varchar(30) not null,
     group_description varchar(150),
     tarefa_id int,
-	CONSTRAINT fk_tarefa_id FOREIGN KEY(tarefa_id) REFERENCES tarefa(task_id)
+    CONSTRAINT fk_tarefa_id FOREIGN KEY(tarefa_id) REFERENCES tarefa(task_id)
 	
 );
 
@@ -138,9 +138,9 @@ create table grupo(
 create table convivio(
 
     data_convivio date,
-    convivio_id int primary key,
+    convivio_id SERIAL primary key,
     grupo_id int,
-    CONSTRAINT fk_grupo_id FOREIGN KEY(grupo_id) REFERENCES grupo(group_id)
+    CONSTRAINT fk_grupo_id FOREIGN KEY(grupo_id) REFERENCES grupo(group_id),
     placee_id int,
     CONSTRAINT fk_place_id FOREIGN KEY(placee_id) REFERENCES place(place_id)
 
