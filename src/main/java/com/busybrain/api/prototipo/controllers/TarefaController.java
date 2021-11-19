@@ -30,7 +30,7 @@ public class TarefaController {
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Iterable<Tarefa> getTasks() {
         logger.info("A Exibir todas as tarefas criadas na app");
-        return tarefaRepository.findAll();
+        return tarefaRepository.findAllTasks();
     }
 
     @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
