@@ -1,5 +1,7 @@
 package com.busybrain.api.prototipo.controllers;
 
+import java.util.Optional;
+
 import com.busybrain.api.prototipo.models.App;
 import com.busybrain.api.prototipo.models.repositories.AppRepository;
 
@@ -31,6 +33,17 @@ public class AppController {
 
         return appRepository.findAll();
     }
+
+    @GetMapping(path = "/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<App> getBlockedApps(){
+
+        logger.info("Getting all blocked apps");
+
+        return appRepository.findAppByStatus();
+
+    }
+
+    
 
     //METODO PARA TESTES - EM DESENVOLVIMENTO
 
