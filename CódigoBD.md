@@ -127,8 +127,10 @@ create table grupo(
 
     group_id SERIAL primary key,
     group_name varchar(30) not null,
-    group_description varchar(150)
-
+    group_description varchar(150),
+    tarefa_id int,
+	CONSTRAINT fk_tarefa_id FOREIGN KEY(tarefa_id) REFERENCES tarefa(task_id)
+	
 );
 
 ### Tabela "convivio"
@@ -357,6 +359,19 @@ insert into utilizador_tarefa(user_identifier, task_identifier) values ('8', '4'
 select * from utilizador 
 inner join utilizador_tarefa on user_id = user_identifier
 inner join tarefa on task_id = task_identifier
+
+#### Marcação de um local como "Favorito"
+
+insert into marcacao_favorito (isFavorite, utilizador_id, local_id) values ('0', '1', '5') --> O utilizador 1, não tem o local 5 marcado como favorito (valor default)
+
+insert into marcacao_davorito (isFavorite, utilizador_id, local_id) values ('1', '2', '5') --> O utilizador 2, tem o local 5 marcado como favorito, após enviar o pedido (valor do isFavorite = 1 (True))
+
+#### Marcação de presenças 
+
+insert into marcacao_presenca(wasThere, utilizador_id, local_id) values ('1','1','3') --O johndoe (utilizador 1), marcou presença no bar lemos (local com ID 3)
+
+#### Marcacao de convivios
+
 
 
 
