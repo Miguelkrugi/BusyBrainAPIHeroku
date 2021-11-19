@@ -286,7 +286,19 @@ values('6','4','1','reddit.com')
 
 ### Tabela "grupo"
 
+insert into grupo(group_name, group_description, tarefa_id)
+values ('Grupo da tarefa 4', 'Isto é o grupo da tarefa 4 na BD', '4')
 
+insert into grupo(group_name, group_description, tarefa_id)
+values ('Grupo da tarefa 3', 'Isto é o grupo da tarefa 3 na BD', '3') -> grupo do buy groceries
+
+insert into grupo(group_name, group_description, tarefa_id)
+values('Grupo para TPC Matematica', 'Isto é um grupo para o trabalho de matematica', '1')
+
+### Tabela "convivio"
+
+insert into convivio(data_convivio, grupo_id, placee_id)
+values('2021-11-02', '3', '4') -> criado um convivio na data "2021-11-02", para o grupo com ID 3, no local com ID 4. 
 
 ### Tabela "categorialocal"
 
@@ -333,6 +345,9 @@ insert into tarefa (task_title, task_desc, due_date, user_task_id, task_priority
 insert into utilizador_tarefa(user_identifier, task_identifier) values ('1', '4')
 insert into utilizador_tarefa(user_identifier, task_identifier) values ('8', '4')
 
+insert into utilizador_tarefa(user_identifier, task_identifier) values ('2', '1')
+insert into utilizador_tarefa(user_identifier, task_identifier) values ('3', '1')
+
 #### Para ver os participantes de cada grupo criado na app
 
 select * from utilizador 
@@ -354,6 +369,9 @@ insert into marcacao_presenca(wasThere, utilizador_id, local_id) values ('1','1'
 insert into grupo(group_name, group_description, tarefa_id) values ('Cook Dinner Group', 'Group to cook the dinner', '4') -- Para o grupo que corresponde á tarefa 4, que contém x utilizadores/utilizador...
 
 insert into convivio(data_convivio, grupo_id, placee_id) values ('2020-04-01', '1', '5') -- Criação/Marcação de um convivio numa x data, pertencente a um x grupo (neste caso com id '1' (correspondente ao grupo "Cook Dinner Group")), para o local com id 5.
+
+insert into convivio(data_convivio, grupo_id, placee_id)
+values('2021-11-02', '3', '4') -- Marcacao de um convivio para o grupo com ID 3, no local com id 4, na data "2021-11-02"
 
 
 
