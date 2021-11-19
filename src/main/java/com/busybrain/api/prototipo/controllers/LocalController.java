@@ -58,21 +58,21 @@ public class LocalController {
         return localRepository.findByNameContaining(name);
     }
     
-    @GetMapping(path = "/searchbycategory/bar")
+    /*@GetMapping(path = "/searchbycategory/bar")
     public Iterable<Local> localByBar(){
 
         logger.info("Sending places with 'Bar' category...");
 
         return localRepository.findByCategoria();
 
-    }
+    }*/
 
     @GetMapping(path = "/searchbycategory/livraria")
     public Iterable<Local> localByBiblioteca(){
 
         logger.info("Sending places with 'Livraria' category...");
 
-        return localRepository.findPlaceeByCategoria();
+        return localRepository.findPlaceByCategoria();
 
     }
 
@@ -85,14 +85,14 @@ public class LocalController {
 
     }
 
-    @GetMapping(path = "/searchbycategory/restaurant")
+    /*@GetMapping(path = "/searchbycategory/restaurant")
     public Iterable<Local> localByCategory(){
 
         logger.info("Sending places with 'Restaurant' category...");
 
         return localRepository.findPlaceByCategoria();
 
-    }
+    }*/
 
     @GetMapping(path = "/closestplaces")
     public Iterable<Local> getclosestPlaces(){
