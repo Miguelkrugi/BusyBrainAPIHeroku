@@ -14,12 +14,38 @@ public class App {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
+    @Column(name = "bloqueamento_id") private int bloqueamentoid;
+    @Column(name = "utilizador_id") private int utilizadorid;
+    @Column(name = "blocked_status") private boolean status;
     @Column(name = "app_id") private int id;
     @Column(name = "app_name") private String name;
-    @Column(name = "app_status") private boolean status;
 
     public App(){
 
+    }
+
+    public int getBloqueamentoid() {
+        return bloqueamentoid;
+    }
+
+    public void setBloqueamentoid(int bloqueamentoid) {
+        this.bloqueamentoid = bloqueamentoid;
+    }
+
+    public int getUtilizadorid() {
+        return utilizadorid;
+    }
+
+    public void setUtilizadorid(int utilizadorid) {
+        this.utilizadorid = utilizadorid;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public int getId() {
@@ -38,9 +64,7 @@ public class App {
         this.name = name;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
+    
 
 
 }

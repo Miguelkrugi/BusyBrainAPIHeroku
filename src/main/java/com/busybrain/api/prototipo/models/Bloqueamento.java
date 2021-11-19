@@ -7,21 +7,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "website")
-public class Website {
- 
+@Entity 
+@Table(name = "bloqueamento")
+public class Bloqueamento {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 
     @Column(name = "bloqueamento_id") private int bloqueamentoid;
     @Column(name = "utilizador_id") private int utilizadorid;
     @Column(name = "blocked_status") private boolean status;
-    @Column(name = "website_id") private int id;
-    @Column(name = "website_domain") private String domain;
-    
 
-    public Website(){
+    public Bloqueamento(){
 
     }
 
@@ -49,20 +46,6 @@ public class Website {
         this.status = status;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDomain() {
-        return domain;
-    }
-
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
+    
 
 }
