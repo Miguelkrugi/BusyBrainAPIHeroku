@@ -156,7 +156,7 @@ create table bloqueamento(
     
 );
 
-### Tabela "bloqueamento_app"
+### Tabela "app"
 
 create table app(
 
@@ -165,7 +165,7 @@ create table app(
 
 ) inherits (bloqueamento);
 
-### Tabela "utilizador_app"
+### Tabela "utilizador_app" (RETIRAR?)
 
 create table utilizador_app(
 
@@ -177,7 +177,7 @@ create table utilizador_app(
    
 );
 
-### Tabela "utilizador_website"
+### Tabela "utilizador_website" (RETIRAR?)
 
 create table utilizador_website(
 
@@ -342,6 +342,9 @@ values ('Cafe Dom Joaquim','Avenida da Estrela', Nº 4B','253','2')
 
 insert into place (place_name, place_endereco, place_distancia, place_categoria) 
 values ('Restaurante O Espetadas','Rua Parlo Pinheiro, Nº 9','3141','3')
+
+insert into place (place_name, place_endereco, place_distancia, place_categoria, place_latitude, place_longitude) 
+values ('Livraria Dom Joao I','Rua do Rossio, Nº 22','1156','4', '27372.47571937', '37471.47591811')
 
 ## Queries
 
