@@ -12,9 +12,10 @@ public interface LocalRepository extends CrudRepository<Local, Integer>{
  
     public Iterable<Local> findByNameContaining(String name);
 
+    public Iterable<Local> findLocalByCategoria(int categoria);
 
-    @Query(value = "SELECT * FROM place WHERE place_categoria = '1'", nativeQuery = true)
-    Iterable<Local> findLocalByCategoria();
+    //@Query(value = "SELECT * FROM place WHERE place_categoria = '1'", nativeQuery = true)
+    //Iterable<Local> findLocalByCategoria();
 
     @Query(value = "SELECT * FROM place WHERE place_categoria = '2'", nativeQuery = true)
     Iterable<Local> findByCategoria();
