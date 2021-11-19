@@ -1,6 +1,9 @@
 package com.busybrain.api.prototipo.controllers;
 
+import java.util.Optional;
+
 import com.busybrain.api.prototipo.models.Local;
+import com.busybrain.api.prototipo.models.exceptions.NotFoundException3;
 import com.busybrain.api.prototipo.models.repositories.LocalRepository;
 
 import org.slf4j.Logger;
@@ -33,13 +36,18 @@ public class LocalController {
 
     //TODO --> ADICIONAR MÉTODO PARA OBTER AS INFORMACOES DE UM LOCAL COM BASE NA SELECAO POR ID
 
-    @GetMapping(path = "/getinfo/{place_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Local getInfoLocal(@PathVariable(name = "place_id") int id){
+   @GetMapping(path = "/getinfo/{place_id}")
+   public Local localById(@PathVariable(value = "place_id") int id){
 
-       logger.info("Sending local info with id: " + id);
-       return localRepository.findById(id);
+       logger.info("Sending info from local with id: " + id);
 
-    }
+       Optional<Local> _local = localRepository.findById(id);
+
+       if(!_local.isPresent()) throw 
+         new NotFoundException3("" + id, "Local", "ID");
+         else return _local.get();
+       
+   }
 
     @GetMapping(path = "/searchbyname/{place_name}")
     public Iterable<Local> localByName(@PathVariable(value = "place_name") String name){
