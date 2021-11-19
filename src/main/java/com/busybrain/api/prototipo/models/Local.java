@@ -19,6 +19,8 @@ public class Local {
     @Column(name = "place_endereco") private String endereco;
     @Column(name = "place_distancia") private int distancia;
     @Column(name = "place_categoria") private int categoria;
+    @Column(name = "place_latitude") private double latitude;
+    @Column(name = "place_longitude") private double longitude;
    
     public Local(){
 
@@ -63,5 +65,21 @@ public class Local {
     public void setCategoria(int categoria) {
         this.categoria = categoria;
     }
+
+public double getLatitude() {
+    return latitude;
+}
+
+public void setLatitude(double latitude) {
+    this.latitude = latitude;
+}
+
+public double getLongitude() {
+    return longitude;
+}
+
+public void setLongitude(double longitude) {
+    this.longitude = longitude;
+}
 
 }
