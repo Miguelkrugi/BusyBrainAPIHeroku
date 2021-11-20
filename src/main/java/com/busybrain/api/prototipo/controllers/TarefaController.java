@@ -109,4 +109,13 @@ public class TarefaController {
 
     }
 
+    @DeleteMapping(path = "/user_task_id/remove/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
+    public void deleteTarefa(@PathVariable("user_task_id") int usertaskid, @PathVariable("task_id") int id){
+
+         logger.info("Deleting task with id: " + id);
+
+         tarefaRepository.deleteTaskByUsertaskidid(usertaskid, id);
+
+    }
+
 }
