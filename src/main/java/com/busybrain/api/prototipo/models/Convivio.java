@@ -1,6 +1,7 @@
 package com.busybrain.api.prototipo.models;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ public class Convivio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "data_convivio") private java.util.Date date;
+    @Column(name = "data_convivio") private Date date;
     @Column(name = "convivio_id") private int id;
     @Column(name = "grupo_id") private int grupoid;
     @Column(name = "placee_id") private int placeid;
