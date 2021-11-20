@@ -38,7 +38,7 @@ public class TarefaController {
 
         logger.info("Get task from user with id: " + usertaskid);
 
-         return tarefaRepository.findByUsertaskid(usertaskid);
+         return tarefaRepository.findTaskByUsertaskid(usertaskid);
 
     }
 
