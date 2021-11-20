@@ -51,15 +51,15 @@ public class TarefaController {
 
     }
 
-    @GetMapping(path = "/filterbypriority/high", produces = MediaType.APPLICATION_JSON_VALUE) //CUSTOM QUERY COMPLETA, DEVERÁ SER REPRODUZIVEL PARA TODAS AS OUTRAS PRIORIDADES
+    /*@GetMapping(path = "/filterbypriority/high", produces = MediaType.APPLICATION_JSON_VALUE) //CUSTOM QUERY COMPLETA, DEVERÁ SER REPRODUZIVEL PARA TODAS AS OUTRAS PRIORIDADES
     public Iterable<Tarefa> getTasksHigh(){
 
         logger.info("Sending all tasks with 'High' priority");
         return tarefaRepository.findTaskByPriority();
 
-    }
+    }*/
 
-    @GetMapping(path = "/filterbypriorityyy/{task_priority_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/filterbypriority/{task_priority_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Tarefa> getTasksPriority(@PathVariable(value = "task_priority_id") int priority){
 
         logger.info("Sending all tasks with priority id: " + priority);
