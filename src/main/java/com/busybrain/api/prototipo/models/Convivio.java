@@ -1,7 +1,9 @@
 package com.busybrain.api.prototipo.models;
 
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,11 +28,11 @@ public class Convivio {
 
     }
 
-    public java.util.Date getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(java.util.Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
