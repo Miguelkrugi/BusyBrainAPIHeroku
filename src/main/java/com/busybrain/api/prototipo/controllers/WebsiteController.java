@@ -37,7 +37,7 @@ public class WebsiteController {
 
     //Adicionar um website -> METODO DE TESTE
 
-    @PostMapping(path = "/createapp", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    @PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
      public Website saveWebsite(@RequestBody Website website){
 
       Website savedWebsite = websiteRepository.save(website);
@@ -48,6 +48,23 @@ public class WebsiteController {
 
      //Exibir as informações de um website selecionado
 
-     
+     @GetMapping(path = "/getwebsites/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<Website> getBlockedWebsites(){
+
+        logger.info("Getting all blocked websites...");
+
+        return websiteRepository.findWebsiteByStatus();
+
+     }
+
+     @GetMapping(path = "/getwebsites/unlocked", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<Website> getUnlockedWebsites(){
+
+        logger.info("Getting all unlocked websites...");
+
+        return websiteRepository.findByStatus();
+
+     }
+
 
 }
