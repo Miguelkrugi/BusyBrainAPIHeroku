@@ -9,6 +9,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     
     Iterable<Tarefa> findByType(int type);
     Iterable<Tarefa> findByTitleContaining(String title);
+    Iterable<Tarefa> findByUsertaskid(int usertaskid);
 
     @Query(value = "SELECT * FROM tarefa WHERE task_priority = '3'", nativeQuery = true)
     Iterable<Tarefa> findTaskByPriority();
