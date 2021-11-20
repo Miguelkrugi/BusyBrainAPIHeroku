@@ -20,7 +20,7 @@ public class Tarefa {
     @Column(name = "task_id") private int id;
     @Column(name = "task_title") private String title;
     @Column(name = "task_desc") private String description;
-    @Column(name = "due_date") private String date;
+    @Column(name = "due_date") private Date date;
     @Column(name = "user_task_id") private int usertaskid;
     @Column(name = "task_priority_id") private int priority;
     @Column(name = "task_type_id") private int type;
@@ -57,11 +57,11 @@ public class Tarefa {
         this.description = description;
     }
 
-   public String getDate() {
+   public Date getDate() {
        return date;
    }
 
-   public void setDate(String date) {
+   public void setDate(Date date) {
        this.date = date;
    }
    
