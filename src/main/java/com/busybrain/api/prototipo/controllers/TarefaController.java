@@ -59,6 +59,15 @@ public class TarefaController {
 
     }
 
+    @GetMapping(path = "/filterbypriorityyy/{task_priority_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Tarefa> getTasksPriority(@PathVariable(value = "task_priority_id") int priority){
+
+        logger.info("Sending all tasks with priority id: " + priority);
+
+        return tarefaRepository.findByPriority(priority);
+
+    }
+
     
     @GetMapping(path = "/getinfo/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Tarefa getInfoTarefa(@PathVariable(value = "task_id") int id){
