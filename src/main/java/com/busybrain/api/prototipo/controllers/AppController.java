@@ -65,13 +65,13 @@ public class AppController {
 
     //TODO -> CONTRUÇÃO DE METODOS DE searchbynamecontaining e blocked status
 
-    @GetMapping(path = "/appstatus/{app_status}", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@GetMapping(path = "/appstatus/{app_status}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<App> getAppsBlocked(@PathVariable(value = "app_status") boolean status){
 
         logger.info("Sending apps that are blocked or unblocked...");
         return appRepository.findAppByStatus(status);
         
-    }
+    }*/
 
     @GetMapping(path = "/searchbyname/{app_name}",produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<App> getAppByName(@PathVariable(value = "app_name") String name){
