@@ -103,6 +103,7 @@ public class LocalController {
 
     }
 
+
 //MÉTODO DE SUPORTE PARA TESTE
 
 @PostMapping(path = "/createplace", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
