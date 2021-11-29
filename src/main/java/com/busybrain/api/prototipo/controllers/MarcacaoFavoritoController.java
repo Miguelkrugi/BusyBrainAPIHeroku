@@ -2,6 +2,7 @@ package com.busybrain.api.prototipo.controllers;
 
 import com.busybrain.api.prototipo.models.MarcacaoFavorito;
 import com.busybrain.api.prototipo.models.repositories.MarcacaoFavoritoRepository;
+import com.busybrain.api.prototipo.views.MarcacaoFavoritoView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,7 @@ public class MarcacaoFavoritoController {
     //METHOD FOR TEST - GET ALL FAVORITE PLACES ON THE APP
 
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoFavorito> getAllFavoritePlaces(){
+    public Iterable<MarcacaoFavoritoView> getAllFavoritePlaces(){
 
         logger.info("Sending all favorited places on the app database");
 
