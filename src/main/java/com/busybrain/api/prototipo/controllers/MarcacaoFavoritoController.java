@@ -22,7 +22,7 @@ public class MarcacaoFavoritoController {
 
     @Autowired
     private MarcacaoFavoritoRepository marcacaoFavoritoRepository;
-
+   
     //Method to get favorite places from a user
 
     @GetMapping(path = "/favoriteplaces/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -31,6 +31,17 @@ public class MarcacaoFavoritoController {
         logger.info("Sending all favorite places from user with id: " + userid);
 
         return marcacaoFavoritoRepository.findByUserid(userid);
+
+    }
+
+    //METHOD FOR TEST - GET ALL FAVORITE PLACES ON THE APP
+
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<MarcacaoFavorito> getAllFavoritePlaces(){
+
+        logger.info("Sending all favorited places on the app database");
+
+       return marcacaoFavoritoRepository.findByFavoritestatus();
 
     }
 
