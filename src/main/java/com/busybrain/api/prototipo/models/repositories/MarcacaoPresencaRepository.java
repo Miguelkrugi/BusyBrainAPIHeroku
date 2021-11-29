@@ -18,7 +18,7 @@ public interface MarcacaoPresencaRepository extends CrudRepository<MarcacaoPrese
     "where wasthere = '1' and users.user_id=:userid";
 
     @Query(value = queryByPresenca, nativeQuery = true)
-    Iterable<MarcacaoPresencaView> findByPresencaUserid(@Param("userid") int userid); 
+    Iterable<MarcacaoPresencaView> findPresencaByUserid(@Param("userid") int userid); 
 
     /*select marcarpresencas.presenca_id AS presencaId, users.user_name AS Username, locais.place_name AS Nameofplace
     from marcacao_presenca AS marcarpresencas
