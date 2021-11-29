@@ -42,7 +42,7 @@ public class MarcacaoPresencaController {
 
         logger.info("Sending all marked places of a user");
 
-       return marcacaoPresencaRepository.findByPresencaUserid(userid);
+       return marcacaoPresencaRepository.findPresencaByUserid(userid);
 
     }
     
