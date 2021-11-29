@@ -1,0 +1,37 @@
+package com.busybrain.api.prototipo.controllers;
+
+import com.busybrain.api.prototipo.models.repositories.MarcacaoPresencaRepository;
+import com.busybrain.api.prototipo.views.MarcacaoPresencaView;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(path = "/api/presenca")
+public class MarcacaoPresencaController {
+
+    //private Logger logger = LoggerFactory.getLogger(MarcacaoFavoritoController.class);
+
+    private Logger logger = LoggerFactory.getLogger(MarcacaoPresencaController.class);
+    
+    @Autowired
+    private MarcacaoPresencaRepository marcacaoPresencaRepository;
+
+    //METHOD FOR TEST - GET ALL MARKED PLACES OF A USER
+
+    @GetMapping(path = "/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<MarcacaoPresencaView> getAllFavoritePlacesbyUtilizadorid(@PathVariable(value = "utilizador_id") int userid){
+
+        logger.info("Sending all favorite places of a user");
+
+       return marcacaoPresencaRepository.findByPresencastatus(userid);
+
+    }
+    
+}

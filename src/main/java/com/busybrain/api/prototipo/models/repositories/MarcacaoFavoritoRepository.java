@@ -25,5 +25,5 @@ public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavor
 //from marcacao_favorito
 //inner join utilizador on user_id = utilizador_id
 //inner join place on local_id = place_id
-//where isfavorite = '1'
+//where isfavorite = '1' and users.user_id=:userid
 }
