@@ -26,14 +26,14 @@ public class MarcacaoPresencaController {
 
     //Method to get favorite places from a user
 
-   /* @GetMapping(path = "/presenceplaces/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/presenceplaces/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<MarcacaoPresenca> getFavoritePlaces(@PathVariable(value = "utilizador_id") int userid){
 
         logger.info("Sending all favorite places from user with id: " + userid);
 
         return marcacaoPresencaRepository.findByUserid(userid);
 
-    }*/
+    }
 
     //METHOD FOR TEST - GET ALL MARKED PLACES OF A USER
 
