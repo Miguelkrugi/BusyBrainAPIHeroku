@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface MarcacaoPresencaRepository extends CrudRepository<MarcacaoPresenca, Integer>{
 
+    public Iterable<MarcacaoPresenca> findByUserid(int userid);
+
     String queryByPresenca = "select marcarpresencas.presenca_id AS presencaId, users.user_name AS Username, locais.place_name AS Nameofplace " + 
     "from marcacao_presenca AS marcarpresencas " +
     "inner join utilizador users on users.user_id = marcarpresencas.utilizador_id " +
