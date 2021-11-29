@@ -26,9 +26,9 @@ public class MarcacaoPresencaController {
     //METHOD FOR TEST - GET ALL MARKED PLACES OF A USER
 
     @GetMapping(path = "/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoPresencaView> getAllFavoritePlacesbyUtilizadorid(@PathVariable(value = "utilizador_id") int userid){
+    public Iterable<MarcacaoPresencaView> getAllPresencaPlacesbyUtilizadorid(@PathVariable(value = "utilizador_id") int userid){
 
-        logger.info("Sending all favorite places of a user");
+        logger.info("Sending all marked places of a user");
 
        return marcacaoPresencaRepository.findByPresencastatus(userid);
 
