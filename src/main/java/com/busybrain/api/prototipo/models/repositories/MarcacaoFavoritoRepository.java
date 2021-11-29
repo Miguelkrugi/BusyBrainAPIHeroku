@@ -9,7 +9,13 @@ public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavor
     
     public Iterable<MarcacaoFavorito> findByUserid(int userid);
 
-    @Query(value = "select * from marcacao_favorito where isfavorite = '1'", nativeQuery = true)
+    @Query(value = "select favorite_id, user_name, place_name from marcacao_favorito" + " inner join utilizador on user_id = utilizador_id" + " inner join place on local_id = place_id" + " where isfavorite = '1'", nativeQuery = true)
     Iterable<MarcacaoFavorito> findByFavoritestatus();
 
+
+   // select favorite_id, user_name, place_name 
+//from marcacao_favorito
+//inner join utilizador on user_id = utilizador_id
+//inner join place on local_id = place_id
+//where isfavorite = '1'
 }
