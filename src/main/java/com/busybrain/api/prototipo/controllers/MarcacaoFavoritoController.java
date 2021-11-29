@@ -35,15 +35,26 @@ public class MarcacaoFavoritoController {
 
     }
 
-    //METHOD FOR TEST - GET ALL FAVORITE PLACES ON THE APP
+    //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER
 
-    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<MarcacaoFavoritoView> getAllFavoritePlacesbyUtilizadorid(@PathVariable(value = "utilizador_id") int userid){
+
+        logger.info("Sending all favorite places of a user");
+
+       return marcacaoFavoritoRepository.findByFavoritestatus(userid);
+
+    }
+
+    //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER  
+
+    /*@GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<MarcacaoFavoritoView> getAllFavoritePlaces(){
 
         logger.info("Sending all favorited places on the app database");
 
        return marcacaoFavoritoRepository.findByFavoritestatus();
 
-    }
+    }*/
 
 }
