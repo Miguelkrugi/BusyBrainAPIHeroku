@@ -12,7 +12,7 @@ public interface MarcacaoPresencaRepository extends CrudRepository<MarcacaoPrese
     public Iterable<MarcacaoPresenca> findByUserid(int userid);
 
     String queryByPresenca = "select marcarpresencas.presenca_id AS presencaId, users.user_name AS Username, locais.place_name AS Nameofplace " + 
-    "from marcacao_presenca AS marcarpresencas " +
+    "from marcacao_presenca marcarpresencas " +
     "inner join utilizador users on users.user_id = marcarpresencas.utilizador_id " +
     "inner join place locais on marcarpresencas.local_id = locais.place_id" + 
     "where wasthere = '1' and users.user_id=:userid";
