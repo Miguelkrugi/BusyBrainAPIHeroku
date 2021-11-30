@@ -9,6 +9,7 @@ import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.MediaType;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -115,6 +117,16 @@ public class TarefaController {
          logger.info("Deleting task with id: " + id);
 
          tarefaRepository.deleteById(id);
+
+    }
+
+    @PutMapping(path = "/updatetask/{task_id}")
+    public Tarefa atualizar(@PathVariable(value = "task_id") int id, @RequestBody Tarefa tarefa){ //O request body recebe os dados de uma tarefa a atualizar
+
+        Tarefa tarefaAtual = tarefaRepository.findById(id).get(); //Aceder o ID da tarefa a atualizar
+
+        BeanUtils.copyProperties(tarefa, tarefaAtual, "id"); //Quais sejam os dados atualizados, ele irá guardar esses novos dados (excepto o "ID", pois não pode ser alterado)
+        return tarefaRepository.save(tarefaAtual); //Guardar uma nova tarefa com os novos dados requisitados pelo utilizador através do "input" tarefa (no @RequestBody)
 
     }
 
