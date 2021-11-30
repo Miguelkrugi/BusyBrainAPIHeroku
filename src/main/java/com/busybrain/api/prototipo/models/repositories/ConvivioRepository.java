@@ -15,6 +15,6 @@ public interface ConvivioRepository extends CrudRepository<Convivio, Integer>{
     "inner join place AS placess on placess.place_id = convivios.placee_id ";
 
     @Query(value = queryByGrupo + "where groupss.group_id=:grupoid", nativeQuery = true)
-    Iterable<ConvivioView> findByGroupId(@Param("grupoid") int grupoid);
+    Iterable<ConvivioView> findConvivioByGroupId(@Param("grupoid") int grupoid);
 
 }
