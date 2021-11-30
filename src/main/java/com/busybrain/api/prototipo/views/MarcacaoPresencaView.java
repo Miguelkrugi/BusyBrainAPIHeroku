@@ -5,6 +5,6 @@ public interface MarcacaoPresencaView {
        int getPreId();
        String getUsername();
        String getNome();
-       boolean getPresencaStatus();
+       boolean isPresenca();
        
 }
