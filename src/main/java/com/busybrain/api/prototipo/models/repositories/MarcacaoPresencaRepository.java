@@ -16,7 +16,7 @@ public interface MarcacaoPresencaRepository extends CrudRepository<MarcacaoPrese
     "inner join utilizador userss on userss.user_id = marcacoesp.utilizador_id " +
     "inner join place localss on marcacoesp.local_id = localss.place_id";
 
-    @Query(value = queryByPresenca + " where wasthere = '1'and userss.user_id=:userid", nativeQuery = true)
+    @Query(value = queryByPresenca + " where wasthere = '1' and userss.user_id=:userid", nativeQuery = true)
     Iterable<MarcacaoPresencaView> findPresencasByUserid(@Param("userid") int userid);
 
     /*select marcarpresencas.presenca_id AS presencaId, users.user_name AS Username, locais.place_name AS Nameofplace
