@@ -6,10 +6,14 @@ import com.busybrain.api.prototipo.views.MarcacaoFavoritoView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,6 +50,19 @@ public class MarcacaoFavoritoController {
 
     }
 
+    //MARCAR LOCAIS FAVORITOS
+
+    @PutMapping(path = "/updateplace/{favorite_id}")
+    public MarcacaoFavorito atualizarFavorito(@PathVariable(value = "favorite_id") int id, @RequestBody MarcacaoFavorito marcacaoFavorito){ //O request body recebe os dados de uma tarefa a atualizar
+
+        MarcacaoFavorito marcacaofavAtual = marcacaoFavoritoRepository.findById(id).get(); //Aceder o ID da marcacao a atualizar (marcacao ou nao marcacao de "favorito")
+
+        BeanUtils.copyProperties(marcacaoFavorito, marcacaofavAtual, "id"); //Quais sejam os dados atualizados, ele irá guardar esses novos dados (excepto o "ID", pois não pode ser alterado)
+        return marcacaoFavoritoRepository.save(marcacaofavAtual); //Guardar uma nova tarefa com os novos dados requisitados pelo utilizador através do "input" tarefa (no @RequestBody)
+
+    }
+
+    
     //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER  
 
     /*@GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
