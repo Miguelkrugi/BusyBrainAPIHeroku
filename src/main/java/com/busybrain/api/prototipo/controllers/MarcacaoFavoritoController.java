@@ -50,7 +50,8 @@ public class MarcacaoFavoritoController {
 
     }
 
-    //MARCAR LOCAIS FAVORITOS
+    //MARCAR LOCAIS FAVORITOS -- TERMINAR AMANHA (UPDATE A VALORES BOOLEANOSch10)
+    
 
     @PutMapping(path = "/updateplace/{favorite_id}")
     public MarcacaoFavorito atualizarFavorito(@PathVariable(value = "favorite_id") int id, @RequestBody MarcacaoFavorito marcacaoFavorito){ //O request body recebe os dados de uma tarefa a atualizar
