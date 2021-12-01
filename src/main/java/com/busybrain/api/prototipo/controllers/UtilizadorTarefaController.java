@@ -43,7 +43,7 @@ public class UtilizadorTarefaController {
 
     }
 
-    //REMOVER UM PARTICIPANTE
+    //REMOVER UM PARTICIPANTE DE UM GRUPO (REMOVER UTILIZADOR DE UMA TAREFA)
 
     @DeleteMapping(path = "/deleteparticipant/{user_id_tarefa}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteParticipant(@PathVariable("user_id_tarefa") int id){
@@ -54,6 +54,7 @@ public class UtilizadorTarefaController {
 
     }
     
+    //---------------------------------- MÉTODOS UTILIZADOS ACIMA NO CÓDIGO --------------------------------------------------------
 
     /*@PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
