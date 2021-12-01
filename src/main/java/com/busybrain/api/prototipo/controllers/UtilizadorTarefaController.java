@@ -1,5 +1,7 @@
 package com.busybrain.api.prototipo.controllers;
 
+import javax.websocket.server.PathParam;
+
 import com.busybrain.api.prototipo.models.UtilizadorTarefa;
 import com.busybrain.api.prototipo.models.repositories.UtilizadorTarefaRepository;
 
@@ -7,7 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +43,18 @@ public class UtilizadorTarefaController {
 
     }
 
+    //REMOVER UM PARTICIPANTE
+
+    @DeleteMapping(path = "/deleteparticipant/{user_id_tarefa}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteParticipant(@PathVariable("user_id_tarefa") int id){
+
+        logger.info("Deleting participant with id: " + id);
+
+        utilizadorTarefaRepository.deleteById(id);
+
+    }
+    
+
     /*@PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
 
@@ -47,5 +63,16 @@ public class UtilizadorTarefaController {
        return savedTarefa;
 
     }*/
+
+    /*
+    @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
+    public void deleteTarefa(@PathVariable("task_id") int id){
+
+         logger.info("Deleting task with id: " + id);
+
+         tarefaRepository.deleteById(id);
+
+    }
+    */ 
 
 }
