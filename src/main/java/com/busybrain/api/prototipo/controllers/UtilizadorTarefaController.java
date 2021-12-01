@@ -4,6 +4,7 @@ import javax.websocket.server.PathParam;
 
 import com.busybrain.api.prototipo.models.UtilizadorTarefa;
 import com.busybrain.api.prototipo.models.repositories.UtilizadorTarefaRepository;
+import com.busybrain.api.prototipo.views.UtilizadorTarefaView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ public class UtilizadorTarefaController {
     private UtilizadorTarefaRepository utilizadorTarefaRepository;
 
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
-    public Iterable<UtilizadorTarefa> getUtilizadorTarefa() {
+    public Iterable<UtilizadorTarefaView> getUtilizadorTarefa() {
         logger.info("A Exibir participantes de todas as tarefas na app");
         return utilizadorTarefaRepository.findAllUtilizadorTarefa();
     }
