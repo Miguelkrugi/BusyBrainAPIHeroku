@@ -2,10 +2,12 @@ package com.busybrain.api.prototipo.controllers;
 
 import java.util.Optional;
 
+import javax.print.attribute.standard.Media;
+
 import com.busybrain.api.prototipo.models.Tarefa;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
-
+import com.busybrain.api.prototipo.views.TarefaView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -109,6 +111,17 @@ public class TarefaController {
 
 
     }*/
+
+    //METHOD TO GET TITLE, DESCRIPTION AND PRIORITY OF EACH TASK IN THE APP
+
+    @GetMapping(path = "/gettasks", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<TarefaView> getAllTasks(){
+
+        logger.info("Sending all tasks...");
+
+        return tarefaRepository.findAllTarefa();
+
+    }
 
 
     @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
