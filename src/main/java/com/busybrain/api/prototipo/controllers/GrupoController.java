@@ -2,6 +2,7 @@ package com.busybrain.api.prototipo.controllers;
 
 import com.busybrain.api.prototipo.models.Grupo;
 import com.busybrain.api.prototipo.models.repositories.GrupoRepository;
+import com.busybrain.api.prototipo.views.GrupoView;
 
 import org.apache.catalina.connector.Response;
 import org.slf4j.Logger;
@@ -34,7 +35,7 @@ public class GrupoController {
     }
 
     @GetMapping(path = "/getgroups", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Grupo> findAllGrupos(){
+    public Iterable<GrupoView> findAllGrupos(){
 
         logger.info("Sending all groupss...");
 
