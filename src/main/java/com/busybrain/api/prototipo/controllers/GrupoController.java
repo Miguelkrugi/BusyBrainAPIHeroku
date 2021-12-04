@@ -26,11 +26,20 @@ public class GrupoController {
     private GrupoRepository grupoRepository;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Grupo> findAllWebsites(){
+    public Iterable<Grupo> findAllGroups(){
 
         logger.info("Sending All groups...");
 
         return grupoRepository.findAll();
+    }
+
+    @GetMapping(path = "/getgroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Grupo> findAllGrupos(){
+
+        logger.info("Sending all groupss...");
+
+        return grupoRepository.findAllGrupos();
+
     }
 
     @PostMapping(path = "/creategroup", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
@@ -42,6 +51,7 @@ public class GrupoController {
 
     }
 
+    
     //Apagar um grupo
     
     @DeleteMapping(path = "/deletegroup/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
