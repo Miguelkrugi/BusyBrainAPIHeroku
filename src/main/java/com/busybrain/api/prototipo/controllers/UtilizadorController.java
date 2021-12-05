@@ -9,6 +9,7 @@ import com.busybrain.api.prototipo.models.Utilizador;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.UtilizadorRepository;
+import com.busybrain.api.prototipo.views.UserView;
 
 import org.apache.catalina.startup.ListenerCreateRule.OptionalListener;
 import org.apache.coyote.Response;
@@ -71,7 +72,7 @@ public class UtilizadorController { //Inicio do controller
      //MÉTODO PARA OBTER OS USERNAMES DOS UTILIZADORES
 
      @GetMapping(path = "/getusernames", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Iterable<Utilizador> getUsername(){
+     public Iterable<UserView> getUsername(){
 
         logger.info("Sending all usernames...");
 

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.busybrain.api.prototipo.models.Tarefa;
 import com.busybrain.api.prototipo.models.Utilizador;
+import com.busybrain.api.prototipo.views.UserView;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -26,7 +27,7 @@ public interface UtilizadorRepository extends CrudRepository<Utilizador, Integer
 
     //O @Query é OBRIGATÓRIO para queries mais especificas de acesso á base de dados (chamadas de Custom Queries).
 
-    @Query(value = "select user_name AS username from utilizador", nativeQuery = true)
-    Iterable<Utilizador> findAllUsername();
+    @Query(value = "select user_name AS UsernameName from utilizador", nativeQuery = true)
+    Iterable<UserView> findAllUsername();
 
 }
