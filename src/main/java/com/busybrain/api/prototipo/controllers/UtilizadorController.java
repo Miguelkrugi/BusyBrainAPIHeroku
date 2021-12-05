@@ -68,6 +68,17 @@ public class UtilizadorController { //Inicio do controller
  
      }
 
+     //MÉTODO PARA OBTER OS USERNAMES DOS UTILIZADORES
+
+     @GetMapping(path = "/getusernames", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<Utilizador> getUsername(){
+
+        logger.info("Sending all usernames...");
+
+        return utilizadorRepository.findAllUsername();
+
+     }
+
      //CHANGED
     /*@GetMapping(path = "/getusernames/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getUsernameById(@PathVariable("id") int id, @RequestParam("username") String username){

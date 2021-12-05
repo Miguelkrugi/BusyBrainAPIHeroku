@@ -26,4 +26,7 @@ public interface UtilizadorRepository extends CrudRepository<Utilizador, Integer
 
     //O @Query é OBRIGATÓRIO para queries mais especificas de acesso á base de dados (chamadas de Custom Queries).
 
+    @Query(value = "select user_name from utilizador", nativeQuery = true)
+    Iterable<Utilizador> findAllUsername();
+
 }
