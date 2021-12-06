@@ -66,15 +66,19 @@ public class MarcacaoFavoritoController {
 
     }*/
 
-    @PutMapping(path = "/update/{favorite_id}")
-    public MarcacaoFavorito atualizarFav(@PathVariable(value = "favorite_id") int id, @RequestBody MarcacaoFavorito marcarFavorito){
+    //TODO PODERÁ SER DEVIDO AO PUT OCORRER NUMA VIEW??? || ATENCAO!!
 
-        MarcacaoFavorito marcarFavoritoAtual = marcacaoFavoritoRepository.findById(id).get();
+    /*@PutMapping(path = "/update/{favorite_id}")
+    public MarcacaoFavoritoView atualizarFav(@PathVariable(value = "favorite_id") int id, @RequestBody MarcacaoFavorito marcarFavorito){
+
+        MarcacaoFavoritoView marcarFavoritoAtual = marcacaoFavoritoRepository.findById(id).get();
 
         BeanUtils.copyProperties(marcarFavorito, marcarFavoritoAtual, "id");
         return marcacaoFavoritoRepository.save(marcarFavoritoAtual);
 
-    }
+    }*/
+
+    //---------------------------------------------------------------------------------------------------
     
     //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER  
 

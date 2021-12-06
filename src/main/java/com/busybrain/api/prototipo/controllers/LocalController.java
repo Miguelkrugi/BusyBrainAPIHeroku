@@ -8,11 +8,13 @@ import com.busybrain.api.prototipo.models.repositories.LocalRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +50,8 @@ public class LocalController {
          else return _local.get();
        
    }
+
+
 
     @GetMapping(path = "/searchbyname/{place_name}")
     public Iterable<Local> localByName(@PathVariable(value = "place_name") String name){
@@ -112,6 +116,18 @@ public Local savePlace(@RequestBody Local local){
    Local savedPlace = localRepository.save(local);
    logger.info("Saving place...");
    return savedPlace;
+
+}
+
+//-----------------------------------------------------------------------
+
+@PutMapping(path = "/updateplace/{place_id}")
+public Local atualizarLocal(@PathVariable(value = "place_id") int id, @RequestBody Local local){
+
+   Local localAtual = localRepository.findById(id).get();
+
+   BeanUtils.copyProperties(local, localAtual, "id");
+   return localRepository.save(localAtual);
 
 }
 
