@@ -79,16 +79,6 @@ public class UtilizadorTarefaController {
     }
     */ 
 
-    //MÉTODO PARA TESTE 
 
-    @PutMapping(path = "/updateparticipante/{user_id_tarefa}")
-     public UtilizadorTarefa atualizarParticipante(@PathVariable(value = "user_id_tarefa") int id, @RequestBody UtilizadorTarefa utilizadorTarefa){
-
-     UtilizadorTarefa utilizadorTarefaAtual = utilizadorTarefaRepository.findById(id).get();
-
-     BeanUtils.copyProperties(utilizadorTarefa, utilizadorTarefaAtual, "id");
-     return utilizadorTarefaRepository.save(utilizadorTarefaAtual);
-
-}
 
 }
