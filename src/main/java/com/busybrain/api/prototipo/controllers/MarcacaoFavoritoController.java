@@ -60,7 +60,7 @@ public class MarcacaoFavoritoController {
 
         logger.info("" + marcacaofavAtual);
 
-        BeanUtils.copyProperties(marcacaoFavorito, marcacaofavAtual, "id"); //Quais sejam os dados atualizados, ele irá guardar esses novos dados (excepto o "ID", pois não pode ser alterado)
+        BeanUtils.copyProperties(marcacaofavAtual, marcacaoFavorito, "id"); //Quais sejam os dados atualizados, ele irá guardar esses novos dados (excepto o "ID", pois não pode ser alterado)
         return marcacaoFavoritoRepository.save(marcacaofavAtual); //Guardar uma nova tarefa com os novos dados requisitados pelo utilizador através do "input" tarefa (no @RequestBody)
 
     }
