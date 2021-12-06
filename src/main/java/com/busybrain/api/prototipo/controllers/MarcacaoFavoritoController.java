@@ -56,7 +56,9 @@ public class MarcacaoFavoritoController {
     @PutMapping(path = "/updateplace/{favorite_id}")
     public MarcacaoFavorito atualizarFavorito(@PathVariable(value = "favorite_id") int id, @RequestBody MarcacaoFavorito marcacaoFavorito){ //O request body recebe os dados de uma tarefa a atualizar
 
-        MarcacaoFavorito marcacaofavAtual = marcacaoFavoritoRepository.findById(id).get(); //Aceder o ID da marcacao a atualizar (marcacao ou nao marcacao de "favorito")
+        MarcacaoFavorito marcacaofavAtual = marcacaoFavoritoRepository.findById(id).get();//Aceder o ID da marcacao a atualizar (marcacao ou nao marcacao de "favorito")
+
+        logger.info("" + marcacaofavAtual);
 
         BeanUtils.copyProperties(marcacaoFavorito, marcacaofavAtual, "id"); //Quais sejam os dados atualizados, ele irá guardar esses novos dados (excepto o "ID", pois não pode ser alterado)
         return marcacaoFavoritoRepository.save(marcacaofavAtual); //Guardar uma nova tarefa com os novos dados requisitados pelo utilizador através do "input" tarefa (no @RequestBody)
