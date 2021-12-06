@@ -53,7 +53,7 @@ public class MarcacaoFavoritoController {
     //MARCAR LOCAIS FAVORITOS -- TERMINAR AMANHA (UPDATE A VALORES BOOLEANOSch10)
     
 
-    @PutMapping(path = "/updateplace/{favorite_id}")
+   /* @PutMapping(path = "/updateplace/{favorite_id}")
     public MarcacaoFavorito atualizarFavorito(@PathVariable(value = "favorite_id") int id, @RequestBody MarcacaoFavorito marcacaoFavorito){ //O request body recebe os dados de uma tarefa a atualizar
 
         MarcacaoFavorito marcacaofavAtual = marcacaoFavoritoRepository.findById(id).get();//Aceder o ID da marcacao a atualizar (marcacao ou nao marcacao de "favorito")
@@ -64,8 +64,17 @@ public class MarcacaoFavoritoController {
         //BeanUtils.copyProperties(marcacaofavAtual, marcacaoFavorito, "id"); | //Quais sejam os dados atualizados, ele irá guardar esses novos dados (excepto o "ID", pois não pode ser alterado)
         return marcacaoFavoritoRepository.save(marcacaofavAtual); //Guardar uma nova tarefa com os novos dados requisitados pelo utilizador através do "input" tarefa (no @RequestBody)
 
-    }
+    }*/
 
+    @PutMapping(path = "/update/{favorite_id}")
+    public MarcacaoFavorito atualizarFav(@PathVariable(value = "favorite_id") int id, @RequestBody MarcacaoFavorito marcarFavorito){
+
+        MarcacaoFavorito marcarFavoritoAtual = marcacaoFavoritoRepository.findById(id).get();
+
+        BeanUtils.copyProperties(marcarFavorito, marcarFavoritoAtual, "id");
+        return marcacaoFavoritoRepository.save(marcarFavoritoAtual);
+
+    }
     
     //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER  
 
