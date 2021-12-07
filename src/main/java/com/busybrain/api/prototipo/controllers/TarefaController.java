@@ -46,6 +46,14 @@ public class TarefaController {
 
     }
 
+    @GetMapping(path = "/gettarefas/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<TarefaView> getAllTarefasByUsertaskid(@PathVariable(value = "user_task_id") int usertaskid){
+
+        logger.info("Sending all tasks of the user: " + usertaskid);
+        return tarefaRepository.findAllTarefaByUserid(usertaskid);
+
+    }
+
     @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
 
