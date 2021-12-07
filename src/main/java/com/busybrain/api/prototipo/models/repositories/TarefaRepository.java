@@ -1,6 +1,7 @@
 package com.busybrain.api.prototipo.models.repositories;
 
 import com.busybrain.api.prototipo.models.Tarefa;
+import com.busybrain.api.prototipo.models.TarefaData;
 import com.busybrain.api.prototipo.views.TarefaView;
 
 import org.springframework.data.jpa.repository.Query;
@@ -31,7 +32,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findTaskByPriority();
 
     @Query(value = "SELECT * FROM tarefa", nativeQuery = true)
-    Iterable<Tarefa> findAllTasks();
+    Iterable<TarefaData> findAllTasks();
 
     @Query(value = queryByTaskCardview, nativeQuery = true)
     Iterable<TarefaView> findAllTarefa(); 
