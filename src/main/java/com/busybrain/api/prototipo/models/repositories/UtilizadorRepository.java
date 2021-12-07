@@ -14,6 +14,8 @@ public interface UtilizadorRepository extends CrudRepository<Utilizador, Integer
 
     Optional<Utilizador> findByUsername(String username); //É uma query que permitirá ser inserido um username, e procurar por esse username ("findByUsername"). Utilizado no método da linha 78 do "UtilizadorController.java"
     
+    Utilizador findByUsernameAndPassword(String username, String password);
+
     //@Query
     //Iterable<Tarefa> findTaskbyUser(int id);
 
@@ -29,5 +31,7 @@ public interface UtilizadorRepository extends CrudRepository<Utilizador, Integer
 
     @Query(value = "select user_name AS UsernameName from utilizador", nativeQuery = true)
     Iterable<UserView> findAllUsername();
+
+
 
 }

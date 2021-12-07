@@ -41,6 +41,15 @@ public class UtilizadorController { //Inicio do controller
         return utilizadorRepository.findAll();  //Vai retornar todos os utilizadores da app, utilizando a função findAll(). Esta função já está incluida no CRUDRepository (que foi "chamado" no ficheiro do UtilizadorRepository)
     }
 
+    @GetMapping(path = "/{username}/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Utilizador getUserInfoByUsernameAndPassword(@PathVariable String username, @PathVariable String password){
+
+      logger.info("Sending user with username = " + username + " and password = " + password);
+
+      return utilizadorRepository.findByUsernameAndPassword(username, password);
+
+    }
+
     //COMPLETO
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE) //Método GET. Será utilizado para pesquisar um utilizador pelo ID. O parâmetro de input é representado por entre {}.
      public Utilizador getUtilizador(@PathVariable("id") int id){ //Este método retornará somente 1 objeto (1 utilizador), pois cada user terá um ID diferente. Será então inserido o id no URL.
