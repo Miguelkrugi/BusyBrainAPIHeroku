@@ -46,6 +46,8 @@ public class TarefaController {
 
     }
 
+    //DEMONSTRA SOMENTE O TITULO, DESCRICAO E PRIORIDADE DAS TAREFAS DE UM UTILIZADOR (CRIADOR DA TAREFA)
+
     @GetMapping(path = "/gettarefas/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<TarefaView> getAllTarefasByUsertaskid(@PathVariable(value = "user_task_id") int usertaskid){
 
