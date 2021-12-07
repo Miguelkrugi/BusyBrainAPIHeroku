@@ -5,6 +5,7 @@ import com.busybrain.api.prototipo.views.TarefaView;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     
@@ -18,6 +19,12 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
     "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id";
 
+    String queryTestTaskRecyclerView = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade " +
+    "from tarefa AS tarefas " +
+    "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
+    "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id " +
+    "inner join utilizador users on users.user_id = tarefas.user_task_id ";
+
     @Query(value = "SELECT * FROM tarefa WHERE task_priority = '3'", nativeQuery = true)
     Iterable<Tarefa> findTaskByPriority();
 
@@ -26,5 +33,8 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
 
     @Query(value = queryByTaskCardview, nativeQuery = true)
     Iterable<TarefaView> findAllTarefa(); 
+
+    @Query(value = queryTestTaskRecyclerView + "where users.user_id=:userid", nativeQuery = true)
+    Iterable<TarefaView> findAllTarefaByUserid(@Param("userid") int userid);
 
 }
