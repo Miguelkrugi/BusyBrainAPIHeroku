@@ -39,7 +39,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findAllTasks();
 
     @Query(value = queryByTaskCardview, nativeQuery = true)
-    List<TarefaData> findAllTarefa(); 
+    Iterable<Tarefa> findAllTarefa(); 
 
     @Query(value = queryTestTaskRecyclerView + "where tarefas.user_task_id=:usertaskid", nativeQuery = true)
     Iterable<TarefaView> findAllTarefaByUserid(@Param("usertaskid") int usertaskid);

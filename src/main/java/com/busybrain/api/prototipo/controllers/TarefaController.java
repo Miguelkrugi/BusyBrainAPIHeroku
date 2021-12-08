@@ -144,7 +144,7 @@ public class TarefaController {
     }*/
 
     @GetMapping(path = "/gettasks", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<TarefaData> getAllTasks(){
+    public Iterable<Tarefa> getAllTasks(){
 
         logger.info("Sending all tasks...");
 

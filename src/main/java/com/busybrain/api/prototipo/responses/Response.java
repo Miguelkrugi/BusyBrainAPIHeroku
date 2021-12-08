@@ -6,15 +6,18 @@ import com.busybrain.api.prototipo.models.Tarefa;
 
 public class Response {
     
-    private String message;
+   /* private String message;
     private Object object;
 
     public Response(String message, Object object) {
     this.message = message;
     this.object = object;
-    
+
     }
     public String getMessage() { return message; }
-    public Object getObject() { return object; }
+    public Object getObject() { return object; }*/
+
+    public ArrayList<Tarefa> tarefasss;
 
 }
+
