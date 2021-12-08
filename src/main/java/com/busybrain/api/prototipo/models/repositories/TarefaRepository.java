@@ -1,7 +1,7 @@
 package com.busybrain.api.prototipo.models.repositories;
 
 import com.busybrain.api.prototipo.models.Tarefa;
-
+import com.busybrain.api.prototipo.models.TarefaData;
 import com.busybrain.api.prototipo.responses.Response;
 import com.busybrain.api.prototipo.views.TarefaView;
 
@@ -36,7 +36,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findAllTasks();
 
     @Query(value = queryByTaskCardview, nativeQuery = true)
-    Iterable<TarefaView> findAllTarefa(); 
+    TarefaData findAllTarefa(); 
 
     @Query(value = queryTestTaskRecyclerView + "where tarefas.user_task_id=:usertaskid", nativeQuery = true)
     Iterable<TarefaView> findAllTarefaByUserid(@Param("usertaskid") int usertaskid);
