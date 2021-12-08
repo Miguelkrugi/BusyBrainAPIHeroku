@@ -33,7 +33,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findTaskByPriority();
 
     @Query(value = "SELECT * FROM tarefa", nativeQuery = true)
-    Response findAllTasks();
+    Iterable<Response> findAllTasks();
 
     @Query(value = queryByTaskCardview, nativeQuery = true)
     Iterable<TarefaView> findAllTarefa(); 
