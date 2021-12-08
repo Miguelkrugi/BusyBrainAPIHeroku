@@ -6,14 +6,15 @@ import com.busybrain.api.prototipo.models.Tarefa;
 
 public class Response {
     
-    public ArrayList<Tarefa> tarefas;
+    private String message;
+    private Object object;
 
-    public ArrayList<Tarefa> getTarefas() {
-        return tarefas;
+    public Response(String message, Object object) {
+    this.message = message;
+    this.object = object;
+    
     }
-
-    public void setTarefas(ArrayList<Tarefa> tarefas) {
-        this.tarefas = tarefas;
-    }
+    public String getMessage() { return message; }
+    public Object getObject() { return object; }
 
 }

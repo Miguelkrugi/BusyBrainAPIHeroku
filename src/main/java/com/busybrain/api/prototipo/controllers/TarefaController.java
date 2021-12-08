@@ -5,7 +5,6 @@ import java.util.Optional;
 import javax.print.attribute.standard.Media;
 
 import com.busybrain.api.prototipo.models.Tarefa;
-import com.busybrain.api.prototipo.models.TarefaData;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
 import com.busybrain.api.prototipo.responses.Response;
@@ -34,7 +33,7 @@ public class TarefaController {
     @Autowired
     private TarefaRepository tarefaRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
-    public TarefaData getTasks() {
+    public Iterable<Tarefa> getTasks() {
         logger.info("A Exibir todas as tarefas criadas na app");
         return tarefaRepository.findAllTasks();
     }
