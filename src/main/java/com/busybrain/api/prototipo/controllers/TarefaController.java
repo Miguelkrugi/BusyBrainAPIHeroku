@@ -9,6 +9,7 @@ import javax.print.attribute.standard.Media;
 import javax.xml.bind.Marshaller.Listener;
 
 import com.busybrain.api.prototipo.models.Tarefa;
+import com.busybrain.api.prototipo.models.TarefaData;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
 import com.busybrain.api.prototipo.responses.Response;
@@ -40,6 +41,7 @@ public class TarefaController {
    // public Iterable<Tarefa> getTasks() {
 
     public Iterable<Tarefa> getAllTarefas(){
+
         logger.info("A Exibir todas as tarefas criadas na app");
 
         return tarefaRepository.findAll();
@@ -132,8 +134,17 @@ public class TarefaController {
 
     //METHOD TO GET TITLE, DESCRIPTION AND PRIORITY OF EACH TASK IN THE APP
 
-    @GetMapping(path = "/gettasks", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@GetMapping(path = "/gettasks", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<TarefaView> getAllTasks(){
+
+        logger.info("Sending all tasks...");
+
+        return tarefaRepository.findAllTarefa();
+
+    }*/
+
+    @GetMapping(path = "/gettasks", produces = MediaType.APPLICATION_JSON_VALUE)
+    public TarefaData getAllTasks(){
 
         logger.info("Sending all tasks...");
 
