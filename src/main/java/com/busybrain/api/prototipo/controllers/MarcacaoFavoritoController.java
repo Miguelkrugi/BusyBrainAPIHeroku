@@ -50,6 +50,8 @@ public class MarcacaoFavoritoController {
 
     }
 
+   
+
     //MARCAR LOCAIS FAVORITOS -- TERMINAR AMANHA (UPDATE A VALORES BOOLEANOSch10)
     
 
