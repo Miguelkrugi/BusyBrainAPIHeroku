@@ -1,5 +1,7 @@
 package com.busybrain.api.prototipo.models.repositories;
 
+import java.util.List;
+
 import com.busybrain.api.prototipo.models.Tarefa;
 import com.busybrain.api.prototipo.models.TarefaData;
 import com.busybrain.api.prototipo.responses.Response;
@@ -8,6 +10,7 @@ import com.busybrain.api.prototipo.views.TarefaView;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+
 
 public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     
@@ -36,7 +39,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findAllTasks();
 
     @Query(value = queryByTaskCardview, nativeQuery = true)
-    TarefaData findAllTarefa(); 
+    List<TarefaData> findAllTarefa(); 
 
     @Query(value = queryTestTaskRecyclerView + "where tarefas.user_task_id=:usertaskid", nativeQuery = true)
     Iterable<TarefaView> findAllTarefaByUserid(@Param("usertaskid") int usertaskid);
