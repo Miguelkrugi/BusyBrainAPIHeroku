@@ -34,7 +34,7 @@ public class TarefaController {
     @Autowired
     private TarefaRepository tarefaRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
-    public Iterable<TarefaData> getTasks() {
+    public TarefaData getTasks() {
         logger.info("A Exibir todas as tarefas criadas na app");
         return tarefaRepository.findAllTasks();
     }
