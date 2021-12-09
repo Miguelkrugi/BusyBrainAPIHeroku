@@ -36,9 +36,9 @@ public class MensagemController {
     //PARA ENVIAR UMA MENSAGEM E ARMAZENAR NA BD
 
     @PostMapping(path = "/{chat_id}/{user_id}/createmessage", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
-    public Mensagem saveMensagem(@PathVariable(value = "chat_id") int chatid, @PathVariable(value = "user_id") int userid, @RequestBody Mensagem mensagem){
+    public MensagemView saveMensagem(@PathVariable(value = "chat_id") int chatid, @PathVariable(value = "user_id") int userid, @RequestBody MensagemView mensagem){
 
-       Mensagem savedMensagem = mensagemRepository.save(mensagem);
+       MensagemView savedMensagem = mensagemRepository.save(mensagem);
        logger.info("Saving message...");
        return savedMensagem;
 

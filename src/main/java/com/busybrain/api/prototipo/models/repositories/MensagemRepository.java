@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface MensagemRepository extends CrudRepository<Mensagem, Integer>{
+public interface MensagemRepository extends CrudRepository<MensagemView, Integer>{
     
     String queryToMessage = "select mensagens.message_content AS messageContent, users.user_name AS Username, grupos.group_name AS groupName " + 
     "from mensagem AS mensagens " + 
