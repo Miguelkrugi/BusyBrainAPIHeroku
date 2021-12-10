@@ -5,6 +5,7 @@ import com.busybrain.api.prototipo.views.WebsiteView;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     
@@ -28,6 +29,6 @@ public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     "inner join utilizador users on blocks.utilizador_id = users.user_id ";
 
     @Query(value = querytogetwebsitesbyuserid + "where blocks.utilizador_id=:utilizadorid", nativeQuery = true)
-    Iterable<WebsiteView> findWebsitesByUserid();
+    Iterable<WebsiteView> findWebsitesByUserid(@Param("utilizadorid") int utilizadorid);
 
 }
