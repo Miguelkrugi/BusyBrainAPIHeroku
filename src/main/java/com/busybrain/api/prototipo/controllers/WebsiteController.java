@@ -36,7 +36,7 @@ public class WebsiteController {
         return websiteRepository.findAll();
     }
 
-    @GetMapping(path = "/getsites/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/getsites", produces = MediaType.APPLICATION_JSON_VALUE)
      public Iterable<WebsiteView> getWebsites(){
 
         logger.info("Getting all blocked websites...");
