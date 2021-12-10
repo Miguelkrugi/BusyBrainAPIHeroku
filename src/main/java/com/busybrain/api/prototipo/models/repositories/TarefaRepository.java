@@ -17,7 +17,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findByType(int type);
     Iterable<Tarefa> findByTitleContaining(String title);
     Iterable<Tarefa> findTaskByUsertaskid(int usertaskid);
-    Iterable<TarefaView> findByPriority(int priority);
+    
 
     String queryByTaskCardview = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade " +
     "from tarefa AS tarefas " + 
@@ -29,6 +29,11 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
     "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id " +
     "inner join utilizador users on tarefas.user_task_id = users.user_id ";
+
+    String queryFindByPriority = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade " +
+    "from tarefa AS tarefas " + 
+    "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
+    "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id ";
 
     //inner join utilizador users on users.user_id = tarefas.user_task_id
 
@@ -43,5 +48,8 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
 
     @Query(value = queryTestTaskRecyclerView + "where tarefas.user_task_id=:usertaskid", nativeQuery = true)
     Iterable<TarefaView> findAllTarefaByUserid(@Param("usertaskid") int usertaskid);
+
+    @Query(value = queryFindByPriority + "where priority.taskpriority_id=:priority" , nativeQuery = true)
+    Iterable<TarefaView> findByPriority(@Param("priority") int priority); 
 
 }
