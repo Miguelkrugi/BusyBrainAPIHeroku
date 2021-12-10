@@ -45,6 +45,15 @@ public class WebsiteController {
 
      }
 
+     @GetMapping(path = "/getsitesfrom/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<WebsiteView> getWebsitesByUserid(){
+
+        logger.info("Getting all websites status from user by id given...");
+
+        return websiteRepository.findWebsitesByUserid();
+
+     }
+
     //Adicionar um website -> METODO DE TESTE
 
     @PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
