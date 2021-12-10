@@ -17,7 +17,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findByType(int type);
     Iterable<Tarefa> findByTitleContaining(String title);
     Iterable<Tarefa> findTaskByUsertaskid(int usertaskid);
-    Iterable<Tarefa> findByPriority(int priority);
+    Iterable<TarefaView> findByPriority(int priority);
 
     String queryByTaskCardview = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade " +
     "from tarefa AS tarefas " + 
