@@ -18,8 +18,7 @@ public class Website {
     @Column(name = "utilizador_id") private int utilizadorid;
     @Column(name = "blocked_status") private boolean status;
     @Column(name = "website_id") private int id;
-    @Column(name = "website_domain") private String domain;
-    
+    @Column(name = "website_domain_id") private String domainid;
 
     public Website(){
 
@@ -57,12 +56,12 @@ public class Website {
         this.id = id;
     }
 
-    public String getDomain() {
-        return domain;
+    public String getDomainid() {
+        return domainid;
     }
 
-    public void setDomain(String domain) {
-        this.domain = domain;
+    public void setDomainid(String domainid) {
+        this.domainid = domainid;
     }
 
 }
