@@ -2,6 +2,7 @@ package com.busybrain.api.prototipo.controllers;
 
 import com.busybrain.api.prototipo.models.Website;
 import com.busybrain.api.prototipo.models.repositories.WebsiteRepository;
+import com.busybrain.api.prototipo.views.WebsiteView;
 import com.fasterxml.jackson.databind.type.MapType;
 
 import org.slf4j.Logger;
@@ -34,6 +35,15 @@ public class WebsiteController {
 
         return websiteRepository.findAll();
     }
+
+    @GetMapping(path = "/getwebsites/", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<WebsiteView> getWebsites(){
+
+        logger.info("Getting all blocked websites...");
+
+        return websiteRepository.findWebsites();
+
+     }
 
     //Adicionar um website -> METODO DE TESTE
 
