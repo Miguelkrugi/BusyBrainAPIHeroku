@@ -36,6 +36,8 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
     "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id ";
 
+    String queryToDeleteTask = "delete from tarefa AS tarefas ";
+
     //inner join utilizador users on users.user_id = tarefas.user_task_id
 
     @Query(value = "SELECT * FROM tarefa WHERE task_priority = '3'", nativeQuery = true)
@@ -52,5 +54,8 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
 
     @Query(value = queryFindByPriority + "where priority.taskpriority_id=:priority" , nativeQuery = true)
     Iterable<TarefaView> findByPriority(@Param("priority") int priority); 
+
+    //@Query(value = queryToDeleteTask + "where task_id=:taskid", nativeQuery = true)
+    //Respons
 
 }

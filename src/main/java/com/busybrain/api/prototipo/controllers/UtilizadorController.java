@@ -87,7 +87,7 @@ public class UtilizadorController { //Inicio do controller
 
         return utilizadorRepository.findAllUsername();
 
-     }
+     }   
 
      //CHANGED
     /*@GetMapping(path = "/getusernames/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
