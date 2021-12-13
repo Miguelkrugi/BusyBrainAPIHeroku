@@ -152,7 +152,7 @@ public class TarefaController {
 
     }
 
-
+    
     @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public void deleteTarefa(@PathVariable("task_id") int id){
 

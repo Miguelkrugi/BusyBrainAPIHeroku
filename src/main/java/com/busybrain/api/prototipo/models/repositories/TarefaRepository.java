@@ -19,7 +19,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     Iterable<Tarefa> findTaskByUsertaskid(int usertaskid);
     
 
-    String queryByTaskCardview = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade " +
+    String queryByTaskCardview = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade, tarefas.task_id AS taskId " +
     "from tarefa AS tarefas " + 
     "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
     "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id";
@@ -29,6 +29,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
     "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id " +
     "inner join utilizador users on tarefas.user_task_id = users.user_id ";
+
 
     String queryFindByPriority = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade " +
     "from tarefa AS tarefas " + 

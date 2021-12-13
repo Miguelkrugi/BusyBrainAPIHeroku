@@ -5,5 +5,6 @@ public interface TarefaView {
     String getTaskTitle();
     String getTaskDesc();
     String getPrioridade();
+    int getTaskId();
 
 }
