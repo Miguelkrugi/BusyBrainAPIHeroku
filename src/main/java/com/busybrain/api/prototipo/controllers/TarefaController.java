@@ -47,12 +47,21 @@ public class TarefaController {
         return tarefaRepository.findAll();
     }
 
-    @GetMapping(path = "/getfrom/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+   /* @GetMapping(path = "/getfrom/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Tarefa> getTasksFromUser(@PathVariable(value = "user_task_id") int usertaskid){
 
         logger.info("Get task from user with id: " + usertaskid);
 
          return tarefaRepository.findTaskByUsertaskid(usertaskid);
+
+    }*/
+
+    @GetMapping(path = "/getfrom/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<TarefaView> getTasksFromUser(@PathVariable(value = "user_task_id") int usertaskid){
+
+        logger.info("Get task from user with id: " + usertaskid);
+
+         return tarefaRepository.findAllTarefa();
 
     }
 
@@ -65,6 +74,8 @@ public class TarefaController {
         return tarefaRepository.findAllTarefaByUserid(usertaskid);
 
     }
+
+    
 
     @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
