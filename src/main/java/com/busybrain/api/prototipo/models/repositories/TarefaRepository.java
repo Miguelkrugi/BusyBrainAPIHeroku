@@ -36,7 +36,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     "inner join utilizador users on tarefas.user_task_id = users.user_id ";
 
 
-    String queryFindByPriority = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade, tarefas.task_id AS taskId " +
+    String queryFindByPriority = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade, tarefas.task_id AS taskId, tarefas.user_task_id AS usertaskId " +
     "from tarefa AS tarefas " + 
     "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
     "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id ";
