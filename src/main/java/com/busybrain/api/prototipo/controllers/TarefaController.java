@@ -73,7 +73,7 @@ public class TarefaController {
         logger.info("Sending all tasks of the user: " + usertaskid);
         return tarefaRepository.findAllTarefaByUserid(usertaskid);
 
-    }
+    } 
 
     
 
