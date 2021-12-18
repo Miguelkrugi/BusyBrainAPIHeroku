@@ -7,4 +7,5 @@ public interface TarefaView {
     String getPrioridade();
     int getTaskId();
     int getUserTaskId();
+    String getTaskType();
 }
