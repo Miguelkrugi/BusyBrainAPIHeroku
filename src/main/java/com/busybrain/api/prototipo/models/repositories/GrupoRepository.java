@@ -5,6 +5,7 @@ import com.busybrain.api.prototipo.views.GrupoView;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface GrupoRepository extends CrudRepository<Grupo, Integer>{
     
@@ -13,6 +14,6 @@ public interface GrupoRepository extends CrudRepository<Grupo, Integer>{
     "inner join tarefa tarefas on tarefas.task_id = grupos.tarefa_id";
 
     @Query(value = queryByGroups + "where tarefas.user_task_id=:usertaskid", nativeQuery = true)
-    Iterable<GrupoView> findAllGrupos();
+    Iterable<GrupoView> findAllGrupos(@Param("usertaskid") int usertaskid);
 
 }
