@@ -23,7 +23,7 @@ public interface UtilizadorTarefaRepository extends CrudRepository<UtilizadorTar
     Iterable<UtilizadorTarefaView> findAllUtilizadorTarefa();
 
     @Query(value = queryToShowParticipantsOfAGroup + "where groups.group_id=:groupid", nativeQuery = true)
-    Iterable<UtilizadorTarefaView> findUtilizadorTarefaByGroupid(@Param("group_id") int groupid);
+    Iterable<UtilizadorTarefaView> findUtilizadorTarefaByGroupid(@Param("groupid") int groupid);
 
 
     /*
