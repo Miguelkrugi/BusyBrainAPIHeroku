@@ -10,6 +10,7 @@ public interface UtilizadorTarefaView {
    String getGroupName();
    String getGroupDesc();
    String getUserName();
-   int getUserId();
+   int getUserIdentifier();
+   int getTaskIdentifier();
 
 }
