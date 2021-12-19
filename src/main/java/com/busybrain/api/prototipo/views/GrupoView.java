@@ -5,5 +5,6 @@ public interface GrupoView {
     String getGroupName();
     String getGroupDesc();
     String getTaskTitle();
+    int getUserTaskId();
 
 }
