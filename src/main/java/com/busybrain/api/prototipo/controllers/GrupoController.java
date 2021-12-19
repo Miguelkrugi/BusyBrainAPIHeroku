@@ -46,7 +46,7 @@ public class GrupoController {
     @GetMapping(path = "/getgroups/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<GrupoView> findAllGrupos(@PathVariable(value = "user_task_id") int usertaskid){
 
-        logger.info("Sending all groupss...");
+        logger.info("Sending all groups...");
 
         return grupoRepository.findAllGrupos(usertaskid);
 
