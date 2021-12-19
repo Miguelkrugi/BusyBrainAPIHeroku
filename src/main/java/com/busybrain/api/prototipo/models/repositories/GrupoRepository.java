@@ -11,7 +11,7 @@ public interface GrupoRepository extends CrudRepository<Grupo, Integer>{
     
     String queryByGroups = "select grupos.group_id AS idofgroup, grupos.group_name AS groupName, grupos.group_description AS groupDesc, tarefas.task_title AS taskTitle " +
     "from grupo AS grupos " +  
-    "inner join tarefa tarefas on tarefas.task_id = grupos.tarefa_id";
+    "inner join tarefa tarefas on tarefas.task_id = grupos.tarefa_id ";
 
     @Query(value = queryByGroups + "where tarefas.user_task_id=:usertaskid", nativeQuery = true)
     Iterable<GrupoView> findAllGrupos(@Param("usertaskid") int usertaskid);
