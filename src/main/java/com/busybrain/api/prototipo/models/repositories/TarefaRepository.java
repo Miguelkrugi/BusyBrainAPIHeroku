@@ -62,6 +62,9 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     @Query(value = queryFindByPriority + "where priority.taskpriority_id=:priority" , nativeQuery = true)
     Iterable<TarefaView> findByPriority(@Param("priority") int priority); 
 
+    @Query(value = queryFindByPriority + "where tarefas.user_task_id=:usertaskid and priority.taskpriority_id=:priority" , nativeQuery = true)
+    Iterable<TarefaView> findByUsertaskidPriority(@Param("usertaskid") int usertaskid,@Param("priority") int priority); 
+
     @Query(value = queryFindByPriority + "where priority.taskpriority_id=:priority" , nativeQuery = true)
     Iterable<TarefaView> findTarefasByUsertaskId(@Param("priority") int priority); 
 

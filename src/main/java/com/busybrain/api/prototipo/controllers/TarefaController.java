@@ -104,6 +104,16 @@ public class TarefaController {
     }
 
     
+    @GetMapping(path = "/filterbypriority/{user_task_id}/{task_priority_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<TarefaView> getTasksPriority(@PathVariable(value = "user_task_id") int usertaskid,@PathVariable(value = "task_priority_id") int priority){
+
+        logger.info("Sending all tasks with priority id: " + priority + " from user with id: " + usertaskid);
+
+        return tarefaRepository.findByUsertaskidPriority(usertaskid, priority);
+
+    }
+
+    
     @GetMapping(path = "/getinfo/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Tarefa getInfoTarefa(@PathVariable(value = "task_id") int id){
 
