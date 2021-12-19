@@ -34,7 +34,16 @@ public class GrupoController {
         return grupoRepository.findAll();
     }
 
-    @GetMapping(path = "/getgroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@GetMapping(path = "/getgroups", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<GrupoView> findAllGrupos(){
+
+        logger.info("Sending all groupss...");
+
+        return grupoRepository.findAllGrupos();
+
+    }*/
+
+    @GetMapping(path = "/getgroups/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<GrupoView> findAllGrupos(){
 
         logger.info("Sending all groupss...");
