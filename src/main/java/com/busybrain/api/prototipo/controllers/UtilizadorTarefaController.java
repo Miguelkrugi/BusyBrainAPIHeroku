@@ -46,6 +46,15 @@ public class UtilizadorTarefaController {
 
     }
 
+    @GetMapping(path = "/getparticipants/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<UtilizadorTarefaView> getParticipants(@PathVariable("group_id") int groupid){
+
+      logger.info("Sending all participants from group with id: " + groupid);
+
+      return utilizadorTarefaRepository.findUtilizadorTarefaByGroupid(groupid);
+
+    }
+
     //REMOVER UM PARTICIPANTE DE UM GRUPO (REMOVER UTILIZADOR DE UMA TAREFA)
 
     @DeleteMapping(path = "/deleteparticipant/{user_id_tarefa}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -56,6 +65,8 @@ public class UtilizadorTarefaController {
         utilizadorTarefaRepository.deleteById(id);
 
     }
+
+
     
     //---------------------------------- MÉTODOS UTILIZADOS ACIMA NO CÓDIGO --------------------------------------------------------
 

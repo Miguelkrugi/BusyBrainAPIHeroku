@@ -2,8 +2,11 @@ package com.busybrain.api.prototipo.views;
 
 public interface UtilizadorTarefaView {
     
-   int getIdParticipante();
+  /* int getIdParticipante();
    String getNameParticipante();
-   String getNameTarefa();
+   String getNameTarefa();*/
+
+   int getUserId();
+   String getUserName();
 
 }

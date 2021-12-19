@@ -5,6 +5,7 @@ import com.busybrain.api.prototipo.views.UtilizadorTarefaView;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface UtilizadorTarefaRepository extends CrudRepository<UtilizadorTarefa, Integer>{
     
@@ -12,8 +13,18 @@ public interface UtilizadorTarefaRepository extends CrudRepository<UtilizadorTar
     "from utilizador_tarefa AS participantes " + "inner join utilizador AS usersss on usersss.user_id = participantes.user_identifier " +
     "inner join tarefa AS tarefasss on tarefasss.task_id = participantes.task_identifier ";
 
+    String queryToShowParticipantsOfAGroup = "select groups.group_id AS groupId, groups.group_name AS groupName, groups.group_description AS groupDesc, users.user_name, users.user_id " + 
+    "from grupo AS groups " + 
+    "inner join tarefa tarefas on tarefa_id = task_id " + 
+    "inner join utilizador_tarefa usertask on task_id = task_identifier " + 
+    "inner join utilizador users on user_identifier = user_id ";
+
     @Query(value = queryToShowParticipantsInTasks, nativeQuery = true)
     Iterable<UtilizadorTarefaView> findAllUtilizadorTarefa();
+
+    @Query(value = queryToShowParticipantsOfAGroup + "where groups.group_id=:groupid", nativeQuery = true)
+    Iterable<UtilizadorTarefaView> findUtilizadorTarefaByGroupid(@Param("group_id") int groupid);
+
 
     /*
     select participantes.user_id_tarefa AS idparticipante, usersss.user_name AS nameparticipante, tarefasss.task_title
