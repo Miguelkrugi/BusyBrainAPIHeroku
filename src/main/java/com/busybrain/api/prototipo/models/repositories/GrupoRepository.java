@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface GrupoRepository extends CrudRepository<Grupo, Integer>{
     
-    String queryByGroups = "select grupos.group_id AS idofgroup, grupos.group_name AS groupName, grupos.group_description AS groupDesc, tarefas.task_title AS taskTitle " +
+    String queryByGroups = "select grupos.group_id AS idofgroup, grupos.group_name AS groupName, grupos.group_description AS groupDesc, tarefas.task_title AS taskTitle, tarefas.user_task_id AS usertaskId " +
     "from grupo AS grupos " +  
     "inner join tarefa tarefas on tarefas.task_id = grupos.tarefa_id ";
 
