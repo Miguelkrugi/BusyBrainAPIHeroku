@@ -8,6 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface GrupoRepository extends CrudRepository<Grupo, Integer>{
+
+    Iterable<Grupo> findGrupoById(int id);
     
     String queryByGroups = "select grupos.group_id AS groupId, grupos.group_name AS groupName, grupos.group_description AS groupDesc, tarefas.task_title AS taskTitle, tarefas.user_task_id AS usertaskId " +
     "from grupo AS grupos " +  
