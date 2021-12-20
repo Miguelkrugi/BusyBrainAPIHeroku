@@ -14,6 +14,7 @@ import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
 import com.busybrain.api.prototipo.responses.Response;
 import com.busybrain.api.prototipo.views.TarefaView;
+import com.busybrain.api.prototipo.views.TaskView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,12 +78,21 @@ public class TarefaController {
 
     
 
-    @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    /*@PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
 
        Tarefa savedTarefa = tarefaRepository.save(tarefa);
        logger.info("Saving tarefa...");
        return savedTarefa;
+
+    }*/
+
+    @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    public TaskView saveTarefa(@RequestBody Tarefa tarefa){
+
+       Tarefa savedTarefa = tarefaRepository.save(tarefa);
+       logger.info("Saving tarefa...");
+       return (TaskView) savedTarefa;
 
     }
 
