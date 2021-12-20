@@ -222,7 +222,15 @@ public class TarefaController {
         tarefaRepository.deleteById(id);
 
     }
-    
+
+    /*@DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public  deleteTask(@PathVariable("task_id") int id){
+
+        logger.info("Delete the task with id: " + id);
+
+        tarefaRepository.deleteById(id);
+
+    }*/
 
     @PutMapping(path = "/updatetask/{task_id}")
     public Tarefa atualizar(@PathVariable(value = "task_id") int id, @RequestBody Tarefa tarefa){ //O request body recebe os dados de uma tarefa a atualizar
