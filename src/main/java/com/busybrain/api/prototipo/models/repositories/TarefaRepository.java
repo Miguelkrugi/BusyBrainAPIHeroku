@@ -71,7 +71,7 @@ public interface TarefaRepository extends CrudRepository<Tarefa, Integer>{
     //@Query(value = queryToDeleteTask + "where task_id=:taskid", nativeQuery = true)
     //Respons
 
-    @Query(value = queryToDeleteTask + "where task_id:= taskid", nativeQuery = true)
+    @Query(value = queryToDeleteTask + "where task_id:=taskid", nativeQuery = true)
     Iterable<TarefaView> deleteByTaskid(@Param("taskid") int taskid);
 
 }
