@@ -215,11 +215,11 @@ public class TarefaController {
     ////////////////// MÉTODO PARA APAGAR UMA TAREFA //////////////////////////////////////////
 
     @DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteTask(@PathVariable("task_id") int id){
+    public void deleteTask(@PathVariable("task_id") int taskid){
 
-        logger.info("Delete the task with id: " + id);
+        logger.info("Delete the task with id: " + taskid);
 
-        tarefaRepository.deleteById(id);
+        tarefaRepository.deleteById(taskid);
 
     }
     
