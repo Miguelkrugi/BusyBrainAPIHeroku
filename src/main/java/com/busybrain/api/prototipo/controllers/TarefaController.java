@@ -12,10 +12,8 @@ import com.busybrain.api.prototipo.models.Tarefa;
 import com.busybrain.api.prototipo.models.TarefaData;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
-import com.busybrain.api.prototipo.models.repositories.TaskViewRepository;
 import com.busybrain.api.prototipo.responses.Response;
 import com.busybrain.api.prototipo.views.TarefaView;
-import com.busybrain.api.prototipo.views.TaskView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +37,7 @@ public class TarefaController {
     private Logger logger = LoggerFactory.getLogger(TarefaController.class); 
     @Autowired
     private TarefaRepository tarefaRepository;
-    private TaskViewRepository taskViewRepository;
+    
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
    // public Iterable<Tarefa> getTasks() {
 
