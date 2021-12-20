@@ -35,7 +35,7 @@ public class GrupoController {
     }
 
     @GetMapping(path = "/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Grupo> getGrupo(@PathVariable("id") int id){
+    public Iterable<Grupo> getGrupo(@PathVariable("group_id") int id){
 
        logger.info("Sending group data with id: " + id);
 
