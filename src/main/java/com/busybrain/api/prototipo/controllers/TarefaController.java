@@ -12,6 +12,7 @@ import com.busybrain.api.prototipo.models.Tarefa;
 import com.busybrain.api.prototipo.models.TarefaData;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException2;
 import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
+import com.busybrain.api.prototipo.models.repositories.TaskViewRepository;
 import com.busybrain.api.prototipo.responses.Response;
 import com.busybrain.api.prototipo.views.TarefaView;
 import com.busybrain.api.prototipo.views.TaskView;
@@ -38,6 +39,7 @@ public class TarefaController {
     private Logger logger = LoggerFactory.getLogger(TarefaController.class); 
     @Autowired
     private TarefaRepository tarefaRepository;
+    private TaskViewRepository taskViewRepository;
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
    // public Iterable<Tarefa> getTasks() {
 
@@ -78,23 +80,25 @@ public class TarefaController {
 
     
 
-    /*@PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
 
        Tarefa savedTarefa = tarefaRepository.save(tarefa);
        logger.info("Saving tarefa...");
        return savedTarefa;
 
-    }*/
-
-    @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
-    public TaskView saveTarefa(@RequestBody Tarefa tarefa){
-
-       Tarefa savedTarefa = tarefaRepository.save(tarefa);
-       logger.info("Saving tarefa...");
-       return (TaskView) savedTarefa;
-
     }
+
+    //POST COM INTEIROS
+
+    /*@PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    public TaskView saveTarefa(@RequestBody TarefaView tarefavView){
+
+       TarefaView savedTarefa = taskViewRepository.save(tarefavView);
+       logger.info("Saving tarefa...");
+       return savedTarefa;
+
+    }*/
 
     /*@GetMapping(path = "/filterbypriority/high", produces = MediaType.APPLICATION_JSON_VALUE) //CUSTOM QUERY COMPLETA, DEVERÁ SER REPRODUZIVEL PARA TODAS AS OUTRAS PRIORIDADES
     public Iterable<Tarefa> getTasksHigh(){
