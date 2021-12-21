@@ -17,28 +17,28 @@ public class Local {
     @Column(name = "place_id") private int id;
     @Column(name = "place_name") private String name;
     @Column(name = "place_endereco") private String endereco;
-    @Column(name = "place_distancia") private int distancia;
+   // @Column(name = "place_distancia") private int distancia;
     @Column(name = "place_categoria") private int categoria;
-    @Column(name = "place_latitude") private float latitude;
-    @Column(name = "place_longitude") private float longitude;
+    @Column(name = "place_latitude") private double latitude;
+    @Column(name = "place_longitude") private double longitude;
    
     public Local(){
 
     }
 
-    public float getLatitude() {
-        return latitude;
-    }
+   public double getLatitude() {
+       return latitude;
+   }
+    
 
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
-    }
-    
-    public float getLongitude() {
-        return longitude;
-    }
-    
-    public void setLongitude(float longitude) {
+   public void setLatitude(double latitude) {
+       this.latitude = latitude;
+   }
+
+   public double getLongitude() {
+       return longitude;
+   }
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -66,13 +66,13 @@ public class Local {
         this.endereco = endereco;
     }
 
-    public int getDistancia() {
+  /*  public int getDistancia() {
         return distancia;
     }
 
     public void setDistancia(int distancia) {
         this.distancia = distancia;
-    }
+    }*/
 
     public int getCategoria() {
         return categoria;

@@ -108,7 +108,7 @@ public class LocalController {
     }
 
 
-//MÉTODO DE SUPORTE PARA TESTE
+//MÉTODO QUE SERVIRÁ PARA FAZER O POST DAS INFORMACOES DO PLACES API PARA A REST API
 
 @PostMapping(path = "/createplace", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
 public Local savePlace(@RequestBody Local local){

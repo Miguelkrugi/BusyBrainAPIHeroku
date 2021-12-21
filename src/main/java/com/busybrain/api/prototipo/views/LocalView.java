@@ -5,6 +5,7 @@ public interface LocalView {
     int getPlaceId();
     String getPlaceName();
     String getPlaceEndereco();
-    
+    double getPlaceLatitude();
+    double getPlaceLongitude();
 
 }
