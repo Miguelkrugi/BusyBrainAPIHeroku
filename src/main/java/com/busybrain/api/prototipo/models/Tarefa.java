@@ -43,12 +43,12 @@ public class Tarefa {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDate() {
+        return date;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getDescription() {
@@ -59,37 +59,37 @@ public class Tarefa {
         this.description = description;
     }
 
-   public String getDate() {
-       return date;
-   }
-   
-public void setDate(String date) {
-    this.date = date;
-}
+    public int getPriority() {
+        return priority;
+    }
 
-   public int getPriority() {
-       return priority;
-   }
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
 
-   public void setPriority(int priority) {
-       this.priority = priority;
-   }
+    public String getTitle() {
+        return title;
+    }
 
-   public int getType() {
-       return type;
-   }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-   public void setType(int type) {
-       this.type = type;
-   }
+    public int getType() {
+        return type;
+    }
 
-   public int getUsertaskid() {
-       return usertaskid;
-   }
+    public void setType(int type) {
+        this.type = type;
+    }
 
-   public void setUsertaskid(int usertaskid) {
-       this.usertaskid = usertaskid;
-   }
+    public int getUsertaskid() {
+        return usertaskid;
+    }
+
+    public void setUsertaskid(int usertaskid) {
+        this.usertaskid = usertaskid;
+    }
     /*public ArrayList<Enrolment> getEnrolments() {
         return enrolments;
     }
