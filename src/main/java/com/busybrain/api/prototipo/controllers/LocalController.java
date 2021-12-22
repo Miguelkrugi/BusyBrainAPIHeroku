@@ -36,6 +36,8 @@ public class LocalController {
         return localRepository.findAll();
     }
 
+    
+
     //TODO --> ADICIONAR MÉTODO PARA OBTER AS INFORMACOES DE UM LOCAL COM BASE NA SELECAO POR ID
 
    @GetMapping(path = "/getinfo/{place_id}")
