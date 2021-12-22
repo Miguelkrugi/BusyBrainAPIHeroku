@@ -21,9 +21,18 @@ public class Local {
     @Column(name = "place_categoria") private int categoria;
     @Column(name = "place_latitude") private double latitude;
     @Column(name = "place_longitude") private double longitude;
+    @Column(name = "place_google_id") private String googleid;
    
     public Local(){
 
+    }
+
+    public String getGoogleid() {
+        return googleid;
+    }
+
+    public void setGoogleid(String googleid) {
+        this.googleid = googleid;
     }
 
    public double getLatitude() {

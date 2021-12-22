@@ -1,5 +1,7 @@
 package com.busybrain.api.prototipo.controllers;
 
+import javax.print.attribute.standard.Media;
+
 import com.busybrain.api.prototipo.models.Website;
 import com.busybrain.api.prototipo.models.repositories.WebsiteRepository;
 import com.busybrain.api.prototipo.views.WebsiteView;
@@ -55,16 +57,29 @@ public class WebsiteController {
 
      }
 
+     @PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Website saveWebsite(@RequestBody Website website){
+
+       Website savedWebsite = websiteRepository.save(website);
+
+       logger.info("Inserting a website that was blocked....");
+
+       return savedWebsite;
+
+     }
+
     //Adicionar um website -> METODO DE TESTE
 
-    @PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    /*@PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
      public Website saveWebsite(@RequestBody Website website){
 
       Website savedWebsite = websiteRepository.save(website);
      logger.info("Saving website...");
      return savedWebsite;
 
-     }
+     }*/
+
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
      @GetMapping(path = "/getwebsites/{utilizador_id}/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
      public Iterable<Website> getBlockedWebsites(@PathVariable(value = "utilizador_id") int utilizadorid){
@@ -77,14 +92,14 @@ public class WebsiteController {
 
      //Exibir as informações de um website selecionado | EXIBIR WEBSITES BLOQUEADOS
 
-    /* @GetMapping(path = "/getwebsites/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/getwebsites/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
      public Iterable<Website> getBlockedWebsites(){
 
         logger.info("Getting all blocked websites...");
 
         return websiteRepository.findWebsiteByStatus();
 
-     }*/
+     }
 
      //EXIBIR WEBSITES DESBLOQUEADOS
 
