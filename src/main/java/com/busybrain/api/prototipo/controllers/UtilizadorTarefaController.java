@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/api/participantesgrupos")
 public class UtilizadorTarefaController {
     
-    private Logger logger = LoggerFactory.getLogger(TarefaController.class); 
+    private Logger logger = LoggerFactory.getLogger(UtilizadorTarefaController.class); 
     @Autowired
     private UtilizadorTarefaRepository utilizadorTarefaRepository;
 
