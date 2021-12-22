@@ -9,6 +9,16 @@ import org.springframework.data.repository.query.Param;
 
 public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     
+    String queryToBlockedWebsitesByUserId = "SELECT * FROM website WHERE blocked_status = '1'";
+
+    String queryToUnlockedWebsitesByUserId = "SELECT * FROM website WHERE blocked_status = '0'";
+
+    @Query(value = queryToBlockedWebsitesByUserId + " where utilizador_id=:utilizadorid", nativeQuery = true)
+    Iterable<Website> findWebsiteByUtilizadorId(@Param("utilizadorid") int utilizadorid);
+
+    @Query(value = queryToUnlockedWebsitesByUserId + " where utilizador_id=:utilizadorid", nativeQuery = true)
+    Iterable<Website> findWebsiteByUtilizadorIdStatus();
+
     @Query(value = "SELECT * FROM website WHERE blocked_status = '1'", nativeQuery = true)
     Iterable<Website> findWebsiteByStatus();
 

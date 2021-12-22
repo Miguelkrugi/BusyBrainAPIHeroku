@@ -66,16 +66,27 @@ public class WebsiteController {
 
      }
 
-     //Exibir as informações de um website selecionado
+     @GetMapping(path = "/getwebsites/{utilizador_id}/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<Website> getBlockedWebsites(@PathVariable(value = "utilizador_id") int utilizadorid){
 
-     @GetMapping(path = "/getwebsites/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
+        logger.info("Getting all blocked websites...");
+
+        return websiteRepository.findWebsiteByUtilizadorId(utilizadorid);
+
+     }
+
+     //Exibir as informações de um website selecionado | EXIBIR WEBSITES BLOQUEADOS
+
+    /* @GetMapping(path = "/getwebsites/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
      public Iterable<Website> getBlockedWebsites(){
 
         logger.info("Getting all blocked websites...");
 
         return websiteRepository.findWebsiteByStatus();
 
-     }
+     }*/
+
+     //EXIBIR WEBSITES DESBLOQUEADOS
 
      @GetMapping(path = "/getwebsites/unlocked", produces = MediaType.APPLICATION_JSON_VALUE)
      public Iterable<Website> getUnlockedWebsites(){
