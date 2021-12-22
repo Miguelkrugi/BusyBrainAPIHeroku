@@ -29,7 +29,7 @@ public class WebsiteController {
 
     //Obter uma lista de todos os websites disponiveis para bloquear
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Website> findAllWebsites(){
 
         logger.info("Sending All Websites available to block...");

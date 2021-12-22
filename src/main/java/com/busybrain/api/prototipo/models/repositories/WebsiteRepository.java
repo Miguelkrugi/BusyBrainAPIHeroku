@@ -11,6 +11,8 @@ public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     
     String queryToBlockedWebsitesByUserId = "SELECT * FROM website WHERE blocked_status = '1'";
 
+    
+
     String queryToUnlockedWebsitesByUserId = "SELECT * FROM website WHERE blocked_status = '0'";
 
     @Query(value = queryToBlockedWebsitesByUserId + " where utilizador_id=:utilizadorid", nativeQuery = true)

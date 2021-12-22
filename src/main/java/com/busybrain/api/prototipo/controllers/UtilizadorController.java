@@ -80,6 +80,8 @@ public class UtilizadorController { //Inicio do controller
  
      }
 
+     
+
      //MÉTODO PARA OBTER OS USERNAMES DOS UTILIZADORES
 
      @GetMapping(path = "/getusernames", produces = MediaType.APPLICATION_JSON_VALUE)

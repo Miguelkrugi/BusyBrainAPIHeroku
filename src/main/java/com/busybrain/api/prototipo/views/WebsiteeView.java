@@ -4,6 +4,7 @@ package com.busybrain.api.prototipo.views;
 
 public interface WebsiteeView {
     
+    
     boolean getBlockedStatus();
     String getNomeWebsite();
     String getDominioWebsite();
