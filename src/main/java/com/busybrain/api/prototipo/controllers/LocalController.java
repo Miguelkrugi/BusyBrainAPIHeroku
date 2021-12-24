@@ -74,7 +74,7 @@ public class LocalController {
 
     }*/
 
-    /*/TODO METODO COMENTADO TEMPORIARIAMENTE
+    /*/TODO METODO COMENTADO TEMPORIARIAMENTE |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     @GetMapping(path = "/searchbycategory/{place_categoria}")
     public Iterable<Local> localByBiblioteca(@PathVariable(value ="place_categoria") String categoria){
