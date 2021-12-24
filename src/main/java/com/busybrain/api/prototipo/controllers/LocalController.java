@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -74,7 +75,7 @@ public class LocalController {
     }*/
 
     @GetMapping(path = "/searchbycategory/{place_categoria}")
-    public Iterable<Local> localByBiblioteca(@PathVariable(value ="place_categoria") int categoria){
+    public Iterable<Local> localByBiblioteca(@PathVariable(value ="place_categoria") String categoria){
 
         logger.info("Sending places with category with id..." + categoria);
 
@@ -100,6 +101,9 @@ public class LocalController {
 
     }*/
 
+
+    /*///////////////////////////////MÉTODO COMENTADO TEMPORARIAMENTE//////////////////////////////////
+
     @GetMapping(path = "/closestplaces")
     public Iterable<Local> getclosestPlaces(){
 
@@ -107,9 +111,8 @@ public class LocalController {
 
          return localRepository.findLocalByDistancia();
 
-    }
-
-
+    } */
+    
 //MÉTODO QUE SERVIRÁ PARA FAZER O POST DAS INFORMACOES DO PLACES API PARA A REST API
 
 @PostMapping(path = "/createplace", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
