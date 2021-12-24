@@ -3,7 +3,7 @@ package com.busybrain.api.prototipo.views;
 public interface MarcacaoFavoritoView {
     
    int getFavoriteId();
-   int getUtilizadorId();
+   int getUserId();
    String getPlaceName();
    String getPlaceEndereco();
    int getPlaceId();
