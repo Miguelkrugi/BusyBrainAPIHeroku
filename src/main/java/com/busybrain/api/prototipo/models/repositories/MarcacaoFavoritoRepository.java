@@ -27,7 +27,7 @@ public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavor
     "where favoritos.isfavorite = '1' and ";
 
     @Query(value = queryByFavoritePlaces + "where userss.user_id=:userid", nativeQuery = true)
-    Iterable<MarcacaoFavoritoView> findLocalByUserId(@Param("userid") int userid); 
+    Iterable<MarcacaoFavoritoView> findMarcacaoFavoritoByUserId(@Param("userid") int userid); 
 
 
 

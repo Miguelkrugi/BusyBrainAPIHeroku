@@ -35,7 +35,7 @@ public class MarcacaoFavoritoController {
 
         logger.info("Sending all favorite places from user with id: " + userid);
 
-        return marcacaoFavoritoRepository.findLocalByUserId(userid);
+        return marcacaoFavoritoRepository.findMarcacaoFavoritoByUserId(userid);
 
     }
 
