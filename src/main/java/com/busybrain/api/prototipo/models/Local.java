@@ -18,7 +18,6 @@ public class Local {
     @Column(name = "place_name") private String name;
     @Column(name = "place_endereco") private String endereco;
    // @Column(name = "place_distancia") private int distancia;
-    @Column(name = "place_categoria") private String categoria;
     @Column(name = "place_latitude") private double latitude;
     @Column(name = "place_longitude") private double longitude;
     @Column(name = "place_google_id") private String googleid;
@@ -92,12 +91,5 @@ public void setUserrequestid(int userrequestid) {
         this.distancia = distancia;
     }*/
 
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
 
 }

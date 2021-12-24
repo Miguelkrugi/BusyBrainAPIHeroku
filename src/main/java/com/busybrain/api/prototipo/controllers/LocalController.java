@@ -112,7 +112,7 @@ public class LocalController {
          return localRepository.findLocalByDistancia();
 
     } */
-    
+
 //MÉTODO QUE SERVIRÁ PARA FAZER O POST DAS INFORMACOES DO PLACES API PARA A REST API
 
 @PostMapping(path = "/createplace", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
