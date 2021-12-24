@@ -15,7 +15,7 @@ public interface LocalRepository extends CrudRepository<Local, Integer>{
 
     public Iterable<Local> findByNameContaining(String name);
 
-    public Iterable<Local> findLocalByCategoria(String categoria);
+    //public Iterable<Local> findLocalByCategoria(String categoria);
 
     
     

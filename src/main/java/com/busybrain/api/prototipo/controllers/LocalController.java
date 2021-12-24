@@ -74,6 +74,8 @@ public class LocalController {
 
     }*/
 
+    /*/TODO METODO COMENTADO TEMPORIARIAMENTE
+
     @GetMapping(path = "/searchbycategory/{place_categoria}")
     public Iterable<Local> localByBiblioteca(@PathVariable(value ="place_categoria") String categoria){
 
@@ -82,6 +84,8 @@ public class LocalController {
         return localRepository.findLocalByCategoria(categoria);
 
     }
+
+    */
 
    /* @GetMapping(path = "/searchbycategory/cafes")
     public Iterable<Local> localByCafes(){
