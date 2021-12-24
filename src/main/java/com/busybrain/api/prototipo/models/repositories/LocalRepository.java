@@ -4,14 +4,20 @@ package com.busybrain.api.prototipo.models.repositories;
 import java.util.Optional;
 
 import com.busybrain.api.prototipo.models.Local;
+import com.busybrain.api.prototipo.views.LocalUtilizadorView;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface LocalRepository extends CrudRepository<Local, Integer>{
  
+    String queryByLocalInfo = "select locais.place_id AS placeId, locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_latitude AS placeLatitude, locais.place_longitude AS placeLongitude, userss.user_id AS userId " + 
+    "from place AS locais " + 
+   "inner join utilizador userss on userss.user_id = locais.user_request_id ";
 
-
+   @Query(value = queryByLocalInfo + "where userss.user_id=:userid", nativeQuery = true)
+   Iterable<LocalUtilizadorView> findLocalUtilizadorByUserId(@Param("userid") int userid);
 
     public Iterable<Local> findByNameContaining(String name);
 

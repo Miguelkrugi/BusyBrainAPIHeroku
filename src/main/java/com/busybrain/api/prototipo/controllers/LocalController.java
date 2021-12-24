@@ -5,6 +5,7 @@ import java.util.Optional;
 import com.busybrain.api.prototipo.models.Local;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException3;
 import com.busybrain.api.prototipo.models.repositories.LocalRepository;
+import com.busybrain.api.prototipo.views.LocalUtilizadorView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,17 @@ public class LocalController {
         return localRepository.findAll();
     }
 
+
+    //OBTER INFORMACOES PARA PASSAR ID DO UTILIZADOR E ID DO LOCAL SELECIONADO
+
+    @GetMapping(path = "/getplace/{user_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<LocalUtilizadorView> getPlaceSelected(@PathVariable(value = "user_id") int userid){
+
+         logger.info("Sending place that was selected by the user: " + userid);
+
+         return localRepository.findLocalUtilizadorByUserId(userid);
+
+    }
     
 
     //TODO --> ADICIONAR MÉTODO PARA OBTER AS INFORMACOES DE UM LOCAL COM BASE NA SELECAO POR ID
