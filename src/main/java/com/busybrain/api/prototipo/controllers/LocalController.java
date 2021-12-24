@@ -41,12 +41,12 @@ public class LocalController {
 
     //OBTER INFORMACOES PARA PASSAR ID DO UTILIZADOR E ID DO LOCAL SELECIONADO
 
-    @GetMapping(path = "/getplace/{user_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<LocalUtilizadorView> getPlaceSelected(@PathVariable(value = "user_id") int userid){
+    @GetMapping(path = "/getplace/{user_id}/{place_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<LocalUtilizadorView> getPlaceSelected(@PathVariable(value = "user_id") int userid, @PathVariable(value = "place_id") int placeid){
 
-         logger.info("Sending place that was selected by the user: " + userid);
+         logger.info("Sending place with id: " + placeid + " that was selected by the user: " + userid);
 
-         return localRepository.findLocalUtilizadorByUserId(userid);
+         return localRepository.findLocalUtilizadorByUserId(userid, placeid);
 
     }
     

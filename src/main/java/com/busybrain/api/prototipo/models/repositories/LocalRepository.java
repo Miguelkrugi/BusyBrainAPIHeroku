@@ -17,7 +17,7 @@ public interface LocalRepository extends CrudRepository<Local, Integer>{
    "inner join utilizador userss on userss.user_id = locais.user_request_id ";
 
    @Query(value = queryByLocalInfo + "where userss.user_id=:userid", nativeQuery = true)
-   Iterable<LocalUtilizadorView> findLocalUtilizadorByUserId(@Param("userid") int userid);
+   Iterable<LocalUtilizadorView> findLocalUtilizadorByUserId(@Param("userid") int userid, @Param("placeid") int placeid);
 
     public Iterable<Local> findByNameContaining(String name);
 
