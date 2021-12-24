@@ -30,8 +30,8 @@ public class MarcacaoFavoritoController {
    
     //Method to get favorite places from a user
 
-    @GetMapping(path = "/favoriteplaces/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoFavoritoView> getFavoritePlaces(@PathVariable(value = "utilizador_id") int userid){
+    @GetMapping(path = "/favoriteplaces/{user_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<MarcacaoFavoritoView> getFavoritePlaces(@PathVariable(value = "user_id") int userid){
 
         logger.info("Sending all favorite places from user with id: " + userid);
 
