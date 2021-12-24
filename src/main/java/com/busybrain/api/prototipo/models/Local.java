@@ -18,14 +18,23 @@ public class Local {
     @Column(name = "place_name") private String name;
     @Column(name = "place_endereco") private String endereco;
    // @Column(name = "place_distancia") private int distancia;
-    @Column(name = "place_categoria") private int categoria;
+    @Column(name = "place_categoria") private String categoria;
     @Column(name = "place_latitude") private double latitude;
     @Column(name = "place_longitude") private double longitude;
     @Column(name = "place_google_id") private String googleid;
+    @Column(name = "user_request_id") private int userrequestid;
    
     public Local(){
 
     }
+
+    public int getUserrequestid() {
+        return userrequestid;
+    }
+
+public void setUserrequestid(int userrequestid) {
+    this.userrequestid = userrequestid;
+}
 
     public String getGoogleid() {
         return googleid;
@@ -83,11 +92,11 @@ public class Local {
         this.distancia = distancia;
     }*/
 
-    public int getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
