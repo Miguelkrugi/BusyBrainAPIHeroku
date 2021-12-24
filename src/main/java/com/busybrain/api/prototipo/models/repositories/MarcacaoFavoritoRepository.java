@@ -20,6 +20,15 @@ public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavor
     "from marcacao_favorito AS marcacoes " + "inner join utilizador users on users.user_id = marcacoes.utilizador_id " +
     "inner join place locals on marcacoes.local_id = locals.place_id ";
 
+
+
+
+
+
+
+
+
+    
     String queryByFavoritePlaces = "select favoritos.favorite_id AS favoriteId, userss.user_id AS userId, locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_id AS placeId " + 
     "from marcacao_favorito AS favoritos " + 
     "inner join utilizador userss on favoritos.utilizador_id = utilizador.user_id " + 
