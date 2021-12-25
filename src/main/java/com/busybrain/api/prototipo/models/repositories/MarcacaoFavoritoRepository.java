@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavorito, Integer>{
     
-    public Iterable<MarcacaoFavorito> findByUserid(int userid);
+   // public Iterable<MarcacaoFavorito> findByUserid(int userid);
 
     String queryByFavorite = "select marcacoes.favorite_id AS favId, users.user_name AS Username, locals.place_name AS Nameofplace " +
     "from marcacao_favorito AS marcacoes " + "inner join utilizador users on users.user_id = marcacoes.utilizador_id " +
