@@ -32,13 +32,23 @@ public class MarcacaoFavoritoController {
     //Method to get favorite places from a user
 
     @GetMapping(path = "/fav", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoFavView> getAllFavoritePlacesbyUtilizadorid(){
+    public Iterable<MarcacaoFavView> getAllFavoritePlaces(){
 
         logger.info("Sending all favorite places of a user");
 
        return marcacaoFavoritoRepository.findByMarcacaoFavorito();
 
     }
+
+    @GetMapping(path = "/favs/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<MarcacaoFavView> getAllFavoritePlacesbyUtilizadorId(@PathVariable(value = "utilizador_id") int utilizadorid){
+
+        logger.info("Sending all favorite places of a user with id: ");
+
+       return marcacaoFavoritoRepository.findMarcacaoFavoritoByUtilizadorId(utilizadorid);
+
+    }
+
 
     //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER
 
