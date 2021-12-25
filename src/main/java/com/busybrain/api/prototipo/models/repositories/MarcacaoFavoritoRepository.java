@@ -32,7 +32,7 @@ public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavor
     "where marcacoes.isfavorite = '1' ";
 
     @Query(value = q, nativeQuery = true)
-    Iterable<MarcacaoFavoritoView> findByMarcacaoFavorito(); 
+    Iterable<MarcacaoFavView> findByMarcacaoFavorito(); 
 
 // select favorite_id, user_name, place_name 
 //from marcacao_favorito

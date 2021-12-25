@@ -1,6 +1,7 @@
 package com.busybrain.api.prototipo.controllers;
 
 import com.busybrain.api.prototipo.models.MarcacaoFavorito;
+import com.busybrain.api.prototipo.models.repositories.MarcacaoFavView;
 import com.busybrain.api.prototipo.models.repositories.MarcacaoFavoritoRepository;
 import com.busybrain.api.prototipo.views.MarcacaoFavoritoView;
 
@@ -31,7 +32,7 @@ public class MarcacaoFavoritoController {
     //Method to get favorite places from a user
 
     @GetMapping(path = "/fav", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoFavoritoView> getAllFavoritePlacesbyUtilizadorid(){
+    public Iterable<MarcacaoFavView> getAllFavoritePlacesbyUtilizadorid(){
 
         logger.info("Sending all favorite places of a user");
 
