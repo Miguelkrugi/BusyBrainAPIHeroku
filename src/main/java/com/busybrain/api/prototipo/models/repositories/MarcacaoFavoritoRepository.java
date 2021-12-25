@@ -21,18 +21,22 @@ public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavor
     "inner join place locals on marcacoes.local_id = locals.place_id ";
 
 
+/*
+    String queryTestTaskRecyclerView = "select tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, priority.taskpriority_type AS prioridade, tarefas.task_id AS taskId, tarefas.user_task_id AS usertaskId " +
+    "from tarefa AS tarefas " +
+    "inner join prioridadetarefa priority on priority.taskpriority_id = tarefas.task_priority_id " + 
+    "inner join tipotarefa tipo on tarefas.task_type_id = tipo.tasktype_id " +
+    "inner join utilizador users on tarefas.user_task_id = users.user_id ";
+
+*/
 
 
 
 
-
-
-
-
-    String queryByFavoritePlaces = "select favoritos.favorite_id AS favoriteId, userss.user_id AS userId, locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_id AS placeId " + 
+    String queryByFavoritePlaces = "select favoritos.favorite_id AS favoriteId, favoritos.utilizador_id AS userId, locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_id AS placeId " + 
     "from marcacao_favorito AS favoritos " + 
     "inner join utilizador userss on favoritos.utilizador_id = userss.user_id " + 
-    "inner join place locais on locais.place_id = favoritos.local_id " + 
+    "inner join place locais on favoritos.local_id = locais.place_id " + 
     "where favoritos.isfavorite = '1' and ";
 
     @Query(value = queryByFavoritePlaces + "userss.user_id=:userid", nativeQuery = true)
