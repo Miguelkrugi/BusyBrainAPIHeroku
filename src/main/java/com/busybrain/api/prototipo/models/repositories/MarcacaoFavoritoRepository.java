@@ -62,7 +62,7 @@ public Iterable<MarcacaoFavoritoView> getFavoritePlaces(@PathVariable(value = "u
     "inner join place locais on favoritos.local_id = locais.place_id " + 
     "where favoritos.isfavorite = '1' and ";
 
-    @Query(value = queryByFavoritePlaces + "favoritos.utilizador_id=:userid", nativeQuery = true)
+    @Query(value = queryByFavoritePlaces + "userss.user_id=:userid", nativeQuery = true)
     Iterable<MarcacaoFavoritoView> findMarcacaoFavoritoByUserId(@Param("utilizador_id") int userid); 
 
 
