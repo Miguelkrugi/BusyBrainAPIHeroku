@@ -30,12 +30,12 @@ public class MarcacaoFavoritoController {
    
     //Method to get favorite places from a user
 
-    @GetMapping(path = "/favoriteplaces/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoFavoritoView> getFavoritePlaces(@PathVariable(value = "utilizador_id") int userid){
+    @GetMapping(path = "/fav", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<MarcacaoFavoritoView> getAllFavoritePlacesbyUtilizadorid(){
 
-        logger.info("Sending all favorite places from user with id: " + userid);
+        logger.info("Sending all favorite places of a user");
 
-        return marcacaoFavoritoRepository.findMarcacaoFavoritoByUserId(userid);
+       return marcacaoFavoritoRepository.findByMarcacaoFavorito();
 
     }
 
@@ -50,15 +50,6 @@ public class MarcacaoFavoritoController {
        return marcacaoFavoritoRepository.findByFavoritestatus(userid);
 
     }
-
-   @GetMapping(path = "/fav/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-   public Iterable<MarcacaoFavoritoView> getMarcacaoFavoritoByUserId(@PathVariable(value = "utilizador_id") int utilizadorid){
-
-       logger.info("Sending favorite places of a user...");
-
-       return marcacaoFavoritoRepository.findMarcacaoFavoritoByUtilizadorId(utilizadorid);
-
-   }
 
     //MARCAR LOCAIS FAVORITOS -- TERMINAR AMANHA (UPDATE A VALORES BOOLEANOSch10)
     
