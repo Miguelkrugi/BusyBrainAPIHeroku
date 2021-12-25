@@ -16,7 +16,7 @@ public class MarcacaoFavorito {
 
     @Column(name = "favorite_id") private int favoriteid;
     @Column(name = "isfavorite") private boolean favoritestatus;
-    @Column(name = "utilizador_id") private int userid;
+    @Column(name = "utilizador_id") private int utilizadorid;
     @Column(name = "local_id") private int placeid;
 
     public MarcacaoFavorito(){
@@ -47,12 +47,12 @@ public class MarcacaoFavorito {
         this.placeid = placeid;
     }
 
-    public int getUserid() {
-        return userid;
+    public int getUtilizadorid() {
+        return utilizadorid;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUtilizadorid(int utilizadorid) {
+        this.utilizadorid = utilizadorid;
     }
 
 }

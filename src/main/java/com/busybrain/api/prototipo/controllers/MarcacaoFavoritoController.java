@@ -51,7 +51,14 @@ public class MarcacaoFavoritoController {
 
     }
 
-   
+   @GetMapping(path = "/fav/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+   public Iterable<MarcacaoFavoritoView> getMarcacaoFavoritoByUserId(@PathVariable(value = "utilizador_id") int utilizadorid){
+
+       logger.info("Sending favorite places of a user...");
+
+       return marcacaoFavoritoRepository.findMarcacaoFavoritoByUtilizadorId(utilizadorid);
+
+   }
 
     //MARCAR LOCAIS FAVORITOS -- TERMINAR AMANHA (UPDATE A VALORES BOOLEANOSch10)
     
