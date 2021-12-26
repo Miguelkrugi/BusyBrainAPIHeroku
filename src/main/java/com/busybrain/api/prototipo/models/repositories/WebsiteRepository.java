@@ -2,6 +2,7 @@ package com.busybrain.api.prototipo.models.repositories;
 
 import com.busybrain.api.prototipo.models.Website;
 import com.busybrain.api.prototipo.views.WebsiteView;
+import com.busybrain.api.prototipo.views.WebsiteViiew;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -48,6 +49,14 @@ public interface WebsiteRepository extends CrudRepository<Website, Integer>{
 
 
 
+    String queryTogetUnlockedwebsitesbyUtilizadorId = "select sites.website_id AS websiteId, sites.website_user_block AS userId ,dominios.domain_website AS websiteDomain, sites.website_blocked_status AS blockedStatus " + 
+    "from website AS sites " + 
+    "inner join website_domains dominios on sites.website_domain_id = id_website " + 
+    "inner join utilizador users on sites.website_user_block = users.user_id " + 
+    "where sites.website_blocked_status = '1' ";
+
+    @Query(value = queryTogetUnlockedwebsitesbyUtilizadorId + "and sites.website_user_block=:userid", nativeQuery = true)
+    Iterable<WebsiteViiew> findWebsitesByStatus(@Param("userid") int userid);
 
 
 

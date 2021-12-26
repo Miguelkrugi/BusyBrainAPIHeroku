@@ -5,6 +5,7 @@ import javax.print.attribute.standard.Media;
 import com.busybrain.api.prototipo.models.Website;
 import com.busybrain.api.prototipo.models.repositories.WebsiteRepository;
 import com.busybrain.api.prototipo.views.WebsiteView;
+import com.busybrain.api.prototipo.views.WebsiteViiew;
 import com.fasterxml.jackson.databind.type.MapType;
 
 import org.slf4j.Logger;
@@ -47,6 +48,8 @@ public class WebsiteController {
         return websiteRepository.findWebsites();
 
      }
+
+     //OS MÉTODOS ABAIXO NÃO FUNCIONAM //////////////////////////////////////////////////////////////////////////
 
      @GetMapping(path = "/getsitesfrom/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
      public Iterable<WebsiteView> getWebsitesByUserid(@PathVariable("utilizador_id") int utilizadorid){
@@ -109,6 +112,18 @@ public class WebsiteController {
         logger.info("Getting all unlocked websites...");
 
         return websiteRepository.findByStatus();
+
+     }
+
+     ///////////////////////////////////////////////////////////////////////////////////////
+
+     @GetMapping(path = "/getwebsitesss/{website_user_block}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<WebsiteViiew> getUnlockedSitesByWebsiteUserBlock(@PathVariable(value = "website_user_block") int userid){
+
+       logger.info("Getting all unlocked websites by user: " + userid);
+
+       return websiteRepository.findWebsitesByStatus(userid);
+
 
      }
 
