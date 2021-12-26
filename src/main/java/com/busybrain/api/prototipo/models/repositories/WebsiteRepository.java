@@ -43,4 +43,12 @@ public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     @Query(value = querytogetwebsitesbyuserid + "where blocks.utilizador_id=:utilizadorid", nativeQuery = true)
     Iterable<WebsiteView> findWebsitesByUserid(@Param("utilizadorid") int utilizadorid);
 
+
+
+
+
+
+
+
+
 }
