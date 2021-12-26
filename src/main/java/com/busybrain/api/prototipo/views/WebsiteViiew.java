@@ -3,7 +3,7 @@ package com.busybrain.api.prototipo.views;
 public interface WebsiteViiew {
     
     int getWebsiteId();
-    int getUserblockId();
+    int getUserId();
     String getWebsiteDomain();
     boolean getBlockedStatus();
 
