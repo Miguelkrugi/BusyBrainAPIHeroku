@@ -1,6 +1,7 @@
 package com.busybrain.api.prototipo.controllers;
 
 import com.busybrain.api.prototipo.models.MarcacaoPresenca;
+import com.busybrain.api.prototipo.models.repositories.MarcacaoPreView;
 import com.busybrain.api.prototipo.models.repositories.MarcacaoPresencaRepository;
 import com.busybrain.api.prototipo.views.MarcacaoPresencaView;
 
@@ -35,6 +36,16 @@ public class MarcacaoPresencaController {
         logger.info("Sending all favorite places from user with id: " + userid);
 
         return marcacaoPresencaRepository.findPresencasByUserid(userid);
+
+    }
+
+
+    @GetMapping(path = "/presencas/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<MarcacaoPreView> getAllFavoritePlacesbyUtilizadorId(@PathVariable(value = "utilizador_id") int utilizadorid){
+
+        logger.info("Sending all presenced places of a user with id: ");
+
+       return marcacaoPresencaRepository.findMarcacaoPresencaByUtilizadorId(utilizadorid);
 
     }
 
