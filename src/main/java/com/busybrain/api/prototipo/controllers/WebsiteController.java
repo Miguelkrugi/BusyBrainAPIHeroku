@@ -63,7 +63,7 @@ public class WebsiteController {
    
 
     //Adicionar um website -> METODO DE TESTE
-
+/*
     @PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
      public Website saveWebsite(@RequestBody Website website){
 
@@ -71,6 +71,15 @@ public class WebsiteController {
      logger.info("Saving website...");
      return savedWebsite;
 
+     }*/
+
+     @PostMapping(path = "/createsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+     public Website saveWebsite(@RequestBody Website website){
+ 
+        Website savedWebsite = websiteRepository.save(website);
+        logger.info("Saving website...");
+        return savedWebsite;
+ 
      }
 
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////
