@@ -53,7 +53,7 @@ public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     "from website AS sites " + 
     "inner join website_domains dominios on sites.website_domain_id = id_website " + 
     "inner join utilizador users on sites.website_user_block = users.user_id " + 
-    "where sites.website_blocked_status = '1' ";
+    "where sites.website_blocked_status = '0' ";
 
     @Query(value = queryTogetUnlockedwebsitesbyUtilizadorId + "and sites.website_user_block=:userid", nativeQuery = true)
     Iterable<WebsiteViiew> findWebsitesByStatus(@Param("userid") int userid);
