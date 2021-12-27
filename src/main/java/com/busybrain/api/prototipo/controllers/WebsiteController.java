@@ -60,28 +60,18 @@ public class WebsiteController {
 
      }
 
-     @PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Website saveWebsite(@RequestBody Website website){
-
-       Website savedWebsite = websiteRepository.save(website);
-
-       logger.info("Inserting a website that was blocked....");
-
-       return savedWebsite;
-
-     }
-
+   
 
     //Adicionar um website -> METODO DE TESTE
 
-    /*@PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    @PostMapping(path = "/createwebsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
      public Website saveWebsite(@RequestBody Website website){
 
       Website savedWebsite = websiteRepository.save(website);
      logger.info("Saving website...");
      return savedWebsite;
 
-     }*/
+     }
 
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
