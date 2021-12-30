@@ -53,12 +53,25 @@ public class GrupoController {
 
     }*/
 
+    //OBTER TODOS OS GRUPOS DE UM UTILIZADOR
+
     @GetMapping(path = "/getgroups/{user_task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<GrupoView> findAllGrupos(@PathVariable(value = "user_task_id") int usertaskid){
 
         logger.info("Sending all groups...");
 
         return grupoRepository.findAllGrupos(usertaskid);
+
+    }
+
+    //OBTER UM GRUPO SELECIONADO POR UM UTILIZADOR
+
+    @GetMapping(path = "/getgroups/{user_task_id}/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public GrupoView findSelectedGroup(@PathVariable(value = "user_task_id") int usertaskid, @PathVariable(value = "group_id") int id){
+
+        logger.info("Sending selected group with id: " + id);
+
+        return grupoRepository.findGrupoByUsertaskidAndId(usertaskid, id);
 
     }
 
