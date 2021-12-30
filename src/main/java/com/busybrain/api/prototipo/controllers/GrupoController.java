@@ -67,11 +67,11 @@ public class GrupoController {
     //OBTER UM GRUPO SELECIONADO POR UM UTILIZADOR
 
     @GetMapping(path = "/getgroups/{user_task_id}/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public GrupoView findSelectedGroup(@PathVariable(value = "user_task_id") int usertaskid, @PathVariable(value = "group_id") int id){
+    public GrupoView findSelectedGroup(@PathVariable(value = "user_task_id") int usertaskid, @PathVariable(value = "group_id") int groupid){
 
-        logger.info("Sending selected group with id: " + id);
+        logger.info("Sending selected group with id: " + groupid);
 
-        return grupoRepository.findGrupoByUsertaskidAndId(usertaskid, id);
+        return grupoRepository.findGrupoByUsertaskidAndId(usertaskid, groupid);
 
     }
 
