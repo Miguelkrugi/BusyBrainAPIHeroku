@@ -24,6 +24,6 @@ public interface GrupoRepository extends CrudRepository<Grupo, Integer>{
     Iterable<GrupoView> findAllGrupos(@Param("usertaskid") int usertaskid);
 
     @Query(value = groupSelected + "where tarefas.user_task_id=:usertaskid and grupos.group_id=:groupid", nativeQuery = true)
-    GrupoView findGrupoByUsertaskidAndId(@Param("usertaskid") int usertaskid, @PathVariable("groupid") int id);
+    GrupoView findGrupoByUsertaskidAndId(@Param("usertaskid") int usertaskid, @PathVariable("groupid") int groupid);
 
 }
