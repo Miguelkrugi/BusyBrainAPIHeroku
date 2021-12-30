@@ -67,6 +67,18 @@ public class UtilizadorTarefaController {
 
     }
 
+    ////////////////////////MÉTODO IGUAL AO DE CIMA//////////////////////////
+
+    @GetMapping(path = "/getparticipantssss/{user_identifier}/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<UtilizadorTarefaView> getParticipantsOfAGroupId(@PathVariable("user_identifier") int userid, @PathVariable("group_id") int groupid){
+
+      logger.info("Sending all participants of a group with id: " + groupid);
+
+      return utilizadorTarefaRepository.findUtilizadorTarefaByUseridAndGroupid(userid, groupid);
+
+
+    }
+
     //NO PATHVARIABLE A VARIAVEL ANTERIOR ERA -> user_id_tarefa
 
     //REMOVER UM PARTICIPANTE DE UM GRUPO (REMOVER UTILIZADOR DE UMA TAREFA)
