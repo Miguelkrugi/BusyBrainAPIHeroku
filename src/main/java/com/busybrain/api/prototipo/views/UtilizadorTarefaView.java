@@ -7,6 +7,7 @@ public interface UtilizadorTarefaView {
    String getNameTarefa();*/
 
    int getGroupId();
+   int getParticipantId();
    String getGroupName();
    String getGroupDesc();
    String getUserName();

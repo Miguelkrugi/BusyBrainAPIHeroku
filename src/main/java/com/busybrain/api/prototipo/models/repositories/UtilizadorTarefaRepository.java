@@ -15,7 +15,7 @@ public interface UtilizadorTarefaRepository extends CrudRepository<UtilizadorTar
 
     //STRING A ALTERAR
 
-    String queryToShowParticipantsOfAGroup = "select groups.group_id AS groupId, usertask.user_id_tarefa, groups.group_name AS groupName, groups.group_description AS groupDesc, users.user_name AS userName, users.user_id AS userId " + 
+    String queryToShowParticipantsOfAGroup = "select groups.group_id AS groupId, usertask.user_id_tarefa AS participantId, groups.group_name AS groupName, groups.group_description AS groupDesc, users.user_name AS userName, users.user_id AS userId " + 
     "from grupo AS groups " + 
     "inner join tarefa tarefas on tarefa_id = task_id " + 
     "inner join utilizador_tarefa usertask on task_id = task_identifier " + 
