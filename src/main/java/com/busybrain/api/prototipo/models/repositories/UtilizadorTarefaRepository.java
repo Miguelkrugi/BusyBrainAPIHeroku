@@ -30,8 +30,6 @@ public interface UtilizadorTarefaRepository extends CrudRepository<UtilizadorTar
     @Query(value = queryToShowParticipantsOfAGroup + "where usertask.user_id_tarefa=:useridtarefa and groups.group_id=:groupid", nativeQuery = true)
     Iterable<UtilizadorTarefaView> findUtilizadorTarefaByUseridtarefaAndGroupid(@Param("useridtarefa") int useridtarefa, @Param("groupid") int groupid);
 
-    
-
 
 
     
