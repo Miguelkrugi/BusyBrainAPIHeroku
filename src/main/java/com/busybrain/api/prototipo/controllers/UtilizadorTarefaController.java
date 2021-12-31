@@ -2,7 +2,10 @@ package com.busybrain.api.prototipo.controllers;
 
 import javax.websocket.server.PathParam;
 
+import com.busybrain.api.prototipo.models.Tarefa;
 import com.busybrain.api.prototipo.models.UtilizadorTarefa;
+import com.busybrain.api.prototipo.models.repositories.TarefaRepository;
+import com.busybrain.api.prototipo.models.repositories.TipoTarefaRepository;
 import com.busybrain.api.prototipo.models.repositories.UtilizadorTarefaRepository;
 import com.busybrain.api.prototipo.views.UtilizadorTarefaView;
 
@@ -33,6 +36,8 @@ public class UtilizadorTarefaController {
         logger.info("A Exibir participantes de todas as tarefas na app");
         return utilizadorTarefaRepository.findAllUtilizadorTarefa();
     }
+
+
 
     //ADICIONAR UM UTILIZADOR A UM GRUPO (ADICIONAR A UMA TAREFA - ADICIONAR UM PARTICIPANTE)
 
