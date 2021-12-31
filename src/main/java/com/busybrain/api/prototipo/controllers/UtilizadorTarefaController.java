@@ -49,7 +49,7 @@ public class UtilizadorTarefaController {
     //APAGAR UM UTILIZADOR DE UM GRUPO (REMOVER DE UMA TAREFA - REMOVER UM PARTICIPANTE)
 
     @DeleteMapping(path = "/removeparticipant/{group_id}/{user_identifier}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteTarefa(@PathVariable("group_id") int groupid, @PathVariable("user_identifier") int userid){
+    public void deleteParticipante(@PathVariable("group_id") int groupid, @PathVariable("user_identifier") int userid){
 
         logger.info("Deleting participant of the group with id: " + groupid);
 
