@@ -34,7 +34,7 @@ public class UtilizadorTarefaController {
         return utilizadorTarefaRepository.findAllUtilizadorTarefa();
     }
 
-    //ADICIONAR UM UTILIZADOR A UM GRUPO (ADICIONAR A UMA TAREFA)
+    //ADICIONAR UM UTILIZADOR A UM GRUPO (ADICIONAR A UMA TAREFA - ADICIONAR UM PARTICIPANTE)
 
     @PostMapping(path = "/addparticipant", produces = MediaType.APPLICATION_JSON_VALUE)
     public UtilizadorTarefa saveParticipant(@RequestBody UtilizadorTarefa utilizadorTarefa){
@@ -46,6 +46,19 @@ public class UtilizadorTarefaController {
 
     }
 
+    //APAGAR UM UTILIZADOR DE UM GRUPO (REMOVER DE UMA TAREFA - REMOVER UM PARTICIPANTE)
+
+    @DeleteMapping(path = "/removeparticipant/{group_id}/{user_id_tarefa}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteTarefa(@PathVariable("group_id") int groupid, @PathVariable("user_id_tarefa") int id){
+
+        logger.info("Deleting participant of the group with id: " + groupid);
+
+        utilizadorTarefaRepository.deleteById(id);
+
+    }
+
+    //OBTER OS PARTICIPANTES DE UM GRUPO
+
     @GetMapping(path = "/getparticipants/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<UtilizadorTarefaView> getParticipants(@PathVariable("group_id") int groupid){
 
@@ -54,6 +67,9 @@ public class UtilizadorTarefaController {
       return utilizadorTarefaRepository.findUtilizadorTarefaByGroupid(groupid);
 
     }
+
+
+  
 
     //OBTER OS PARTICIPANTES DE UM GRUPO (PASSANDO TAMBEM O ID DO UTILIZADOR LOGGADO NA CONTA)
 
@@ -75,7 +91,6 @@ public class UtilizadorTarefaController {
       logger.info("Sending all participants of a group with id: " + groupid);
 
       return utilizadorTarefaRepository.findUtilizadorTarefaByUseridAndGroupid(userid, groupid);
-
 
     }
 
