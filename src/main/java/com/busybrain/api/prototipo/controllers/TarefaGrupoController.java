@@ -39,7 +39,7 @@ public class TarefaGrupoController {
 
      //CRIAR UMA TAREFA NO GRUPO
 
-    @PostMapping(path = "/createtask/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    @PostMapping(path = "/createtaskgrupo", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public TarefaGrupo saveTarefaGrupo(@PathVariable(value = "group_id") int id,@RequestBody TarefaGrupo tarefaGrupo){
 
        TarefaGrupo savedTarefaGrupo = tarefaGrupoRepository.save(tarefaGrupo);
