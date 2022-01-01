@@ -21,7 +21,7 @@ public class TarefaGrupo {
     @Column(name = "user_task_id") private int usertaskid;
     @Column(name = "task_priority_id") private int priority;
     @Column(name = "task_type_id") private int type;
-    @Column(name = "task_status") private boolean status;
+    //@Column(name = "task_status") private boolean status;
     @Column(name = "task_group_id") private int taskgroupid;
 
     public TarefaGrupo(){
@@ -84,13 +84,13 @@ public class TarefaGrupo {
         this.type = type;
     }
 
-    public boolean isStatus() {
+   /* public boolean isStatus() {
         return status;
     }
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
+    }*/
 
     public int getTaskgroupid() {
         return taskgroupid;
