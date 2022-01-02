@@ -2,6 +2,7 @@ package com.busybrain.api.prototipo.controllers;
 
 import com.busybrain.api.prototipo.models.TarefaGrupo;
 import com.busybrain.api.prototipo.models.repositories.TarefaGrupoRepository;
+import com.busybrain.api.prototipo.views.TarefaGrupoView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,13 +32,22 @@ public class TarefaGrupoController {
 
         return tarefaGrupoRepository.findAll();
     }
-/*
+
+    //OBTER TODAS AS TAREFAS CRIADAS NUM GRUPO (INFORMAÇÕES A OBTER -> )
+
     @GetMapping(path = "/gettasksgrupo/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<>
-    */
+    public Iterable<TarefaGrupoView> getAllTarefasGrupoGroupId(@PathVariable(value = "group_id") int groupid){
+
+        logger.info("Sending all tasks of a group with id: " + groupid);
+
+        return tarefaGrupoRepository.findAllTarefaGrupo(groupid);
 
 
-     //CRIAR UMA TAREFA NO GRUPO
+    }
+    
+
+
+     //CRIAR UMA TAREFA NO GRUPO (SENDO UM DOS ATRIBUTOS O ID DO GRUPO A QUE AQUELA TAREFA PERTENCE)
 
     @PostMapping(path = "/createtaskgrupo", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public TarefaGrupo saveTarefaGrupo(@RequestBody TarefaGrupo tarefaGrupo){

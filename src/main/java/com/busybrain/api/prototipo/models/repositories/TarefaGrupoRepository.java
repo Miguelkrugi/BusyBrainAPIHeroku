@@ -13,6 +13,7 @@ public interface TarefaGrupoRepository extends CrudRepository<TarefaGrupo, Integ
     String queryToGetAllTasksOfGroup = "select tarefas.task_id AS taskId, tarefas.task_group_id AS groupId,tarefas.task_title AS taskTitle, tarefas.task_desc AS taskDesc, prioridade.taskpriority_type AS priorityType, userss.user_name AS userName, participante.user_id_tarefa AS participanteId, userss.user_id AS userId " + 
     "from tarefa_grupo AS tarefas " + 
     "inner join prioridadetarefa AS prioridade on tarefas.task_priority_id = prioridade.taskpriority_id " + 
+    "inner join grupo AS grupos on tarefas.task_group_id = grupos.group_id " + 
     "inner join utilizador_tarefa AS participante on tarefas.user_task_id = participante.user_identifier " + 
     "inner join utilizador AS userss on participante.user_identifier = userss.user_id ";
 
@@ -21,7 +22,5 @@ public interface TarefaGrupoRepository extends CrudRepository<TarefaGrupo, Integ
     @Query(value = queryToGetAllTasksOfGroup + "where ", nativeQuery = true)
     Iterable<TarefaGrupoView> findAllTarefaGrupo(@Param("group_id") int groupid); 
 
-    @Query(value = queryToShowParticipantsOfAGroup + "where groups.group_id=:groupid", nativeQuery = true)
-    Iterable<UtilizadorTarefaView> findUtilizadorTarefaByGroupid(@Param("groupid") int groupid);
 
 }
