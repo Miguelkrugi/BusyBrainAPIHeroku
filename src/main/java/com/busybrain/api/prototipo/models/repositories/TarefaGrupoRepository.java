@@ -16,6 +16,8 @@ public interface TarefaGrupoRepository extends CrudRepository<TarefaGrupo, Integ
     "inner join utilizador_tarefa AS participante on tarefas.user_task_id = participante.user_identifier " + 
     "inner join utilizador AS userss on participante.user_identifier = userss.user_id ";
 
+    ///////////////// TERMINAR ESTE MÉTODO ADICIONANDO O ID DO GRUPO! /////////////////////////////////////////
+
     @Query(value = queryToGetAllTasksOfGroup + "where ", nativeQuery = true)
     Iterable<TarefaGrupoView> findAllTarefaGrupo(@Param("group_id") int groupid); 
 
