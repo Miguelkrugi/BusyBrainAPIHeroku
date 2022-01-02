@@ -19,8 +19,12 @@ public interface TarefaGrupoRepository extends CrudRepository<TarefaGrupo, Integ
 
     ///////////////// TERMINAR ESTE MÉTODO ADICIONANDO O ID DO GRUPO! /////////////////////////////////////////
 
-    @Query(value = queryToGetAllTasksOfGroup + "where ", nativeQuery = true)
+    @Query(value = queryToGetAllTasksOfGroup + "where tarefas.task_group_id=:groupid", nativeQuery = true)
     Iterable<TarefaGrupoView> findAllTarefaGrupo(@Param("group_id") int groupid); 
 
+    /*
+    @Query(value = queryTestTaskRecyclerView + "where tarefas.user_task_id=:usertaskid", nativeQuery = true)
+    Iterable<TarefaView> findAllTarefaByUserid(@Param("usertaskid") int usertaskid);
+    */
 
 }
