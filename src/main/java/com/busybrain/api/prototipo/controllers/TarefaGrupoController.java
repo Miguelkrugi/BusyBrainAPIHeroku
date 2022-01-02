@@ -35,12 +35,12 @@ public class TarefaGrupoController {
 
     //OBTER TODAS AS TAREFAS CRIADAS NUM GRUPO (INFORMAÇÕES A OBTER -> )
 
-    @GetMapping(path = "/gettasksgrupo/{group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<TarefaGrupoView> getAllTarefasGrupoGroupId(@PathVariable(value = "group_id") int groupid){
+    @GetMapping(path = "/gettasksgrupo/{task_group_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<TarefaGrupoView> getAllTarefasGrupoGroupId(@PathVariable(value = "task_group_id") int taskgroupid){
 
-        logger.info("Sending all tasks of a group with id: " + groupid);
+        logger.info("Sending all tasks of a group with id: " + taskgroupid);
 
-        return tarefaGrupoRepository.findAllTarefaGrupo(groupid);
+        return tarefaGrupoRepository.findAllTarefaGrupo(taskgroupid);
 
 
     }
