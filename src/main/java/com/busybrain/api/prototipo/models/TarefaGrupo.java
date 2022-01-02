@@ -91,6 +91,7 @@ public class TarefaGrupo {
     public void setStatus(boolean status) {
         this.status = status;
     }*/
+    
 
     public int getTaskgroupid() {
         return taskgroupid;
