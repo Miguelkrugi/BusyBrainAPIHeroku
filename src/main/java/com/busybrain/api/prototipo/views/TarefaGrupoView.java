@@ -3,7 +3,7 @@ package com.busybrain.api.prototipo.views;
 public interface TarefaGrupoView {
 
     int getTaskId();
-    int getGroupId();
+    int getTaskGroupId();
     String getTaskTitle();
     String getTaskDesc();
     String getPriorityType();
