@@ -7,8 +7,8 @@ public interface LocalUtilizadorView {
     String getPlaceEndereco();
     double getPlaceLatitude();
     double getPlaceLongitude();
-    boolean getPlaceFavorite();
-    boolean getPlacePresenca();
+    boolean isPlaceFavorite();
+    boolean isPlacePresenca();
     int getUserId();
 
 }
