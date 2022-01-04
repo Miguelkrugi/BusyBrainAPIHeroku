@@ -38,8 +38,17 @@ public class LocalController {
         return localRepository.findAll();
     }
 
+    @GetMapping(path = "/getplace/{user_id}/{place_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<LocalUtilizadorView> getPlaceSelected(@PathVariable(value = "user_id") int userid, @PathVariable(value = "place_id") int placeid){
 
-    //OBTER INFORMACOES PARA PASSAR ID DO UTILIZADOR E ID DO LOCAL SELECIONADO
+         logger.info("Sending place with id: " + placeid + " that was selected by the user: " + userid);
+
+         return localRepository.findLocalUtilizadorByUserIdAndPlaceId(userid, placeid);
+
+    }
+
+
+    /*/OBTER INFORMACOES PARA PASSAR ID DO UTILIZADOR E ID DO LOCAL SELECIONADO
 
     @GetMapping(path = "/getplace/{user_id}/{place_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<LocalUtilizadorView> getPlaceSelected(@PathVariable(value = "user_id") int userid, @PathVariable(value = "place_id") int placeid){
@@ -49,6 +58,7 @@ public class LocalController {
          return localRepository.findLocalUtilizadorByUserId(userid, placeid);
 
     }
+    */
     
 
     //TODO --> ADICIONAR MÉTODO PARA OBTER AS INFORMACOES DE UM LOCAL COM BASE NA SELECAO POR ID
