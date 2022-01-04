@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -51,11 +52,11 @@ public class LocalController {
     //FAZER 2 UPDATES (1 UPDATE PARA FAVORITOS E OUTRO UPDATE PARA PRESENCAS)
 
     @PutMapping(path = "/updateplace")
-    public Local updateLocal(@RequestBody Local local){
+    public @ResponseBody String  updateLocal(@RequestBody Local local){
 
-         Local novolocal = localRepository.save(local);
+         localRepository.save(local);
 
-         return novolocal;
+         return "";
 
 
     }
