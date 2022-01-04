@@ -22,7 +22,10 @@ public class Local {
     @Column(name = "place_longitude") private double longitude;
     @Column(name = "place_google_id") private String googleid;
     @Column(name = "user_request_id") private int userrequestid;
-   
+    //NEW COLUMNS
+    @Column(name = "place_favorite") private boolean placefavorite;
+    @Column(name = "place_presenca") private boolean placepresenca;
+
     public Local(){
 
     }
@@ -91,5 +94,20 @@ public void setUserrequestid(int userrequestid) {
         this.distancia = distancia;
     }*/
 
+    public boolean isPlacefavorite() {
+        return placefavorite;
+    }
+
+    public void setPlacefavorite(boolean placefavorite) {
+        this.placefavorite = placefavorite;
+    }
+
+    public boolean isPlacepresenca() {
+        return placepresenca;
+    }
+
+    public void setPlacepresenca(boolean placepresenca) {
+        this.placepresenca = placepresenca;
+    }
 
 }
