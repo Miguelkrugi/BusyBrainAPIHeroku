@@ -5,6 +5,7 @@ import java.util.Optional;
 import com.busybrain.api.prototipo.models.Local;
 import com.busybrain.api.prototipo.models.exceptions.NotFoundException3;
 import com.busybrain.api.prototipo.models.repositories.LocalRepository;
+import com.busybrain.api.prototipo.models.repositories.LocalUtilizadorViewRepository;
 import com.busybrain.api.prototipo.views.LocalUtilizadorView;
 
 import org.slf4j.Logger;
@@ -29,6 +30,8 @@ public class LocalController {
 
     @Autowired
     private LocalRepository localRepository;
+    //REPOSITORIO DO VIEW
+    private LocalUtilizadorViewRepository localUtilizadorViewRepository;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Local> findAllLocals(){
@@ -44,6 +47,17 @@ public class LocalController {
          logger.info("Sending place with id: " + placeid + " that was selected by the user: " + userid);
 
          return localRepository.findLocalUtilizadorByUserIdAndPlaceId(userid, placeid);
+
+    }
+
+    //OBTER TODAS AS VIEWS
+    
+    @GetMapping(path = "/getall", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<LocalUtilizadorView> getAllLocalUtilizador(){
+
+         logger.info("Sending all...");
+
+         return localUtilizadorViewRepository.findAll();
 
     }
 
