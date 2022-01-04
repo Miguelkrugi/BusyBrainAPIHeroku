@@ -48,6 +48,18 @@ public class LocalController {
 
     }
 
+    //FAZER 2 UPDATES (1 UPDATE PARA FAVORITOS E OUTRO UPDATE PARA PRESENCAS)
+
+    @PutMapping(path = "/updateplace")
+    public Local updateLocal(@RequestBody Local local){
+
+         Local novolocal = localRepository.save(local);
+
+         return novolocal;
+
+
+    }
+
 
 
     /*/OBTER INFORMACOES PARA PASSAR ID DO UTILIZADOR E ID DO LOCAL SELECIONADO
