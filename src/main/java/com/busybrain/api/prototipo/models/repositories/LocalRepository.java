@@ -12,9 +12,9 @@ import org.springframework.data.repository.query.Param;
 
 public interface LocalRepository extends CrudRepository<Local, Integer>{
  
-    String queryByLocalInfo = "select locais.place_id AS placeId, locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_latitude AS placeLatitude, locais.place_longitude AS placeLongitude, userss.user_id AS userId " + 
-    "from place AS locais " + 
-   "inner join utilizador userss on userss.user_id = locais.user_request_id ";
+    String queryByLocalInfo = "select locais.place_id AS placeId, locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_latitude AS placeLatitude, locais.place_longitude AS placeLongitude, locais.place_favorite AS placeFavorite, locais.place_presenca AS placePresenca, userss.user_id AS userId " + 
+    "from place AS locais " +  
+   "inner join utilizador userss on userss.user_id = locais.user_request_id";
 
    @Query(value = queryByLocalInfo + "where userss.user_id=:userid and locais.place_id=:placeid", nativeQuery = true)
    Iterable<LocalUtilizadorView> findLocalUtilizadorByUserId(@Param("userid") int userid, @Param("placeid") int placeid);
