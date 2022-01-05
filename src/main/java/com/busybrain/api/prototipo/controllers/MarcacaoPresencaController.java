@@ -28,17 +28,7 @@ public class MarcacaoPresencaController {
     @Autowired
     private MarcacaoPresencaRepository marcacaoPresencaRepository;
 
-    //Method to get favorite places from a user
-
-    @GetMapping(path = "/presenceplaces/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoPresencaView> getPresencaPlaces(@PathVariable(value = "utilizador_id") int userid){
-
-        logger.info("Sending all favorite places from user with id: " + userid);
-
-        return marcacaoPresencaRepository.findPresencasByUserid(userid);
-
-    }
-
+    //OBTER TODOS OS LOCAIS COM PRESENCAS
 
     @GetMapping(path = "/presencas/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<MarcacaoPreView> getAllFavoritePlacesbyUtilizadorId(@PathVariable(value = "utilizador_id") int utilizadorid){
@@ -48,6 +38,8 @@ public class MarcacaoPresencaController {
        return marcacaoPresencaRepository.findMarcacaoPresencaByUtilizadorId(utilizadorid);
 
     }
+
+    
 
     @PutMapping(path = "/updateplace/{presenca_id}")
     public MarcacaoPresenca atualizarPresenca(@PathVariable(value = "presenca_id") int preid, @RequestBody MarcacaoPresenca marcacaoPresenca){ //O request body recebe os dados de uma tarefa a atualizar

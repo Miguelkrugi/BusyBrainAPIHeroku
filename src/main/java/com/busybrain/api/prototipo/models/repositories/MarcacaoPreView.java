@@ -4,6 +4,7 @@ public interface MarcacaoPreView {
     
     int getPresencaId();
     int getUtilizadorId();
+    String getUserName();
     String getPlaceName();
     String getPlaceEndereco();
     int getPlaceId();

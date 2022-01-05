@@ -16,7 +16,10 @@ public interface MarcacaoPresencaRepository extends CrudRepository<MarcacaoPrese
     "inner join utilizador userss on userss.user_id = marcacoesp.utilizador_id " +
     "inner join place localss on marcacoesp.local_id = localss.place_id";
 
-    String queryyyy = "select marcacoes.presenca_id AS presencaId, marcacoes.utilizador_id AS utilizadorId, locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_id AS placeId " + 
+
+
+
+    String queryyyy = "select marcacoes.presenca_id AS presencaId, marcacoes.utilizador_id AS utilizadorId, userss.user_name AS userName,locais.place_name AS placeName, locais.place_endereco AS placeEndereco, locais.place_id AS placeId " + 
     "from marcacao_presenca AS marcacoes " + 
     "inner join utilizador userss on marcacoes.utilizador_id = userss.user_id " + 
     "inner join place locais on marcacoes.local_id = locais.place_id " + 
