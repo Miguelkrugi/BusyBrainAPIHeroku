@@ -5,7 +5,7 @@ import java.sql.Date;
 public interface ConvivioView {
     
     int getIdConvivio();
-    Date getDataConvivio();
+    String getDataConvivio();
     String getNomeGrupo();
     String getNome();
 
