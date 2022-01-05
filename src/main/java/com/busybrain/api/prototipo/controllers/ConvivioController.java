@@ -43,7 +43,7 @@ public class ConvivioController {
 
     }
 
-    // EXIBIR CONVIVIOS JA FEITOS NUM GRUPO
+    /*/ EXIBIR CONVIVIOS JA FEITOS NUM GRUPO
 
     @GetMapping(path = "/{grupo_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ConvivioView> getAllConviviosByGroupid(@PathVariable(value = "grupo_id") int grupoid){
@@ -53,5 +53,18 @@ public class ConvivioController {
          return convivioRepository.findConvivioByGroupId(grupoid);
 
     }
+    */
+
+    //EXIBIR CONVIVIOS JA FEITOS NUM GRUPO (COM NOVAS INFORMAÇÕES)
+
+    @GetMapping(path = "/{grupo_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<ConvivioView> getAllConviviosByGroupid(@PathVariable(value = "grupo_id") int grupoid){
+
+         logger.info("Sending all convivios of a group with id: " + grupoid);
+
+         return convivioRepository.findConvivioByGroupId(grupoid);
+
+    }
+
 
 }
