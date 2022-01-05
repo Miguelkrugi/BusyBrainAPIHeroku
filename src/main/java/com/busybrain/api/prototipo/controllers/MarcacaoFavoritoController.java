@@ -50,6 +50,7 @@ public class MarcacaoFavoritoController {
     }
 
     
+    
 
     //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER
 
