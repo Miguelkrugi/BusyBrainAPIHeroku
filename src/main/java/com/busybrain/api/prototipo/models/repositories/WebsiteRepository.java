@@ -55,11 +55,18 @@ public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     "inner join utilizador users on sites.website_user_block = users.user_id " + 
     "where sites.website_blocked_status = '1' "; //DEVERA SER ALTERADO PARA 0
 
+
+
     @Query(value = queryTogetUnlockedwebsitesbyUtilizadorId + "and sites.website_user_block=:userid", nativeQuery = true)
     Iterable<WebsiteViiew> findWebsitesByStatus(@Param("userid") int userid);
 
-    String queryTogetLockedwebsitesbyUtilizadorId = "";
+    String queryTogetLockedwebsitesbyUtilizadorId = "select sites.website_id AS websiteId, sites.website_user_block AS userId , users.user_name AS userName, dominios.website_name AS websiteName,dominios.domain_website AS websiteDomain, sites.website_blocked_status AS blockedStatus " + 
+    "from website AS sites " + 
+    "inner join website_domains dominios on sites.website_domain_id = id_website " + 
+    "inner join utilizador users on sites.website_user_block = users.user_id " + 
+    "where sites.website_blocked_status = '0' ";
 
-
+    @Query(value = queryTogetLockedwebsitesbyUtilizadorId + "and sites.website_user_block=:userid", nativeQuery = true)
+    Iterable<WebsiteViiew> findWebsitesByBlockedStatus(@Param("userid") int userid);
 
 }

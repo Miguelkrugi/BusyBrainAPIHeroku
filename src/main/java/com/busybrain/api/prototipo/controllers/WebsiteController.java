@@ -84,15 +84,26 @@ public class WebsiteController {
      }
 
 
-     ///////////////////////////////////////////////////////////////////////////////////////
+     ///////////////////////////////////MÉTODO FUNCIONAL - OBTER OS WEBSITES BLOQUEADOS///////////////////////////////////////////////////////////////
 
-     @GetMapping(path = "/getwebsitesss/{website_user_block}", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Iterable<WebsiteViiew> getUnlockedSitesByWebsiteUserBlock(@PathVariable(value = "website_user_block") int userid){
+     @GetMapping(path = "/getlockedwebsitesss/{website_user_block}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<WebsiteViiew> getLockedSitesByWebsiteUserBlock(@PathVariable(value = "website_user_block") int userid){
 
-       logger.info("Getting all unlocked websites by user: " + userid);
+       logger.info("Getting all locked websites by user: " + userid);
 
        return websiteRepository.findWebsitesByStatus(userid);
 
+
+     }
+
+     //OBTER OS WEBSITES DESBLOQUEADOS (PARA APRESENTAR NA LISTVIEW EM ANDROID)
+
+     @GetMapping(path = "/getunlockedwebsitesss/{website_user_block}", produces = MediaType.APPLICATION_JSON_VALUE)
+     public Iterable<WebsiteViiew> getUnlockedSitesByWebsiteUserBlock(@PathVariable(value = "website_user_block") int userid){
+
+      logger.info("Getting all unlocked websites by user: " + userid);
+
+      return websiteRepository.findWebsitesByBlockedStatus(userid);
 
      }
 
