@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.busybrain.api.prototipo.models.Local;
 import com.busybrain.api.prototipo.views.LocalUtilizadorView;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -21,8 +22,17 @@ public interface LocalRepository extends CrudRepository<Local, Integer>{
 
     public Iterable<Local> findByNameContaining(String name);
 
+
+
     //public Iterable<Local> findLocalByCategoria(String categoria);
 
+    ////////////////////////////////////QUERY TO MODIFY////////////////////////////////////////////
+/*
+    @Modifying
+    @Query(value = "update")
+*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     
 
