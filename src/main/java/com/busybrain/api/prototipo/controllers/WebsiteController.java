@@ -49,16 +49,6 @@ public class WebsiteController {
 
      }
 
-     //OS MÉTODOS ABAIXO NÃO FUNCIONAM //////////////////////////////////////////////////////////////////////////
-
-     @GetMapping(path = "/getsitesfrom/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Iterable<WebsiteView> getWebsitesByUserid(@PathVariable("utilizador_id") int utilizadorid){
-
-        logger.info("Getting all websites status from user by id given...");
-
-        return websiteRepository.findWebsitesByUserid(utilizadorid);
-
-     }
 
    
 
@@ -93,27 +83,6 @@ public class WebsiteController {
 
      }
 
-     //Exibir as informações de um website selecionado | EXIBIR WEBSITES BLOQUEADOS
-
-    @GetMapping(path = "/getwebsites/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Iterable<Website> getBlockedWebsites(){
-
-        logger.info("Getting all blocked websites...");
-
-        return websiteRepository.findWebsiteByStatus();
-
-     }
-
-     //EXIBIR WEBSITES DESBLOQUEADOS
-
-     @GetMapping(path = "/getwebsites/unlocked", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Iterable<Website> getUnlockedWebsites(){
-
-        logger.info("Getting all unlocked websites...");
-
-        return websiteRepository.findByStatus();
-
-     }
 
      ///////////////////////////////////////////////////////////////////////////////////////
 
