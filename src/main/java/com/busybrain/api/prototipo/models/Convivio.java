@@ -19,7 +19,7 @@ public class Convivio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "data_convivio") private Date date;
+    @Column(name = "data_convivio") private String date;
     @Column(name = "convivio_id") private int id;
     @Column(name = "grupo_id") private int grupoid;
     @Column(name = "placee_id") private int placeid;
@@ -28,11 +28,11 @@ public class Convivio {
 
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
