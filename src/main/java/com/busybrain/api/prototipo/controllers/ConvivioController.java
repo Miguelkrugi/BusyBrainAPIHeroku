@@ -32,8 +32,10 @@ public class ConvivioController {
         return convivioRepository.findAll();
     }
 
+    //CRIAR UM CONVIVIO
+
     @PostMapping(path = "/createconvivio", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
-    public Convivio saveGroup(@RequestBody Convivio convivio){
+    public Convivio saveConvivio(@RequestBody Convivio convivio){
 
        Convivio savedConvivio = convivioRepository.save(convivio);
        logger.info("Saving convivio...");
