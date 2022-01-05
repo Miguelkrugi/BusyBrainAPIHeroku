@@ -40,10 +40,12 @@ public class MarcacaoFavoritoController {
 
     }
 
+    //OBTER LOCAIS FAVORITOS PELO UTILIZADOR
+
     @GetMapping(path = "/favs/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<MarcacaoFavView> getAllFavoritePlacesbyUtilizadorId(@PathVariable(value = "utilizador_id") int utilizadorid){
 
-        logger.info("Sending all favorite places of a user with id: ");
+        logger.info("Sending all favorite places of a user with id: " + utilizadorid);
 
        return marcacaoFavoritoRepository.findMarcacaoFavoritoByUtilizadorId(utilizadorid);
 
@@ -51,18 +53,6 @@ public class MarcacaoFavoritoController {
 
     
     
-
-    //METHOD FOR TEST - GET ALL FAVORITE PLACES OF A USER
-
-    
-    @GetMapping(path = "/{utilizador_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<MarcacaoFavoritoView> getAllFavoritePlacesbyUtilizadorid(@PathVariable(value = "utilizador_id") int userid){
-
-        logger.info("Sending all favorite places of a user");
-
-       return marcacaoFavoritoRepository.findByFavoritestatus(userid);
-
-    }
 
     //MARCAR LOCAIS FAVORITOS -- TERMINAR AMANHA (UPDATE A VALORES BOOLEANOSch10)
     
