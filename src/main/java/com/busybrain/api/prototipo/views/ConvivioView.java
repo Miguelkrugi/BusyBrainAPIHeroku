@@ -4,9 +4,10 @@ import java.sql.Date;
 
 public interface ConvivioView {
     
-    int getIdConvivio();
-    String getDataConvivio();
-    String getNomeGrupo();
-    String getNome();
+    int getConvivioId();
+    String getGroupName();
+    String getPlaceName();
+    String getPlaceEndereco();
+    String getConvivioData();
 
 }
