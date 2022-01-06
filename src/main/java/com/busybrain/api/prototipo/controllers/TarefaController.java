@@ -78,7 +78,7 @@ public class TarefaController {
 
 
 
-    
+   //CRIAR UMA TAREFA PARA UM UTILIZADOR    
 
     @PostMapping(path = "/createtask", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Tarefa saveTarefa(@RequestBody Tarefa tarefa){
@@ -109,6 +109,8 @@ public class TarefaController {
 
     }*/
 
+   //FILTRAGEM DE TAREFAS NO GERAL (TODA A BD)
+
     @GetMapping(path = "/filterbypriority/{task_priority_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<TarefaView> getTasksPriority(@PathVariable(value = "task_priority_id") int priority){
 
@@ -118,6 +120,7 @@ public class TarefaController {
 
     }
 
+    //FILTRAR TAREFAS POR PRIORIDADE (UTILIZANDO O ID DO UTILIZADOR)
     
     @GetMapping(path = "/filterbypriority/{user_task_id}/{task_priority_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<TarefaView> getTasksPriority(@PathVariable(value = "user_task_id") int usertaskid,@PathVariable(value = "task_priority_id") int priority){
@@ -128,6 +131,7 @@ public class TarefaController {
 
     }
 
+    //OBTER INFORMAÇÕES DE UMA TAREFA PELO ID
     
     @GetMapping(path = "/getinfo/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Tarefa getInfoTarefa(@PathVariable(value = "task_id") int id){
@@ -150,6 +154,8 @@ public class TarefaController {
         return tarefaRepository.findByType(typeid);
 
     }*/
+
+    //PESQUISA DE UMA TAREFA PELO TITULO
 
     @GetMapping(path = "/searchtitle/{task_title}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public Iterable<Tarefa> getTaskByTitleContaining(@PathVariable(value = "task_title") String title){
@@ -179,23 +185,6 @@ public class TarefaController {
 
     }*/
 
-    @GetMapping(path = "/gettasks", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<TarefaView> getAllTasks(){
-
-        logger.info("Sending all tasks...");
-
-        return tarefaRepository.findAllTarefa();
-
-    }
-
-    @GetMapping(path = "/deletetaskandget/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<TarefaView> getAllTask(@PathVariable("task_id") int taskid){
-
-        logger.info("Sending all tasks after deleting...");
-
-        return tarefaRepository.deleteByTaskid(taskid);
-
-    }
     
     /*@DeleteMapping(path = "/deletetask/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE) //COMPLETO
     public void deleteTarefa(@PathVariable("task_id") int id){

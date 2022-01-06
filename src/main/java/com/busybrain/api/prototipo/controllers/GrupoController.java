@@ -77,6 +77,8 @@ public class GrupoController {
 
     }
 
+    //CRIAÇÃO DE UM GRUPO
+
     @PostMapping(path = "/creategroup", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
     public Grupo saveGroup(@RequestBody Grupo grupo){
 

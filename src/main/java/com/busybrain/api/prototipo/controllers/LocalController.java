@@ -40,6 +40,8 @@ public class LocalController {
         return localRepository.findAll();
     }
 
+    //MÉTODOS ELIMINADO//
+
     @GetMapping(path = "/getplace/{user_id}/{place_id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<LocalUtilizadorView> getPlaceSelected(@PathVariable(value = "user_id") int userid, @PathVariable(value = "place_id") int placeid){
 
@@ -48,6 +50,8 @@ public class LocalController {
          return localRepository.findLocalUtilizadorByUserIdAndPlaceId(userid, placeid);
 
     }
+
+    
 
     //FAZER 2 UPDATES (1 UPDATE PARA FAVORITOS E OUTRO UPDATE PARA PRESENCAS)
 
@@ -60,6 +64,7 @@ public class LocalController {
 
 
     }
+    ////////////////////////////////////////////////////////////////////
 
 
     //OBTER TODOS OS LOCAIS COM PRESENCAS MARCADAS DE UM UTILIZADOR (MARCACAO_PRESENCA)

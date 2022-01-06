@@ -22,7 +22,7 @@ public class Local {
     @Column(name = "place_longitude") private double longitude;
     @Column(name = "place_google_id") private String googleid;
     @Column(name = "user_request_id") private int userrequestid;
-    //NEW COLUMNS
+    //NEW COLUMNS (APAGAR)
     @Column(name = "place_favorite") private boolean placefavorite;
     @Column(name = "place_presenca") private boolean placepresenca;
 

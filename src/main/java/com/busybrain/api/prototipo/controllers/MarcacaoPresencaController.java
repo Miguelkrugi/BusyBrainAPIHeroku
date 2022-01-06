@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,16 @@ public class MarcacaoPresencaController {
 
     }
 
-    
+      //CRIAÇÃO DA PRIMEIRA MARCAÇÃO
+
+      @PostMapping(path = "/createmarcacaopresenca", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+      public MarcacaoPresenca saveMarcacaoPresenca(@RequestBody MarcacaoPresenca marcacaoPresenca){
+  
+       MarcacaoPresenca savedMarcacaoPresenca = marcacaoPresencaRepository.save(marcacaoPresenca);
+       logger.info("Saving marcação...");
+       return savedMarcacaoPresenca;
+  
+      }
 
     @PutMapping(path = "/updateplace/{presenca_id}")
     public MarcacaoPresenca atualizarPresenca(@PathVariable(value = "presenca_id") int preid, @RequestBody MarcacaoPresenca marcacaoPresenca){ //O request body recebe os dados de uma tarefa a atualizar

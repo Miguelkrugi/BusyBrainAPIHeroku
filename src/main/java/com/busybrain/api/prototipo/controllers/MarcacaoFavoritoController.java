@@ -51,7 +51,16 @@ public class MarcacaoFavoritoController {
 
     }
 
-    
+    //CRIAÇÃO DA PRIMEIRA MARCAÇÃO
+
+    @PostMapping(path = "/createmarcacao", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
+    public MarcacaoFavorito saveMarcacaoFavorito(@RequestBody MarcacaoFavorito marcacaoFavorito){
+
+     MarcacaoFavorito savedMarcacaoFavorito = marcacaoFavoritoRepository.save(marcacaoFavorito);
+     logger.info("Saving marcação...");
+     return savedMarcacaoFavorito;
+
+    }
     
 
     //MARCAR LOCAIS FAVORITOS -- TERMINAR AMANHA (UPDATE A VALORES BOOLEANOSch10)
