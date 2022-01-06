@@ -65,15 +65,6 @@ public class WebsiteController {
 
      ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-     @GetMapping(path = "/getwebsites/{utilizador_id}/blocked", produces = MediaType.APPLICATION_JSON_VALUE)
-     public Iterable<Website> getBlockedWebsites(@PathVariable(value = "utilizador_id") int utilizadorid){
-
-        logger.info("Getting all blocked websites...");
-
-        return websiteRepository.findWebsiteByUtilizadorId(utilizadorid);
-
-     }
-
 
      ///////////////////////////////////MÉTODO FUNCIONAL - OBTER OS WEBSITES BLOQUEADOS///////////////////////////////////////////////////////////////
 
