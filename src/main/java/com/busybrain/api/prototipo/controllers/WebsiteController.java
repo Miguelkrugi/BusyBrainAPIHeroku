@@ -63,6 +63,8 @@ public class WebsiteController {
 
      }*/
 
+    //ESTE POST SÓ OCORRE QUANDO UM SITE É BLOQUEADO (INCOMPLETO DEVIDO AO POST DO VALOR BOOLEANO) | A PARTIR DAÍ, QUALQUER ALTERAÇÃO FEITA A ESSE DOMINIO, É REALIZADA ATRAVÉS DE UPDATES POR BOOLEAN.
+
      @PostMapping(path = "/createsite", produces = MediaType.APPLICATION_JSON_VALUE)  //COMPLETO
      public Website saveWebsite(@RequestBody Website website){
  

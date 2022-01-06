@@ -39,9 +39,14 @@ public interface MarcacaoFavoritoRepository extends CrudRepository<MarcacaoFavor
     @Query(value = q + "and marcacoes.utilizador_id=:utilizadorid", nativeQuery = true)
     Iterable<MarcacaoFavView> findMarcacaoFavoritoByUtilizadorId(@Param("utilizadorid") int utilizadorid);
 
-// select favorite_id, user_name, place_name 
-//from marcacao_favorito
-//inner join utilizador on user_id = utilizador_id
-//inner join place on local_id = place_id
-//where isfavorite = '1' and users.user_id=:userid
+    /////////////////////////////////////////////////////QUERIES DE REMOÇÃO DE FAVORITOS OU REMARCAÇÃO DE FAVORITOS ///////////////////////////////////////////////
+
+   //REMARCAÇÃO DE LOCAIS FAVORITOS 
+
+   // update marcacao_favorito set isfavorite = '1' where marcacoes.utilizador_id=:utilizadorid and marcacoes.local_id=:placeid (PUT MAPPING)
+
+   //REMOÇÃO DE LOCAIS FAVORITOS
+
+   // update marcacao_favorito set isfavorite = '0' where marcacoes.utilizador_id=:utilizadorid and marcacoes.local_id=:placeid (PUT MAPPING)
+
 }

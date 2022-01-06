@@ -31,21 +31,14 @@ public interface MarcacaoPresencaRepository extends CrudRepository<MarcacaoPrese
     @Query(value = queryByPresenca + " where userss.user_id=:userid", nativeQuery = true)
     Iterable<MarcacaoPresencaView> findPresencasByUserid(@Param("userid") int userid);
 
-    /*select marcarpresencas.presenca_id AS presencaId, users.user_name AS Username, locais.place_name AS Nameofplace
-    from marcacao_presenca AS marcarpresencas
-    inner join utilizador users on users.user_id = marcarpresencas.utilizador_id
-    inner join place locais on marcarpresencas.local_id = locais.place_id
-    where wasthere = '1' and users.user_id=:userid*/
+    //////////////////////////////////////////////////QUERIES DE REMARCAÇÃO DE PRESENÇAS E REMOÇÃO DE PRESENÇAS EM LOCAIS //////////////////////////////////////////////////
 
-    /*
-    select marcarpresencas.presenca_id AS presencaId, users.user_name AS Username, locais.place_name AS Nameofplace, marcarpresencas.wasthere AS presencaStatus       
-from marcacao_presenca AS marcarpresencas
-inner join utilizador users on users.user_id = marcarpresencas.utilizador_id
-inner join place locais on marcarpresencas.local_id = locais.place_id
---where-- wasthere = '1' 
-where users.user_id=:userid
-    
-    
-    */ 
+    //REMARCAÇÃO DE PRESENÇAS NUM LOCAL
+
+    // update marcacao_presenca set wasthere = '1' where marcacoes.utilizador_id=:utilizadorid and marcacoes.local_id=:placeid 
+
+    //REMOÇÃO DE PRESENÇAS NUM LOCAL
+     
+    // update marcacao_presenca set wasthere = '0' where marcacoes.utilizador_id=:utilizadorid and marcacoes.local_id=:placeid
 
 }
