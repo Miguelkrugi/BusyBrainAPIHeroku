@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface WebsiteRepository extends CrudRepository<Website, Integer>{
     
+   /*/QUERIES 'ABANDONADAS'
+
     String queryToBlockedWebsitesByUserId = "SELECT * FROM website WHERE blocked_status = '1'";
 
     
@@ -43,6 +45,7 @@ public interface WebsiteRepository extends CrudRepository<Website, Integer>{
 
     @Query(value = querytogetwebsitesbyuserid + "where blocks.utilizador_id=:utilizadorid", nativeQuery = true)
     Iterable<WebsiteView> findWebsitesByUserid(@Param("utilizadorid") int utilizadorid);
+    */
 
 
 
