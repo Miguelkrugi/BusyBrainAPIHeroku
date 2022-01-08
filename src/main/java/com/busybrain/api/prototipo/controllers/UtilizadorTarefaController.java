@@ -1,5 +1,6 @@
 package com.busybrain.api.prototipo.controllers;
 
+import javax.print.attribute.standard.Media;
 import javax.websocket.server.PathParam;
 
 import com.busybrain.api.prototipo.models.Tarefa;
@@ -63,6 +64,14 @@ public class UtilizadorTarefaController {
     }
 
     
+    @GetMapping(path = "/getallpersons", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<UtilizadorTarefa> getAllPersons(){
+
+        logger.info("Sending all persons....");
+
+        return utilizadorTarefaRepository.findAll();
+
+    }
 
 
     //OBTER OS PARTICIPANTES DE UM GRUPO
