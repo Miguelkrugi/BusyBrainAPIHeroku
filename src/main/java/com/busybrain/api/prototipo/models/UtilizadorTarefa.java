@@ -17,6 +17,8 @@ public class UtilizadorTarefa {
     @Column(name = "user_id_tarefa") private int id;
     @Column(name = "user_identifier") private int userid;
     @Column(name = "task_identifier") private int taskid;
+    //NEW COLUMN TO DEFINE GROUP
+    @Column(name = "grupo_id") private int grupoid;
 
     public UtilizadorTarefa(){
 
@@ -44,6 +46,14 @@ public class UtilizadorTarefa {
 
     public void setTaskid(int taskid) {
         this.taskid = taskid;
+    }
+
+    public int getGrupoid() {
+        return grupoid;
+    }
+
+    public void setGrupoid(int grupoid) {
+        this.grupoid = grupoid;
     }
 
 }
