@@ -12,5 +12,6 @@ public interface UtilizadorTarefaView {
    String getGroupDesc();
    String getUserName();
    int getUserId();
+   int getGrupoId();
 
 }
