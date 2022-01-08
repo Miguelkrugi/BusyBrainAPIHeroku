@@ -15,14 +15,14 @@ public class TarefaGrupo {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
     @Column(name = "task_id") private int id;
-    @Column(name = "task_title") private String title;
-    @Column(name = "task_desc") private String description;
-    @Column(name = "due_date") private String date;
-    @Column(name = "user_task_id") private int usertaskid;
-    @Column(name = "task_priority_id") private int priority;
-    @Column(name = "task_type_id") private int type;
+    @Column(name = "task_title") private String title; //DEFINIDO PELO UTILIZADOR
+    @Column(name = "task_desc") private String description; //DEFINIDO PELO UTILIZADOR
+    @Column(name = "due_date") private String date; //DEFINIDO PELO UTILIZADOR
+    @Column(name = "user_task_id") private int usertaskid; //ID DO UTILIZADOR (NÃO DEFINIDO PELO UTILIZADOR)
+    @Column(name = "task_priority_id") private int priority; //DEFINIDO PELO UTILIZADOR
+    @Column(name = "task_type_id") private int type; //NÃO DEFINIDO PELO UTILIZADOR (É OBRIGATORIAMENTE EM GRUPO)
     //@Column(name = "task_status") private boolean status;
-    @Column(name = "task_group_id") private int taskgroupid;
+    @Column(name = "task_group_id") private int taskgroupid; //NÃO DEFINIDO PELO UTILIZADOR (ID DO GRUPO)
 
     public TarefaGrupo(){
 
